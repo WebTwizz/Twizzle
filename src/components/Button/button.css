@@ -1,0 +1,31 @@
+.twizzle-button {
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    border: 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    background-color: #1E90FF;
+    color: #FFFFFF;
+  }
+  .twizzle-button:hover {
+   background-color: #166CBF;
+  }
+  .twizzle-button-outlined {
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    border: 1px solid #1E90FF;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    background-color: #FFFFFF;
+    color: #1E90FF;
+  }
+  .twizzle-button-outlined:hover {
+   background-color: #1E90FF;
+   color:white;
+  }
