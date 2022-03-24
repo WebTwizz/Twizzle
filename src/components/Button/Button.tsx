@@ -8,6 +8,7 @@ interface ButtonProps {
     outlined?: boolean;
     onClick?: () => void;
     disabled?: boolean;
+    loading?:boolean;
     style?: React.CSSProperties
   }
   
@@ -18,6 +19,7 @@ const Button:React.FC<ButtonProps> = ({
     outlined,
     style,
     disabled,
+    loading,
     ...props}: ButtonProps,) => {
     return (
         <button
@@ -27,7 +29,12 @@ const Button:React.FC<ButtonProps> = ({
         style={{...style}}
         disabled={disabled}
       >
-        {label}
+        <div style={{
+            display:"flex"
+        }}>
+          {loading && <div className="loader"/>}
+          {label}
+        </div>
       </button>
     )
     
