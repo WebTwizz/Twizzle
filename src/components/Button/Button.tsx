@@ -4,25 +4,28 @@ import './button.css';
 interface ButtonProps {
     primary?: boolean;
     backgroundColor?: string;
-    size?: 'small' | 'medium' | 'large';
     label: string;
     outlined?: boolean;
     onClick?: () => void;
+    disabled?: boolean;
+    style?: React.CSSProperties
   }
   
 const Button:React.FC<ButtonProps> = ({
 
     backgroundColor,
     label,
-    size,
     outlined,
+    style,
+    disabled,
     ...props}: ButtonProps,) => {
     return (
         <button
         type="button"
-        className={outlined?'twizzle-button-outlined':'twizzle-button'}
-        style={{ backgroundColor}}
+        className={`${outlined?'twizzle-button-outlined':'twizzle-button'}${disabled?'-disabled':''}`}
         {...props}
+        style={{...style}}
+        disabled={disabled}
       >
         {label}
       </button>

@@ -7,11 +7,14 @@
     border-radius: 5px;
     cursor: pointer;
     display: inline-block;
-    background-color: #1E90FF;
+    background: #1E90FF;
     color: #FFFFFF;
   }
   .twizzle-button:hover {
-   background-color: #166CBF;
+   background: #166CBF;
+  }
+  .twizzle-button:active{
+    background:#2263A1;
   }
   .twizzle-button-outlined {
     font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -28,4 +31,20 @@
   .twizzle-button-outlined:hover {
    background-color: #1E90FF;
    color:white;
+  }
+  .twizzle-button-outlined:active{
+    border: 1px solid #2263A1;
+    background:#2263A1;
+  }
+  .twizzle-button-disabled {
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    border: 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor:not-allowed;
+    display: inline-block;
+    background: #EBEBE4;
+    color: #FFFFFF;
   }
