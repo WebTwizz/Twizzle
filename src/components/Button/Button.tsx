@@ -9,6 +9,8 @@ interface ButtonProps {
     onClick?: () => void;
     disabled?: boolean;
     loading?:boolean;
+    icon?:React.ReactNode;
+    corner?: 'default' | 'round';
     style?: React.CSSProperties
   }
   
@@ -20,19 +22,23 @@ const Button:React.FC<ButtonProps> = ({
     style,
     disabled,
     loading,
+    icon,
+    corner,
     ...props}: ButtonProps,) => {
     return (
         <button
         type="button"
         className={`${outlined?'twizzle-button-outlined':'twizzle-button'}${disabled?'-disabled':''}`}
         {...props}
-        style={{...style}}
+        style={{...style, borderRadius:corner==='round'? '30px':'5px'}}
         disabled={disabled}
       >
         <div style={{
-            display:"flex"
+          display:'inline-flex',
+          alignItems:'center',
         }}>
           {loading && <div className="loader"/>}
+          {icon && <div className="icon">{icon}</div>}
           {label}
         </div>
       </button>

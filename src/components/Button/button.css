@@ -3,7 +3,7 @@
     font-size: 1em;
     font-weight: 700;
     border: 0;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
     display: inline-block;
@@ -21,7 +21,7 @@
     font-size: 1em;
     font-weight: 700;
     border: 1px solid #1E90FF;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
     display: inline-block;
@@ -41,7 +41,7 @@
     font-size: 1em;
     font-weight: 700;
     border: 0;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-radius: 5px;
     cursor:not-allowed;
     display: inline-block;
@@ -50,13 +50,13 @@
   }
 
   .loader {
-  display:flex;
   border: 2px solid #1E90FF; 
   border-top: 2px solid white;
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  animation: spin 2s linear infinite;
+  margin-right: 10px;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
