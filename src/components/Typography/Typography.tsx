@@ -5,14 +5,13 @@ import React from "react"
 interface TypographyProps {
     elementType: 1|2|3|4|5|6;
     copyable?: boolean;
-    deletable?: boolean;
+    editable?: boolean;
     disabled?: boolean;
-    strong?:boolean;
+    bold?:boolean;
     italic?:boolean;
     onClick?: () => void;
     icon?:React.ReactNode;
-    corner?: 'default' | 'round';
-    type?:'primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark';
+    // TODO: type?:'primary'|'secondary'|'success'|'danger'|'warning'|'info'|'light'|'dark';
     children: React.ReactNode;
     style?: React.CSSProperties
   }
@@ -20,20 +19,29 @@ interface TypographyProps {
 const Typography:React.FC<TypographyProps> = ({
 
     elementType,
-    copyable,
-    deletable,
+    editable = false,
     disabled,
-    strong,
+    bold,
     italic,
     onClick,
     icon,
-    corner,
-    type,
     style,
     children,
     ...props}: TypographyProps,) => {
     return (
-        <div className={'twizzle-typography'}>
+        
+        <div 
+        className={'twizzle-typography'}
+        contentEditable={editable}
+        style=
+        {{
+            ...style, 
+            cursor:disabled?'not-allowed':'pointer',
+            fontStyle:italic?'italic':bold?'strong':'normal',
+            
+            
+        }}
+        >
             {elementType===1 && <h1 {...props} style={{...style, fontSize:'2.5rem'}}>{children}</h1>}
             {elementType===2 && <h2 {...props} style={{...style, fontSize:'2rem'}}>{children}</h2>}
             {elementType===3 && <h3 {...props} style={{...style, fontSize:'1.5rem'}}>{children}</h3>}

@@ -4,6 +4,15 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Typography } from './Typography';
 
+const elements = [
+    {elementType: 1, elementText: 'h1 text'},
+    {elementType: 2, elementText: 'h2 text'},
+    {elementType: 3, elementText: 'h3 text'},
+    {elementType: 4, elementText: 'h4 text'},
+    {elementType: 5, elementText: 'h5 text'},
+    {elementType: 6, elementText: 'h6 text'},
+] as const;
+
 
 export default {
   title: 'Components/General/Typography',
@@ -13,15 +22,57 @@ export default {
 export const Default: ComponentStory<typeof Typography> = () => {
     return (
         <>
-            <Typography elementType={1}> h1 text</Typography>
-            <Typography elementType={2}> h2 text</Typography>
-            <Typography elementType={3}> h3 text</Typography>
-            <Typography elementType={4}> h4 text</Typography>
-            <Typography elementType={5}> h5 text</Typography>
-            <Typography elementType={6}> h6 text</Typography>
+        {elements.map(({elementType, elementText}) => {
+            return (
+                <Typography elementType={elementType}>{elementText}</Typography>
+            )
+        })}
         </>
     )
-        
-;
+};
 
+export const Italic: ComponentStory<typeof Typography> = () => {
+    return (
+        <>
+        {elements.map(({elementType, elementText}) => {
+            return (
+                <Typography elementType={elementType} italic>{elementText}</Typography>
+            )
+        })}
+        </>
+    )
+};
+export const Bold: ComponentStory<typeof Typography> = () => {
+    return (
+        <>
+        {elements.map(({elementType, elementText}) => {
+            return (
+                <Typography elementType={elementType} bold>{elementText}</Typography>
+            )
+        })}
+        </>
+    )
+};
+export const Disabled: ComponentStory<typeof Typography> = () => {
+    return (
+        <>
+        {elements.map(({elementType, elementText}) => {
+            return (
+                <Typography elementType={elementType} disabled>{elementText}</Typography>
+            )
+        })}
+        </>
+    )
+};
+
+export const Editable: ComponentStory<typeof Typography> = () => {
+    return (
+        <>
+        {elements.map(({elementType, elementText}) => {
+            return (
+                <Typography elementType={elementType} editable>{elementText}</Typography>
+            )
+        })}
+        </>
+    )
 };
