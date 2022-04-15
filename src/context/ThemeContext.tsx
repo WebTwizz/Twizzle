@@ -1,6 +1,6 @@
 import React from 'react'
 
-export interface contentType {
+export interface variant {
     type: string;
     color: string;
 }
@@ -17,7 +17,7 @@ interface Theme {
         color: string,
     },
 
-    contentTypes?: {
+    variants?: {
         'success': {color: string},
         'info': {color: string},
         'warning': {color: string},
@@ -33,7 +33,7 @@ export const ThemeContext = React.createContext<Theme>({
   loader: {
     color: '#1E90FF'
   },
-  contentTypes: {
+  variants: {
     success: { color: '#339900' },
     info: { color: '#99CC33' },
     warning: { color: '#FFCC00' },

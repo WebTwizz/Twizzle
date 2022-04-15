@@ -13,7 +13,7 @@ const elements = [
     {elementType: 6, elementText: 'h6 text'},
 ] as const;
 
-const contentTypes = [
+const variants = [
     {type: 'success'},
     {type: 'info'},
     {type: 'warning'},
@@ -82,10 +82,10 @@ export const Editable: ComponentStory<typeof Typography> = () => {
         </>
     )
 };
-export const DefaultTypes: ComponentStory<typeof Typography> = () => {
+export const DefaultVariants: ComponentStory<typeof Typography> = () => {
     return (
         <>
-        {contentTypes.map(({type}) => {
+        {variants.map(({type}) => {
             return (
                 <Typography elementType={3} type={type}>{type}</Typography>
             )

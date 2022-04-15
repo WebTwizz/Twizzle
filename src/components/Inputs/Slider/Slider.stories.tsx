@@ -4,7 +4,7 @@ import { Slider } from './Slider';
 
 
 export default {
-    title: 'Components/Inputs/Slider',
+    title: 'Components/Input/Slider',
     component: Slider,
 } as ComponentMeta<typeof Slider>;
 

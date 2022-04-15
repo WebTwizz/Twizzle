@@ -29,7 +29,7 @@ const Typography: React.FC<TypographyProps> = ({
   ...props
 }: TypographyProps) => {
   const theme = useContext(ThemeContext)
-  console.log(theme?.contentTypes?.success.color)
+  console.log(theme?.variants?.success.color)
   return (
     <div
       className={'twizzle-typography'}
@@ -37,7 +37,7 @@ const Typography: React.FC<TypographyProps> = ({
       style={{
         cursor: disabled ? 'not-allowed' : 'pointer',
         fontStyle: italic ? 'italic' : bold ? 'strong' : 'normal',
-        color:type?theme.contentTypes?.[type]?.color: theme.primary?.color || 'black',
+        color:type?theme.variants?.[type]?.color: theme.primary?.color || 'black',
         ...style
       }}
     >

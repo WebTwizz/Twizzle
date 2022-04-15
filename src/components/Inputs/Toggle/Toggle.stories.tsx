@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Toggle } from './Toggle';
 
 export default {
-    title: 'Components/Inputs/Toggle',
+    title: 'Components/Input/Toggle',
     component: Toggle,
 } as ComponentMeta<typeof Toggle>;
 

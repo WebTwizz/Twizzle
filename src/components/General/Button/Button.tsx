@@ -12,7 +12,7 @@ interface ButtonProps {
   loading?: React.ReactNode;
   icon?: React.ReactNode;
   corner?: 'default' | 'round';
-  contentType?: 'success' | 'info' | 'warning' | 'danger'
+  variant?: 'success' | 'info' | 'warning' | 'danger'
   style?: React.CSSProperties;
 }
 
@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({
   loading,
   icon,
   corner,
-  contentType,
+  variant,
   ...props
 }: ButtonProps) => {
   const theme = useContext(ThemeContext)
@@ -46,19 +46,19 @@ const Button: React.FC<ButtonProps> = ({
           : outlined
             ? 
             hover
-            ? contentType? 
-            theme?.contentTypes?.[contentType]?.color
+            ? variant? 
+            theme?.variants?.[variant]?.color
             :theme?.primary?.backgroundColor
             :'white'
-            : contentType? 
-            theme?.contentTypes?.[contentType]?.color
+            : variant? 
+            theme?.variants?.[variant]?.color
             : 'theme?.primary?.backgroundColor',
         color: 
           outlined ? 
           hover? 
           'white' 
-          : contentType? 
-            theme?.contentTypes?.[contentType]?.color
+          : variant? 
+            theme?.variants?.[variant]?.color
             :theme?.primary?.backgroundColor 
             : 'white',
         filter: hover?'brightness(0.8)':'brightness(1)',

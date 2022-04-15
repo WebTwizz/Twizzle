@@ -1,8 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Loader } from '../Loader/Loader';
+import { Loader } from '../../Feedback/Loader/Loader';
 import { Button } from './Button';
 
-const contentTypes = [
+const variants = [
   {type: 'success'},
   {type: 'info'},
   {type: 'warning'},
@@ -23,16 +23,16 @@ export const RoundedCorner: ComponentStory<typeof Button> = () => <Button label=
 export const DefaultTypes: ComponentStory<typeof Button> = () => {
   return (
     <>
-    {contentTypes.map(({type}) => {
+    {variants.map(({type}) => {
       return (
-        <Button label={type} contentType={type} onClick={(()=>alert('Button clicked!'))}/>
+        <Button label={type} variant={type} onClick={(()=>alert('Button clicked!'))}/>
         
       )
     })}
     <br/>
-    {contentTypes.map(({type}) => {
+    {variants.map(({type}) => {
       return (
-        <Button label={type} contentType={type} outlined onClick={(()=>alert('Button clicked!'))}/>
+        <Button label={type} variant={type} outlined onClick={(()=>alert('Button clicked!'))}/>
         
       )
     })}
