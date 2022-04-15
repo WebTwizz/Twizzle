@@ -20,13 +20,12 @@
     font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 1em;
     font-weight: 700;
-    border: 1px solid #1E90FF;
+    border: 1px solid;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
     display: inline-block;
     background-color: #FFFFFF;
-    color: #1E90FF;
   }
   .twizzle-button-outlined:hover {
    background-color: #1E90FF;
@@ -45,13 +44,12 @@
     border-radius: 5px;
     cursor:not-allowed;
     display: inline-block;
-    background: #EBEBE4;
     color: #FFFFFF;
   }
 
   .loader {
   border: 2px solid #1E90FF; 
-  border-top: 2px solid white;
+  border-top: 2px solid #1E90FF;
   border-radius: 50%;
   width: 20px;
   height: 20px;
