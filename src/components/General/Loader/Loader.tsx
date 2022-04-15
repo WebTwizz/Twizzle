@@ -10,7 +10,6 @@ interface LoaderProps {
 const Loader: React.FC<LoaderProps> = ({
   color,
   style,
-  ...props
 }: LoaderProps) => {
   const theme = useContext(ThemeContext);
   return (
