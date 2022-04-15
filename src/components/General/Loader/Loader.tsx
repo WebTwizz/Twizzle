@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ThemeContext } from "../../context/ThemeContext";
+import { ThemeContext } from "../../../context/ThemeContext";
 import "./loader.css";
 
 interface LoaderProps {
@@ -21,7 +21,7 @@ const Loader: React.FC<LoaderProps> = ({
         height: "25px",
         margin: "5px",
         borderWidth: "3px",
-        border: `3px solid ${color || theme.loader?.color}`,
+        border: `3px solid ${color || theme.loader?.color || "#1E90FF"}`,
         borderBottom: `3px solid transparent`,
         borderRadius: "50%",
         display: "inline-block",

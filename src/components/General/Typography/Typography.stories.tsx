@@ -13,6 +13,12 @@ const elements = [
     {elementType: 6, elementText: 'h6 text'},
 ] as const;
 
+const contentTypes = [
+    {type: 'success'},
+    {type: 'info'},
+    {type: 'warning'},
+    {type: 'danger'},
+] as const;
 
 export default {
   title: 'Components/General/Typography',
@@ -71,6 +77,17 @@ export const Editable: ComponentStory<typeof Typography> = () => {
         {elements.map(({elementType, elementText}) => {
             return (
                 <Typography elementType={elementType} editable>{elementText}</Typography>
+            )
+        })}
+        </>
+    )
+};
+export const DefaultTypes: ComponentStory<typeof Typography> = () => {
+    return (
+        <>
+        {contentTypes.map(({type}) => {
+            return (
+                <Typography elementType={3} type={type}>{type}</Typography>
             )
         })}
         </>
