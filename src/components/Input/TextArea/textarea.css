@@ -1,7 +1,7 @@
 .twizzle-input-textarea-container{
   width: 100%;
   padding: 12px 20px;
-  margin: 8px;
+  margin: 4px;
   border: none;
   box-sizing: border-box;
   border-radius: 3px;
@@ -9,7 +9,11 @@
   transition: 0.5s;
   outline: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  resize: vertical;
+  overflow: auto;
+
+
 }
 .twizzle-input-textarea{
     width: 100%;
@@ -21,5 +25,13 @@
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
-    resize:vertical;
+    resize:none;
+}
+.twizzle-input-textarea-clear{
+  color:#d5d5d5;
+  font-size:1.5em;
+}
+.twizzle-input-textarea-clear:hover{
+  color:#bcbcbc;
+  cursor:pointer;
 }

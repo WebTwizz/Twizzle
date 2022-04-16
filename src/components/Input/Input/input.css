@@ -7,6 +7,9 @@
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
+  align-items:center;
+  display:flex;
+  gap:5px;
 }
 .twizzle-input-text{
     width: 92%;
@@ -16,4 +19,12 @@
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
+}
+.twizzle-input-text-clear{
+  color:#d5d5d5;
+  font-size:1.5em;
+}
+.twizzle-input-text-clear:hover{
+  color:#bcbcbc;
+  cursor:pointer;
 }

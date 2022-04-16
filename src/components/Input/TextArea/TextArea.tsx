@@ -1,4 +1,6 @@
+import { NONAME } from "dns";
 import { useContext, useState } from "react";
+import { TiDelete } from "react-icons/ti";
 import { ThemeContext } from "../../../context/ThemeContext";
 import { InputProps } from "../Input/Input";
 import './textarea.css';
@@ -14,6 +16,8 @@ export const TextArea: React.FC<TextAreaProps> = ({
   maxCount = 100,
   onChange,
   disabled,
+  variant,
+  allowClear,
   style,
   ...props
 }) => {
@@ -24,7 +28,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
     <div
     className="twizzle-input-textarea-container"
     style={{
-      
+      border: `0.5px solid ${hover ? variant? theme?.variants?.[variant]?.color: theme.primary?.backgroundColor : "#E8E8E8"}`,
       backgroundColor: disabled ? "#e9e9e9" : "white",
       cursor: disabled ? "not-allowed" : "text",
       ...style,
@@ -34,14 +38,18 @@ export const TextArea: React.FC<TextAreaProps> = ({
       className="twizzle-input-textarea"
       placeholder={placeholder}
       style={{
-       border: `0.5px solid ${  hover ? theme.primary?.backgroundColor : "#E8E8E8" }`,
-       backgroundColor: disabled ? "#e9e9e9" : "white",
-       cursor: disabled ? "not-allowed" : "text",
+        border:'none',
+        backgroundColor: disabled ? "#e9e9e9" : "white",
+        cursor: disabled ? "not-allowed" : "text",
       }}
+      value={inputValue}
       disabled={disabled}
       maxLength={maxCount}
       onChange={(e) => {
         setInputValue(e.target.value);
+        if (onChange) {
+          onChange(e.target.value);
+        }
       }}
       onFocus={() => setHover(true)}
       onBlur={() => setHover(false)}
@@ -49,19 +57,30 @@ export const TextArea: React.FC<TextAreaProps> = ({
         >
         {inputValue}
         </textarea>
+        <div
+        style={{
+          display:"flex",
+          flexDirection:"column",
+          alignItems:"center",
+
+        }}
+        >
+
+        { allowClear &&  inputValue && <TiDelete className={'twizzle-input-textarea-clear'} onClick={()=>{setInputValue('')}} />}
         {characterCount && (
         <span
           className="twizzle-input-text-character-count"
           style={{
             color: "#d5d5d5",
             marginLeft:'auto',
-            marginTop:'5px',
+            marginTop:'auto',
             backgroundColor: disabled ? "#e9e9e9" : "white",
           }}
         >
           {inputValue?.length}/{maxCount}
         </span>
       )}
+      </div>
      
     </div>
   );
