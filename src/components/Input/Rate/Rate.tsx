@@ -52,6 +52,7 @@ const Rate: React.FC<RateProps> = ({
         return { ...item, isActive: false };
       })
     );
+    setClicked(false);
   }, []);
 
   useEffect(() => {
@@ -74,11 +75,11 @@ const Rate: React.FC<RateProps> = ({
                   cursor: disabled ? "not-allowed" : "pointer",
                 }}
                 onClick={() => {
-                  !disabled?clicked? handleRateChange(item.rating): null: null;
-                  allowClear? setClicked(!clicked): null;
+                  !disabled?handleRateChange(item.rating): null;
+                  allowClear? clicked? clearAll(): setClicked(true): null;
                 }}
                 onMouseEnter={() => {
-                  !disabled && !clicked ? handleRateChange(item.rating) : null;
+                  !disabled && !clicked? handleRateChange(item.rating) : null;
                 }}
               >
                 {icon}
