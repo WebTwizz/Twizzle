@@ -1,4 +1,3 @@
-//create select component story
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Select } from './Select';
