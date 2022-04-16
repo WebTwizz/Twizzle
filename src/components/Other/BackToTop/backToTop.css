@@ -1,0 +1,16 @@
+.twizzle-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+}
+.twizzle-back-to-top:hover {
+    filter: brightness(0.8);
+}
