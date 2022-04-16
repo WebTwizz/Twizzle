@@ -4,12 +4,13 @@ import { useContext, useState } from "react";
 import { ThemeContext } from "../../../context/ThemeContext";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 import "./select.css";
+import { InputProps } from "../Input/Input";
 
-export interface SelectProps {
-  value?: string;
-  options: string[];
-  onSelect?: (value: string) => void;
-  disabled?: boolean;
+export interface SelectProps{
+    value?: string;
+    options: string[];
+    onSelect?: (value: string) => void;
+    disabled?: boolean;
 }
 
 const Select: React.FC<SelectProps> = ({
@@ -17,6 +18,7 @@ const Select: React.FC<SelectProps> = ({
   options,
   onSelect,
   disabled,
+  ...props
 }) => {
   //create custom select textbox with options that float below it
 
@@ -50,6 +52,7 @@ const Select: React.FC<SelectProps> = ({
           color: disabled ? "#d5d5d5" : "black",
           cursor: disabled ? "not-allowed" : "pointer",
         }}
+        {...props}
       >
         <span className="twizzle-display-select-value">{selected}</span>
         {!isSelecting ? (

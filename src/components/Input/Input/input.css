@@ -1,0 +1,19 @@
+.twizzle-input-text-container{
+    width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 3px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+.twizzle-input-text{
+    width: 92%;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 3px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
