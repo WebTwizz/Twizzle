@@ -1,19 +1,25 @@
-.twizzle-input-text-container{
-    width: 100%;
+.twizzle-input-textarea-container{
+  width: 100%;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin: 8px;
+  border: none;
   box-sizing: border-box;
   border-radius: 3px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
+  display: flex;
+  flex-direction: column;
 }
-.twizzle-input-text{
-    width: 92%;
+.twizzle-input-textarea{
+    width: 100%;
+    padding: 10px;
+    min-height: 100px;
     border: none;
     box-sizing: border-box;
     border-radius: 3px;
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
+    resize:vertical;
 }
