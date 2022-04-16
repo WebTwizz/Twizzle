@@ -29,7 +29,6 @@ const Typography: React.FC<TypographyProps> = ({
   ...props
 }: TypographyProps) => {
   const theme = useContext(ThemeContext)
-  console.log(theme?.variants?.success.color)
   return (
     <div
       className={'twizzle-typography'}

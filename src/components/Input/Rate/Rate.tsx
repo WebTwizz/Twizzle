@@ -23,7 +23,6 @@ const Rate: React.FC<RateProps> = ({
   style,
 }) => {
   const [clicked, setClicked] = useState(true);
-  console.log(clicked);
   const [currentRating, setCurrentRating] = useState([
     { rating: 1, isActive: false },
     { rating: 2, isActive: false },
