@@ -62,14 +62,13 @@ const Select: React.FC<SelectProps> = ({
         )}
       </div>
       <ul
-        className="select-container"
+        className="twizzle-select-container"
         id="selectContainer"
         style={{
           visibility: isSelecting ? "visible" : "hidden",
         }}
       >
         {options.map((option, index) => {
-          //set selected value to li text
           return (
             <li
               key={index}
