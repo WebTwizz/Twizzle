@@ -1,5 +1,5 @@
 import { useState } from "react";
-import './backdrop.css';
+import './overlay.css';
 
 interface BackDropProps {
     children?: React.ReactNode;
@@ -7,7 +7,7 @@ interface BackDropProps {
     style?: React.CSSProperties;
 
 }
-const BackDrop: React.FC<BackDropProps> = (
+const Overlay: React.FC<BackDropProps> = (
 {   children, 
     onClick,
     style,
@@ -16,8 +16,8 @@ const BackDrop: React.FC<BackDropProps> = (
     
     return (
      <>
-        <div className="twizzle-backdrop" onClick={onClick} style={style}>
-            <div className="twizzle-backdrop-content" onClick={onClick} style={style}>
+        <div className="twizzle-overlay" onClick={onClick} style={style}>
+            <div className="twizzle-overlay-content" onClick={onClick} style={style}>
             {children}
             </div>
         </div>
@@ -27,4 +27,4 @@ const BackDrop: React.FC<BackDropProps> = (
     )
 }
 
-export {BackDrop};
+export {Overlay};
