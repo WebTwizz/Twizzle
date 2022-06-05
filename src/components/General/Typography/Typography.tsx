@@ -35,7 +35,8 @@ const Typography: React.FC<TypographyProps> = ({
       contentEditable={editable}
       style={{
         cursor: disabled ? 'not-allowed' : 'pointer',
-        fontStyle: italic ? 'italic' : bold ? 'strong' : 'normal',
+        fontStyle: italic ? 'italic' : 'normal',
+        fontWeight: bold ? 'bold' : 'normal',
         color:type?theme.variants?.[type]?.color: theme.primary?.color || 'black',
         ...style
       }}
