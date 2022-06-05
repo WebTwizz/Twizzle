@@ -1,0 +1,9 @@
+/* create avatar css */
+
+.twizzle-alert {
+    position: absolute;
+    top: 5;
+    width: 80%;
+    margin: auto 10%;
+    border-radius: 10px !important;
+}
