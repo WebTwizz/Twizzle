@@ -4,17 +4,8 @@
     font-weight: 700;
     border: 0;
     padding: 10px 15px;
-    border-radius: 5px;
     cursor: pointer;
-    display: inline-block;
-    background: #1E90FF;
-    color: #FFFFFF;
-  }
-  .twizzle-button:hover {
-   background: #166CBF;
-  }
-  .twizzle-button:active{
-    background:#2263A1;
+    display: flex;
   }
   .twizzle-button-outlined {
     font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -22,40 +13,19 @@
     font-weight: 700;
     border: 1px solid;
     padding: 10px 15px;
-    border-radius: 5px;
     cursor: pointer;
-    display: inline-block;
-    background-color: #FFFFFF;
+    display: flex;
   }
-  .twizzle-button-outlined:hover {
-   background-color: #1E90FF;
-   color:white;
-  }
-  .twizzle-button-outlined:active{
-    border: 1px solid #2263A1;
-    background:#2263A1;
-  }
+ 
   .twizzle-button-disabled {
     font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 1em;
     font-weight: 700;
-    border: 0;
+    border: 1px solid;
     padding: 10px 15px;
-    border-radius: 5px;
-    cursor:not-allowed;
-    display: inline-block;
-    color: #FFFFFF;
+    cursor: not-allowed;
+    display: flex;
   }
-
-  .loader {
-  border: 2px solid #1E90FF; 
-  border-top: 2px solid #1E90FF;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-  animation: spin 1s linear infinite;
-}
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
