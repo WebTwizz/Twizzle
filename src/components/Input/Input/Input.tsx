@@ -1,7 +1,7 @@
 //create a simple input text box
 
 import { getValue } from "@testing-library/user-event/dist/utils";
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { ThemeContext } from "../../../context/ThemeContext";
 import {TiDelete} from 'react-icons/ti'
 export interface InputProps {
@@ -31,8 +31,12 @@ export const Input: React.FC<InputProps> = ({
   const [hover, setHover] = useState(false);
   const [inputValue, setInputValue] = useState(value);
   const theme = useContext(ThemeContext);
+  //create ref for input
+  const textInput = useRef<HTMLInputElement>(null);
 
-  console.log(allowClear)
+  const  handleClick = () => {
+    textInput.current?.focus();
+  }
   return (
     <div
       className="twizzle-input-text-container"
@@ -42,10 +46,12 @@ export const Input: React.FC<InputProps> = ({
         cursor: disabled ? "not-allowed" : "text",
         ...style,
       }}
+      onClick={handleClick}
     >
       <input
         type="text"
         className="twizzle-input-text"
+        ref={textInput}
         placeholder={placeholder}
         onFocus={() => setHover(true)}
         onBlur={() => setHover(false)}
