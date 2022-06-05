@@ -1,0 +1,40 @@
+/* add style for alert component */
+.twizzle-alert{
+    position: absolute;
+    top: 5;
+    width: 80%;
+    margin: auto 10%;
+    border-radius: 10px !important;
+}
+/* inline icon and p */
+.twizzle-alert-icon{
+    margin-top:30px;
+    display: inline-block; 
+}
+.twizzle-alert-content-text{
+    display: inline-block; 
+}
+.twizzle-alert-info {
+    background-color: #F4F6FF;
+    color: #0B5394;
+    border: 1px solid #C9D0FF;
+    border-radius: 10px !important;
+}
+.twizzle-alert-success {
+    background-color: #DFF0D8;
+    color: #3C763D;
+    border: 1px solid #D6E9C6;
+    border-radius: 10px !important;
+}
+.twizzle-alert-warning {
+    background-color: #FEEFB3;
+    color: #8A6D3B;
+    border: 1px solid #FDB813;
+    border-radius: 10px !important;
+}
+.twizzle-alert-danger {
+    background-color: #F2DEDE;
+    color: #A94442;
+    border: 1px solid #EBCCD1;
+    border-radius: 10px !important;
+}
