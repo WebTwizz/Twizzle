@@ -7,7 +7,10 @@ export default {
     title: 'Components/Layout/Alert',
     component: Alert,  
     argTypes: {
-        children: { control: 'text' },
+        children: { 
+            control: 'text' ,
+            defaultValue: 'This is a sample alert'
+        },
         variant:{
             options: [ 'info' , 'success', 'warning' , 'danger'],
             control: 'select'
