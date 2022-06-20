@@ -19,14 +19,21 @@ const Alert: React.FC<AlertProps> = ({ children, variant = "info" }) => {
   return (
     <div className="twizzle-alert">
       <div className="twizzle-alert-content">
-        <div className={`twizzle-alert-${variant}`}>
+        <div className={`twizzle-alert-${variant}`}
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          paddingLeft: "0.5rem",
+          gap: "0.5rem",
+        }}>
           <div className="twizzle-alert-content-icon">
             {variant === "info" && infoAlertSVG}
             {variant === "success" && successAlertSVG}
             {variant === "danger" && dangerAlertSVG}
             {variant === "warning" && warningAlertSVG}
-            <p className="twizzle-alert-content-text">{children}</p>
           </div>
+          <p className="twizzle-alert-content-text">{children}</p>
         </div>
       </div>
     </div>
