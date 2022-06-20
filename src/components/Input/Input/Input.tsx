@@ -5,6 +5,7 @@ import { useContext, useRef, useState } from "react";
 import { ThemeContext } from "../../../context/ThemeContext";
 import {TiDelete} from 'react-icons/ti'
 export interface InputProps {
+  inputName: string;
   characterCount?: boolean;
   maxCount?: number;
   placeholder?: string;
@@ -17,6 +18,7 @@ export interface InputProps {
 }
 
 export const Input: React.FC<InputProps> = ({
+  inputName,
   characterCount,
   placeholder,
   value,
@@ -50,6 +52,7 @@ export const Input: React.FC<InputProps> = ({
     >
       <input
         type="text"
+        name={inputName}
         className="twizzle-input-text"
         ref={textInput}
         placeholder={placeholder}

@@ -11,6 +11,7 @@ export interface TextAreaProps extends InputProps{
 
 export const TextArea: React.FC<TextAreaProps> = ({
   characterCount,
+  inputName,
   placeholder,
   value,
   maxCount = 100,
@@ -36,6 +37,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
     >
       <textarea
       className="twizzle-input-textarea"
+      name={inputName}
       placeholder={placeholder}
       style={{
         border:'none',
