@@ -26,10 +26,11 @@ const Avatar: React.FC<AvatarProps> = ({
     ["#848FD8", "##897592"],
   ];
 
-  const getInitials = (name: string = 'Aonymous') => {
-    const nameArray = name.split(" ");
-    const initials = nameArray.map((name) => name[0].toUpperCase()).join("");
-    return initials;
+  //get initials from name
+  const getInitials = (name: string = 'Anonymous') => {
+    const nameArray = name.split(' ');
+    const initials = nameArray.map(word => word[0]).join('');
+    return initials.toUpperCase();
   };
 
   const getColor = useMemo(() => {
@@ -50,6 +51,7 @@ const Avatar: React.FC<AvatarProps> = ({
         height: size === "small" ? "32px" : size === "medium" ? "48px" : "64px",
         borderRadius:
           size === "small" ? "16px" : size === "medium" ? "24px" : "32px",
+        overflow: "hidden",
       }}
       {...rest}
     >
