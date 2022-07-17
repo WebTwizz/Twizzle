@@ -47,6 +47,7 @@ const Avatar: React.FC<AvatarProps> = ({
         backgroundColor: !src? (backgroundColor || getColor[0]): undefined,
         color: color || getColor[1],
         fontSize: size === "small" ? "0.8rem" : size === "large" ? "1.5rem" : "1rem",
+        fontFamily: "sans-serif",
         width: size === "small" ? "32px" : size === "medium" ? "48px" : "64px",
         height: size === "small" ? "32px" : size === "medium" ? "48px" : "64px",
         borderRadius:
