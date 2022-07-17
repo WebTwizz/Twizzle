@@ -31,6 +31,7 @@ const Toggle: React.FC<ToggleProps> = ({
         <div id='twizzle-toggle-switch' role="switch" aria-label="Toggle" style={{
             display: 'flex',
             alignItems: 'center',
+            fontFamily: 'sans-serif',
             margin: '5px'
             }}>
             <input 

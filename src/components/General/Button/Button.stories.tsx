@@ -27,6 +27,7 @@ export default {
       options: ['success' , 'info' , 'warning' , 'danger'],
       control: 'select',
     },
+    icon: { control: false },
     style: { control: false },
     loading: { control: false },
 
