@@ -5,15 +5,34 @@ import { Toggle } from './Toggle';
 export default {
     title: 'Components/Input/Toggle',
     component: Toggle,
+    argTypes: {
+        onChange: {
+            control: { control: false },
+        },
+        style: {
+            control: false,
+        },
+        label: {
+            control: { type: 'text' },
+            defaultValue: 'Toggle',
+        },
+    }
 } as ComponentMeta<typeof Toggle>;
 
-export const Default: ComponentStory<typeof Toggle> = () => { 
-    const [toggleValue, setToggleValue] = useState(false);
-   
-    return ( <> <h1>Toggle: {toggleValue.toString()}</h1><Toggle label={"Toggle"} onToggle={(e)=> setToggleValue(e)}/> </> ) }
+const ToggleTemplate: ComponentStory<typeof Toggle> = ({
+    disabled,
+    ...rest
+}) => {
+    return (
+        <Toggle
+            disabled={disabled}
+            {...rest}
+        />
+    )
+}
 
-export const Toggled: ComponentStory<typeof Toggle> = () => { return ( <> <Toggle toggled label={"Toggle"}/> </> ) }
+export const ToggleComponent = ToggleTemplate.bind({});
 
-export const Disabled: ComponentStory<typeof Toggle> = () => { return ( <> <Toggle disabled label={"Toggle"}/> </> ) }
+
 
 

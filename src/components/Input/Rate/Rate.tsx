@@ -6,7 +6,6 @@ interface RateProps {
   iconSize?: string;
   disabled?: boolean;
   rating?: number;
-  range?: number;
   onRate?: (rating: number) => void;
   allowClear?: boolean;
   color?: string;

@@ -46,7 +46,6 @@ const FileUploader: React.FC<FileUploaderProps> = ({
     const handleFileDelete = (deletedFile: File) => {
      if(files){
         const newFiles = Array.from(files).filter(file => file !== deletedFile);
-        console.log('new', newFiles)
         setFiles(newFiles);
         newFiles.length > 0 ? setMessage(`${newFiles.length} file(s) selected`) : setMessage('Browse or drag files here');
      }

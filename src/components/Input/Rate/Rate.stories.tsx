@@ -8,45 +8,32 @@ import {ImHome3} from 'react-icons/im';
 export default {
     title: 'Components/Input/Rate',
     component: Rate,
+    argTypes: {
+        icon: {
+            control: { type: false },
+        },
+        onChange: {
+            control: { control: false },
+        },
+        iconSize: {
+            defaultValue: '2rem',
+        },
+        style: {
+            control: false,
+        }
+    }
 } as ComponentMeta<typeof Rate>;
 
-export const Default: ComponentStory<typeof Rate> = () => {
-    const [value, setValue] = useState(0);
-    const changeRate = (value: number) => {
-        setValue(value);
-    }
+const RateTemplate: ComponentStory<typeof Rate> = ({
+    disabled,
+    ...rest
+}) => {
     return (
-        <>
-            <h1>Value: {value}</h1>
-            <Rate onRate={(e) => changeRate(e)}
-            />
-        </>
+        <Rate
+            disabled={disabled}
+            {...rest}
+        />
     )
 }
-export const Disabled: ComponentStory<typeof Rate> = () => {
-   
-    return (
-        <>
-            <Rate  disabled={true} rating={3}/>
-            
-        </>
-    )
-}
-export const CustomIcon: ComponentStory<typeof Rate> = () => {
-   
-    return (
-        <>
-            <Rate  icon={<ImHome3/>} disabled={true} rating={3} color={'blue'}/>
-            
-        </>
-    )
-}
-export const AllowClearIsFalse: ComponentStory<typeof Rate> = () => {
-   
-    return (
-        <>
-            <Rate  allowClear={false} rating={3} color={'blue'}/>
-            
-        </>
-    )
-}
+
+export const RateComponent = RateTemplate.bind({});

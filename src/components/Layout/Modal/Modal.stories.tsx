@@ -112,14 +112,5 @@ ModalComponent.args = {
   },
   closable: true,
   footer: true,
-  onCanel: () => {
-    console.log("onCanel");
-  },
-  onOk: () => {
-    console.log("onOk");
-  },
-  onClose: () => {
-    console.log("onClose");
-  },
   children: "Modal content",
 };

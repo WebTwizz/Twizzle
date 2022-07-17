@@ -15,7 +15,6 @@ interface AlertProps {
 
 const Alert: React.FC<AlertProps> = ({ children, variant = "info" }) => {
   const theme = useContext(ThemeContext);
-  console.log(variant);
   return (
     <div className="twizzle-alert">
       <div className="twizzle-alert-content">

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Typography } from "../../General/Typography/Typography";
 import "./checkbox.css";
 
 interface CheckboxProps {
@@ -30,6 +31,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
         id="twizzle-checkbox"
         style={{
           backgroundColor: "yellow",
+          marginRight: "10px",
           ...style,
         }}
         disabled={disabled}
@@ -38,7 +40,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           handleCheckboxChange(e);
         }}
       />
-      {label}
+      <Typography elementType={'p'}> {label} </Typography>
     </div>
   );
 };

@@ -9,7 +9,7 @@ export default {
     component: Typography,
     argTypes: {
         elementType: {
-        options: [1, 2, 3, 4, 5, 6],
+        options: [1, 2, 3, 4, 5, 6,'p'],
         defaultValue: 1,
         control: { type: 'select' },
       },
@@ -21,7 +21,9 @@ export default {
       type:{
         options: ['success' , 'info' , 'warning' , 'danger'],
         control: 'select',
-      }
+      },
+      icon: { control: false },
+      style: { control: false },
     },
   } as ComponentMeta<typeof Typography>;
 

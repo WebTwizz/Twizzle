@@ -3,7 +3,22 @@ import { Loader } from './Loader'
 
 export default {
   title: 'Components/Feedback/Loader',
-  component: Loader
+  component: Loader,
+  argTypes: {
+    size: { 
+      control: 'select', 
+      options: ['small', 'medium', 'large'],
+      defaultValue: 'medium'
+    },
+    color: {control: false},
+    style: {control: false},
+  }
 } as ComponentMeta<typeof Loader>
 
-export const Default: ComponentStory<typeof Loader> = () => <Loader/>
+const LoaderTemplate: ComponentStory<typeof Loader> = ({ size }) => {
+  return <Loader size={size} />
+}
+export const LoaderComponent = LoaderTemplate.bind({});
+LoaderComponent.args = {
+  size: 'medium',
+}

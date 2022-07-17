@@ -1,7 +1,7 @@
 //create modal component
 
 import { useState } from "react";
-import { Overlay } from "../../Feedback/BackDrop/Overlay";
+import { Overlay } from "../../Feedback/Overlay/Overlay";
 import { Button } from "../../General/Button/Button";
 import "./modal.css";
 

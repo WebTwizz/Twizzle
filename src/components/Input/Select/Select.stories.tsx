@@ -5,26 +5,25 @@ import { Select } from './Select';
 export default {
     title: 'Components/Input/Select',
     component: Select,
+    argTypes: {
+        onSelect: {
+            control: { control: false },
+        }
+    }
+
 } as ComponentMeta<typeof Select>;
 
-const options = [
-    'Option 1',
-    'Option 2',
-    'Option 3',
-    'Option 4'];
-export const Default: ComponentStory<typeof Select> = () => {
-    const [value, setValue] = useState(options[0]);
-    const changeSelect = (value: string) => {
-        setValue(value);
-    }
+const SelectTemplate: ComponentStory<typeof Select> = ({
+    options,
+    ...rest
+}) => {
+
     return (
-        <>
-            <h1>Value: {value}</h1>
-            <Select options={options} value={value} onSelect={(e) => changeSelect(e)} />
-        </>
+        <Select
+            options={['Option 1', 'Option 2', 'Option 3']}
+            {...rest}
+        />
     )
 }
-export const Disabled: ComponentStory<typeof Select> = () => {
-   
-    return ( <> <Select disabled options={['option1', 'option2', 'option3']}/></> )
-}
+
+export const SelectComponent = SelectTemplate.bind({});

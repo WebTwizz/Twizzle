@@ -6,25 +6,44 @@ import { Checkbox } from './Checkbox';
 export default {
     title: 'Components/Input/Checkbox',
     component: Checkbox,
+    argTypes: {
+        checked: {
+            control: { type: 'boolean' },
+        },
+        disabled: {
+            control: { type: 'boolean' },
+        },
+        label: {
+            control: { type: 'text' },
+            defaultValue: 'Checkbox',
+        },
+        name: {
+            control: { type: 'text' },
+        },
+        onChange: {
+            control: { control: false },
+        },
+        style: {
+            control: false,
+        }
+    }
 } as ComponentMeta<typeof Checkbox>;
 
-export const Default: ComponentStory<typeof Checkbox> = () => {
-    const [value, setValue] = useState(false);
-    const changeCheckbox = (value: boolean) => {
-        setValue(value);
-    }
+const CheckboxTemplate: ComponentStory<typeof Checkbox> = ({
+    checked,
+    disabled,
+    label,
+    ...rest
+}) => {
     return (
-        <>
-            <h1>Value: {value.toString()}</h1>
-            <Checkbox label='Checkbox' checked={value} onCheck={(e) => changeCheckbox(e)}  />
-        </>
+        <Checkbox
+            checked={checked}
+            disabled={disabled}
+            label={label}
+
+            {...rest}
+        />
     )
 }
-export const Disabled: ComponentStory<typeof Checkbox> = () => {
-    
-    return (
-        <>
-            <Checkbox label='Checkbox' disabled={true} checked={true} />
-        </>
-    )
-}
+
+export const CheckboxComponent = CheckboxTemplate.bind({});

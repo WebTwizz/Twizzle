@@ -1,5 +1,3 @@
-//create story for backtotop component
-import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { BackToTop } from "./BackToTop";
 import { Typography } from "../../General/Typography/Typography";
@@ -7,12 +5,23 @@ import { Typography } from "../../General/Typography/Typography";
 export default {
   title: "Components/Other/BackToTop",
   component: BackToTop,
+  argTypes: {
+    onClick: {
+      control: { control: false },
+    },
+    icon: {
+      control: { control: false },
+    },
+  }
 } as ComponentMeta<typeof BackToTop>;
 
-export const Default: ComponentStory<typeof BackToTop> = () => {
+const BackToTopTemplate: ComponentStory<typeof BackToTop> = ({
+  color,
+  ...rest
+}) => {
   return (
     <>
-      <Typography elementType={6}>
+      <Typography elementType={'p'}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel
         condimentum turpis, sit amet semper nunc. Nam dui diam, elementum at
         hendrerit in, dictum id magna. Curabitur posuere eu arcu sit amet
@@ -98,7 +107,9 @@ export const Default: ComponentStory<typeof BackToTop> = () => {
         sodales purus aliquam nec. Nam quis nunc et ante blandit dignissim sit
         amet et magna.
       </Typography>
-      <BackToTop />
+      <BackToTop color={color}/>
     </>
   );
-};
+}
+
+export const BackToTopComponent = BackToTopTemplate.bind({});

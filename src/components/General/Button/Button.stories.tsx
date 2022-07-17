@@ -26,7 +26,10 @@ export default {
     variant:{
       options: ['success' , 'info' , 'warning' , 'danger'],
       control: 'select',
-    }
+    },
+    style: { control: false },
+    loading: { control: false },
+
   },
 } as ComponentMeta<typeof Button>;
 

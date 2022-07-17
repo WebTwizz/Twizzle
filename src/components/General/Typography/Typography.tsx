@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { ThemeContext } from '../../../context/ThemeContext'
 
 interface TypographyProps {
-  elementType: 1 | 2 | 3 | 4 | 5 | 6
+  elementType: 1 | 2 | 3 | 4 | 5 | 6 | 'p'
   copyable?: boolean
   editable?: boolean
   disabled?: boolean
@@ -36,6 +36,7 @@ const Typography: React.FC<TypographyProps> = ({
       style={{
         cursor: disabled ? 'not-allowed' : 'pointer',
         fontStyle: italic ? 'italic' : 'normal',
+        fontFamily: 'sans-serif',
         fontWeight: bold ? 'bold' : 'normal',
         color:type?theme.variants?.[type]?.color: theme.primary?.color || 'black',
         ...style
@@ -70,6 +71,11 @@ const Typography: React.FC<TypographyProps> = ({
         <h6 {...props} style={{ ...style, fontSize: '0.875rem' }}>
           {children}
         </h6>
+      )}
+      {elementType === 'p' && (
+        <p {...props} style={{ ...style, fontSize: '0.875rem' }}>
+          {children}
+        </p>
       )}
     </div>
   )

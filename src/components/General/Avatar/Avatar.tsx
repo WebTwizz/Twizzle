@@ -3,7 +3,7 @@ import { useMemo } from "react";
 interface AvatarProps {
   src?: string;
   alt?: string;
-  name: string;
+  name?: string;
   size?: string;
   backgroundColor?: string;
   color?: string;

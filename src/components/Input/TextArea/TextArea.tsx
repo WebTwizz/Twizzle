@@ -2,14 +2,11 @@ import { NONAME } from "dns";
 import { useContext, useState } from "react";
 import { TiDelete } from "react-icons/ti";
 import { ThemeContext } from "../../../context/ThemeContext";
-import { InputProps } from "../Input/Input";
+import { InputProps } from "../TextInput/Input";
 import './textarea.css';
 
-export interface TextAreaProps extends InputProps{
-  rows?: number;
-}
 
-export const TextArea: React.FC<TextAreaProps> = ({
+export const TextArea: React.FC<InputProps> = ({
   characterCount,
   inputName,
   placeholder,

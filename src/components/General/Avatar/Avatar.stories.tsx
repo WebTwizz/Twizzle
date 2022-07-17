@@ -18,6 +18,7 @@ export default {
         size: {
             options: ['small' , 'medium' , 'large'],
             control: 'select',
+            defaultValue: 'medium',
         },
     },
 } as ComponentMeta<typeof Avatar>;

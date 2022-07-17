@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { ThemeContext } from "../../../context/ThemeContext";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 import "./select.css";
-import { InputProps } from "../Input/Input";
+import { InputProps } from "../TextInput/Input";
 
 export interface SelectProps{
     value?: string;
