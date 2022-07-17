@@ -1,4 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { useState } from "react";
+import { Button } from "../../General/Button/Button";
 import { Modal } from "./Modal";
 
 export default {
@@ -30,8 +32,12 @@ const ModalTemplate: ComponentStory<typeof Modal> = ({
   onClose,
   children,
 }) => {
+
+  const [isOpen, setIsOpen] = useState(true);
+  
   return (
     <>
+      <Button outlined onClick={() => setIsOpen(true)} label="Open Modal"/>
       <div className="Lorem Ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus
         purus lectus, at imperdiet sem vulputate non. Donec ac elit augue.
@@ -84,6 +90,7 @@ const ModalTemplate: ComponentStory<typeof Modal> = ({
         hendrerit nunc finibus sit amet. Quisque vel est vitae sapien dictum
         auctor. Sed risus libero, lacinia non tortor eu, posuere commodo elit.{" "}
       </div>
+      {isOpen && (
       <Modal
         modalStyle={modalStyle}
         modalTitle={modalTitle}
@@ -92,10 +99,11 @@ const ModalTemplate: ComponentStory<typeof Modal> = ({
         footer={footer}
         onCanel={onCanel}
         onOk={onOk}
-        onClose={()=> console.log('closing modal')}
+        onClose={()=> setIsOpen(false)}
       >
         {children}
       </Modal>
+      )}
     </>
   );
 };
