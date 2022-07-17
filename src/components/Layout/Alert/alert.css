@@ -1,6 +1,6 @@
 /* add style for alert component */
 .twizzle-alert {
-  position: absolute;
+  position: relative;
   top: 5;
   width: 80%;
   margin: auto 10%;
