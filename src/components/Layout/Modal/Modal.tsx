@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Overlay } from "../../Feedback/Overlay";
-import { Button } from "../../General/Button/Button";
+import { Button } from "../../General/Button";
 import "./modal.css";
 
 interface ModalProps {

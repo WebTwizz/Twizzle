@@ -1,6 +1,6 @@
 //create a storybook component
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Button } from '../../../General/Button/Button';
+import { Button } from '../../../General/Button';
 import { TooltipPosition, Tooltip } from "./Tooltip";
 
 export default {

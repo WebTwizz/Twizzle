@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { useState } from "react";
-import { Button } from "../../General/Button/Button";
+import { Button } from "../../General/Button";
 import { Modal } from "./Modal";
 
 export default {

@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { ThemeContext } from "../../../context/ThemeContext";
+import { ThemeContext } from "../../../../context/ThemeContext";
 import "./button.css";
 
 interface ButtonProps {
@@ -87,4 +87,4 @@ const Button: React.FC<ButtonProps> = ({
   );
 };
 
-export { Button };
+export default Button;

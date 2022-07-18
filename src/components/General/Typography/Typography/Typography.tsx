@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { ThemeContext } from '../../../context/ThemeContext'
+import { ThemeContext } from '../../../../context/ThemeContext'
 
 interface TypographyProps {
   elementType: 1 | 2 | 3 | 4 | 5 | 6 | 'p'
@@ -81,4 +81,4 @@ const Typography: React.FC<TypographyProps> = ({
   )
 }
 
-export { Typography }
+export default Typography;

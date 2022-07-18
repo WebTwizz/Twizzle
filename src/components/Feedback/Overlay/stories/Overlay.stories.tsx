@@ -1,7 +1,7 @@
 import react from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Overlay } from '../index';
-import { Button } from '../../../General/Button/Button';
+import { Button } from '../../../General/Button';
 import { Loader } from '../../Loader';
 
 export default {

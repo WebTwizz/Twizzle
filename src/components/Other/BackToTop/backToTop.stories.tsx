@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { BackToTop } from "./BackToTop";
-import { Typography } from "../../General/Typography/Typography";
+import { Typography } from "../../General/Typography";
 
 export default {
   title: "Components/Other/BackToTop",

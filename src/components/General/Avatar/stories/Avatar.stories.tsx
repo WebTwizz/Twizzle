@@ -1,6 +1,6 @@
 // create a storybook for avatar component similar to button component story
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Avatar } from './Avatar';
+import { Avatar } from '../index';
 
 export default {
     title: 'Components/General/Avatar',
