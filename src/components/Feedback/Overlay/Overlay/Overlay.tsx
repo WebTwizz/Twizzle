@@ -27,4 +27,4 @@ const Overlay: React.FC<BackDropProps> = (
     )
 }
 
-export {Overlay};
+export default Overlay;

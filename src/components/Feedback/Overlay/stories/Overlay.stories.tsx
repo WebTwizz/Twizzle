@@ -1,8 +1,8 @@
 import react from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Overlay } from './Overlay';
-import { Button } from '../../General/Button/Button';
-import { Loader } from '../Loader/Loader';
+import { Overlay } from '../index';
+import { Button } from '../../../General/Button/Button';
+import { Loader } from '../../Loader';
 
 export default {
     title: 'Components/Feedback/Overlay',

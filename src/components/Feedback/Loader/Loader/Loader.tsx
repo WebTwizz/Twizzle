@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from "react";
-import { ThemeContext } from "../../../context/ThemeContext";
+import { ThemeContext } from "../../../../context/ThemeContext";
 import "./loader.css";
 
 interface LoaderProps {
@@ -37,4 +37,4 @@ const Loader: React.FC<LoaderProps> = ({
   );
 };
 
-export { Loader };
+export default Loader;

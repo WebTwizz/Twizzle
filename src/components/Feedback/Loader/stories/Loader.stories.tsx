@@ -1,5 +1,5 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Loader } from './Loader'
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import {Loader} from '../index';
 
 export default {
   title: 'Components/Feedback/Loader',
