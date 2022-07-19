@@ -1,8 +1,8 @@
 //create modal component
 
 import { useState } from "react";
-import { Overlay } from "../../Feedback/Overlay";
-import { Button } from "../../General/Button";
+import { Overlay } from "../../../Feedback/Overlay";
+import { Button } from "../../../General/Button";
 import "./modal.css";
 
 interface ModalProps {
@@ -79,4 +79,4 @@ const Modal: React.FC<ModalProps> = ({
   );
 };
 
-export { Modal };
+export default Modal;

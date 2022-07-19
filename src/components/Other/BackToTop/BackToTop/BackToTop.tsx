@@ -2,7 +2,7 @@
 
 import { useCallback, useContext, useEffect, useState } from "react";
 import { BsChevronUp } from "react-icons/bs";
-import { ThemeContext } from "../../../context/ThemeContext";
+import { ThemeContext } from "../../../../context/ThemeContext";
 import "./backToTop.css";
 interface BackToTopProps {
   onClick?: () => void;
@@ -57,4 +57,4 @@ const BackToTop: React.FC<BackToTopProps> = ({
     </>
   );
 };
-export { BackToTop };
+export default BackToTop;

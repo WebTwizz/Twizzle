@@ -1,7 +1,7 @@
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useEffect, useMemo, useState } from "react";
-import { ThemeContext } from "../../../context/ThemeContext";
+import { ThemeContext } from "../../../../context/ThemeContext";
 import "./pagination.css";
 
 interface PaginationProps {
@@ -123,4 +123,4 @@ const Pagination: React.FC<PaginationProps> = ({
   );
 };
 
-export { Pagination };
+export default Pagination;

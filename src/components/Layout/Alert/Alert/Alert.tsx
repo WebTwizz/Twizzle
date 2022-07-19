@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ThemeContext } from "../../../context/ThemeContext";
+import { ThemeContext } from "../../../../context/ThemeContext";
 import {
   dangerAlertSVG,
   infoAlertSVG,
@@ -39,4 +39,4 @@ const Alert: React.FC<AlertProps> = ({ children, variant = "info" }) => {
   );
 };
 
-export { Alert };
+export default Alert;
