@@ -3,8 +3,18 @@ import { ThemeContext } from "../../../../context/ThemeContext";
 import "./loader.css";
 
 interface LoaderProps {
+
+  /**
+   * Size of the loader
+   */
   size?: "small" | "medium" | "large";
+  /**
+   * Color of the loader
+   */
   color?: string;
+  /**
+   * Styling added to the spinner
+   */
   style?: React.CSSProperties;
 }
 

@@ -9,6 +9,8 @@ import {
   faUpload,
 } from "@fortawesome/free-solid-svg-icons";
 
+//In progress
+
 interface FileUploaderProps {
   multipleFiles?: boolean;
   maxFiles?: number;

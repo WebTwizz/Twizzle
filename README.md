@@ -1,4 +1,4 @@
-# <img src="images/Twizzle-logo.png" alt="twizzle" width="500px"/>
+# <img src="public/images/Twizzle-logo.png" alt="twizzle" width="500px"/>
 
 
 ## About 

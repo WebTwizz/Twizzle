@@ -2,16 +2,52 @@ import React, { useContext } from 'react'
 import { ThemeContext } from '../../../../context/ThemeContext'
 
 interface TypographyProps {
+
+  /**
+   * Element to be rendered
+   * Numbers indicate the size of the element
+   */
   elementType: 1 | 2 | 3 | 4 | 5 | 6 | 'p'
+  /**
+   * The ability of the element to be copied to the clipboard
+   */
   copyable?: boolean
+  /**
+   * The ability of the element to be edited
+   */
   editable?: boolean
+  /**
+   * The ability of the element to be disabled
+   */
   disabled?: boolean
+  /**
+   * Bold text
+   */
   bold?: boolean
+  /**
+   * Italic text
+   */
   italic?: boolean
+  /**
+   * OnClick handler for the element
+   */
   onClick?: () => void
+  /**
+   * icon displayed on the left of the element
+   */
   icon?: React.ReactNode
+  /**
+   * variant of the element chosen from the theme
+   */
   type?: 'success' | 'info' | 'warning' | 'danger'
+  /**
+   * Children to be rendered inside the element
+   */
   children: React.ReactNode
+  /**
+   * Styling added to the element
+   */
+
   style?: React.CSSProperties
 }
 

@@ -1,11 +1,30 @@
 import { useMemo } from "react";
 
 interface AvatarProps {
+  /**
+   * The image url to be displayed
+   */
   src?: string;
+  /**
+   * The alt text to be displayed
+   */
   alt?: string;
+  /**
+   * The name of the user
+   */
   name?: string;
+  /**
+   * The size of the avatar out of the following options:
+   * small, medium, large
+   */
   size?: string;
+  /**
+   * The backgorund color of the avatar, otherwise it will default to random preset colors
+   */
   backgroundColor?: string;
+  /**
+   * The text color of the avatar, otherwise it will default to random preset colors
+   */
   color?: string;
 }
 
