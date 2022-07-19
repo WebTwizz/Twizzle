@@ -1,10 +1,10 @@
 //create select dropdown component
 
 import { useContext, useState } from "react";
-import { ThemeContext } from "../../../context/ThemeContext";
+import { ThemeContext } from "../../../../context/ThemeContext";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 import "./select.css";
-import { InputProps } from "../TextInput/Input";
+import { InputProps } from "../../InputField/InputField/Input";
 
 export interface SelectProps{
     value?: string;
@@ -90,4 +90,4 @@ const Select: React.FC<SelectProps> = ({
   );
 };
 
-export { Select };
+export default Select;

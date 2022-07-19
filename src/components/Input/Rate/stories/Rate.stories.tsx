@@ -1,8 +1,9 @@
 //create rate story 
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Rate } from './Rate';
+
 import {ImHome3} from 'react-icons/im';
+import Rate from '../Rate/Rate';
 
 
 export default {

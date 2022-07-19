@@ -1,7 +1,8 @@
 //creat Input story
 import React from "react";
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { FileUploader } from "./FileUploader";
+import FileUploader from "../FileUploader/FileUploader";
+
 
 export default {
     title: 'Components/Input/FileUploader',

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Typography } from "../../General/Typography";
+import { Typography } from "../../../General/Typography";
 import "./checkbox.css";
 
 interface CheckboxProps {
@@ -45,4 +45,4 @@ const Checkbox: React.FC<CheckboxProps> = ({
   );
 };
 
-export { Checkbox };
+export default Checkbox;

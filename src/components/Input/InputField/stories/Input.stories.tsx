@@ -1,7 +1,7 @@
 //creat Input story
 import React from "react";
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Input } from "./Input";
+import { Input } from "../InputField/Input";
 import './input.css'
 
 export default {

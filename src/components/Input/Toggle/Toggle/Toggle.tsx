@@ -1,5 +1,5 @@
 import { useCallback, useContext, useState } from "react";
-import { ThemeContext } from "../../../context/ThemeContext";
+import { ThemeContext } from "../../../../context/ThemeContext";
 import "./toggle.css";
 interface ToggleProps {
     label?: string;
@@ -53,4 +53,4 @@ const Toggle: React.FC<ToggleProps> = ({
     );
 }
 
-export {Toggle};
+export default Toggle;

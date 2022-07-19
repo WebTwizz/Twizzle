@@ -1,8 +1,8 @@
 import { NONAME } from "dns";
 import { useContext, useState } from "react";
 import { TiDelete } from "react-icons/ti";
-import { ThemeContext } from "../../../context/ThemeContext";
-import { InputProps } from "../TextInput/Input";
+import { ThemeContext } from "../../../../context/ThemeContext";
+import { InputProps } from "../../InputField/InputField/Input";
 import './textarea.css';
 
 

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import filesize from "filesize";
 import "./fileuploader.css";
@@ -121,4 +121,4 @@ const FileUploader: React.FC<FileUploaderProps> = ({
   );
 };
 
-export { FileUploader };
+export default FileUploader;

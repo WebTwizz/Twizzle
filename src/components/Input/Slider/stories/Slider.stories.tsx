@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Slider } from './Slider';
+import { Slider } from '..';
+
 
 
 export default {

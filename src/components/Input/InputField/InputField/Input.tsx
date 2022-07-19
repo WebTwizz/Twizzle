@@ -2,7 +2,7 @@
 
 import { getValue } from "@testing-library/user-event/dist/utils";
 import { useContext, useRef, useState } from "react";
-import { ThemeContext } from "../../../context/ThemeContext";
+import { ThemeContext } from "../../../../context/ThemeContext";
 import {TiDelete} from 'react-icons/ti'
 export interface InputProps {
   inputName: string;
