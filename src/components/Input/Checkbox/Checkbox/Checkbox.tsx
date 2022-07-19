@@ -3,11 +3,29 @@ import { Typography } from "../../../General/Typography";
 import "./checkbox.css";
 
 interface CheckboxProps {
+  /**
+   * Label for the checkbox
+   */
   label: string;
+  /**
+   * If true, the checkbox will be disabled
+   */
   disabled?: boolean;
+  /**
+   * If true, the checkbox will be checked
+   */
   checked?: boolean;
+  /**
+   * onCheck handler for the checkbox
+   */
   onCheck?: (value: boolean) => void;
+  /**
+   * Color of the checkbox, otherwise it will default to the theme color
+   */
   color?: string;
+  /**
+   * Styling added to the checkbox
+   */
   style?: React.CSSProperties;
 }
 const Checkbox: React.FC<CheckboxProps> = ({

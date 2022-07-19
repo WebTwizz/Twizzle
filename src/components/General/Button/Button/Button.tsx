@@ -3,15 +3,45 @@ import { ThemeContext } from "../../../../context/ThemeContext";
 import "./button.css";
 
 interface ButtonProps {
+  /**
+   * Color of the button, otherwise it will default to the theme color
+   */
   color?: string;
+  /**
+   * Text inside the button
+   */
   label: string;
+  /**
+   * if true, the button will be outlined
+   */
   outlined?: boolean;
+  /**
+   * onClick handler for the button
+   */
   onClick?: () => void;
+  /**
+   * if true, the button will be disabled
+   */
   disabled?: boolean;
+  /**
+   * loading state of the button
+   */
   loading?: React.ReactNode;
+  /**
+   * icon displayed on the left of the button
+   */
   icon?: React.ReactNode;
+  /**
+   * Corner style of the button
+   */
   corner?: "default" | "round";
+  /**
+   * Variant of the button chosen from the theme
+   */
   variant?: "success" | "info" | "warning" | "danger";
+  /**
+   * Styling added to the button
+   */
   style?: React.CSSProperties;
 }
 

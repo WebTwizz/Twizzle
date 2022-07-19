@@ -2,7 +2,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Input } from "../InputField/Input";
-import './input.css'
 
 export default {
     title: 'Components/Input/TextInput',
