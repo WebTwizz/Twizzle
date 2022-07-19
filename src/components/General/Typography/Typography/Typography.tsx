@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { ThemeContext } from '../../../../context/ThemeContext'
 
 interface TypographyProps {
+
   /**
    * Element to be rendered
    * Numbers indicate the size of the element
@@ -46,6 +47,7 @@ interface TypographyProps {
   /**
    * Styling added to the element
    */
+
   style?: React.CSSProperties
 }
 

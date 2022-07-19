@@ -3,6 +3,7 @@ import { ThemeContext } from "../../../../context/ThemeContext";
 import "./loader.css";
 
 interface LoaderProps {
+
   /**
    * Size of the loader
    */

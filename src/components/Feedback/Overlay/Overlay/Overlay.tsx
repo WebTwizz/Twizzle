@@ -2,6 +2,7 @@ import { useState } from "react";
 import './overlay.css';
 
 interface BackDropProps {
+
     /**
      * Children to be rendered inside the backdrop
      */

@@ -8,12 +8,13 @@ import {
   faTrash,
   faUpload,
 } from "@fortawesome/free-solid-svg-icons";
+
 //In progress
+
 interface FileUploaderProps {
   multipleFiles?: boolean;
   maxFiles?: number;
   disabled?: boolean;
-  style: React.CSSProperties;
 }
 
 const FileUploader: React.FC<FileUploaderProps> = ({
