@@ -1,3 +1,4 @@
+import React from "react";
 import { useMemo } from "react";
 
 interface AvatarProps {
@@ -59,6 +60,7 @@ const Avatar: React.FC<AvatarProps> = ({
   return (
     <div
       className="twizzle-avatar"
+      role={"avatar"}
       style={{
         display: "flex",
         alignItems: "center",
@@ -75,7 +77,6 @@ const Avatar: React.FC<AvatarProps> = ({
       }}
       {...rest}
     >
-      <div className="twizzle-avatar-content">
         {src ? (
           <img 
           src={src} 
@@ -89,9 +90,8 @@ const Avatar: React.FC<AvatarProps> = ({
           }} 
           />
         ) : (
-          <div className="twizzle-avatar-initials">{getInitials(name)}</div>
+          <span className="twizzle-avatar-initials">{getInitials(name)}</span>
         )}
-      </div>
     </div>
   );
 };

@@ -8,11 +8,6 @@ interface CheckboxProps {
   checked?: boolean;
   onCheck?: (value: boolean) => void;
   color?: string;
-  label: string;
-  disabled?: boolean;
-  checked?: boolean;
-  onCheck?: (value: boolean) => void;
-  color?: string;
   style?: React.CSSProperties;
 }
 const Checkbox: React.FC<CheckboxProps> = ({

@@ -43,7 +43,7 @@ interface TypographyProps {
   /**
    * Children to be rendered inside the element
    */
-  children: React.ReactNode
+  children?: React.ReactNode
   /**
    * Styling added to the element
    */
@@ -68,6 +68,7 @@ const Typography: React.FC<TypographyProps> = ({
   return (
     <div
       className={'twizzle-typography'}
+      onClick={onClick}
       contentEditable={editable}
       style={{
         cursor: disabled ? 'not-allowed' : 'pointer',
