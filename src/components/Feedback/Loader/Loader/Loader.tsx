@@ -29,6 +29,7 @@ const Loader: React.FC<LoaderProps> = ({
 
   return (
     <div
+      role="loader"
       className="twizzle-loader"
       style={{
         width: size === "small" ? "20px" : size === "large" ? "50px" : "40px",

@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import './overlay.css';
 
@@ -26,8 +27,8 @@ const Overlay: React.FC<BackDropProps> = (
     
     return (
      <>
-        <div className="twizzle-overlay" onClick={onClick} style={style}>
-            <div className="twizzle-overlay-content" onClick={onClick} style={style}>
+        <div className="twizzle-overlay" onClick={onClick} style={style} role="overlay">
+            <div className="twizzle-overlay-content">
             {children}
             </div>
         </div>
