@@ -8516,7 +8516,7 @@
   "version" "6.1.5"
 
 "identity-obj-proxy@^3.0.0":
-  "integrity" "sha1-lNK9qWCERT7zb7xarsN+D3nx/BQ="
+  "integrity" "sha512-00n6YnVHKrinT9t0d9+5yZC6UBNJANpYEQvL2LlX6Ab9lnmxzIRcEmTPuyGScvl1+jKuCICX1Z0Ab1pPKKdikA=="
   "resolved" "https://registry.npmjs.org/identity-obj-proxy/-/identity-obj-proxy-3.0.0.tgz"
   "version" "3.0.0"
   dependencies:
