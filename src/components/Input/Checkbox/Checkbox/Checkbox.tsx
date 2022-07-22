@@ -3,7 +3,7 @@ import { Typography } from "../../../General/Typography";
 import "./checkbox.css";
 
 interface CheckboxProps {
-  label: string;
+  label?: string;
   disabled?: boolean;
   checked?: boolean;
   onCheck?: (value: boolean) => void;

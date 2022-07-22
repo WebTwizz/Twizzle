@@ -3,7 +3,6 @@ import { ThemeContext } from "../../../../context/ThemeContext";
 import "./loader.css";
 
 interface LoaderProps {
-
   /**
    * Size of the loader
    */
@@ -25,7 +24,10 @@ const Loader: React.FC<LoaderProps> = ({
 }: LoaderProps) => {
   const theme = useContext(ThemeContext);
 
-  const overlayColor = useMemo(()=> color || theme.loader?.color || "#1E90FF",[color]);
+  const overlayColor = useMemo(
+    () => color || theme.loader?.color || "#1E90FF",
+    [color]
+  );
 
   return (
     <div
@@ -35,7 +37,8 @@ const Loader: React.FC<LoaderProps> = ({
         width: size === "small" ? "20px" : size === "large" ? "50px" : "40px",
         height: size === "small" ? "20px" : size === "large" ? "50px" : "40px",
         margin: "5px",
-        borderWidth: size === "small" ? "2px" : size === "large" ? "5px" : "4px",
+        borderWidth:
+          size === "small" ? "2px" : size === "large" ? "5px" : "4px",
         border: `3px solid ${overlayColor}`,
         borderBottom: `3px solid transparent`,
         borderRadius: "50%",

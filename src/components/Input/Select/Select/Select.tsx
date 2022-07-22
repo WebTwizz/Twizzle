@@ -1,6 +1,6 @@
 //create select dropdown component
 
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 import "./select.css";

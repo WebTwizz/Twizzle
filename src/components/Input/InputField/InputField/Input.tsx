@@ -1,7 +1,7 @@
 //create a simple input text box
 
 import { getValue } from "@testing-library/user-event/dist/utils";
-import { useContext, useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
 import {TiDelete} from 'react-icons/ti'
 export interface InputProps {
@@ -86,7 +86,7 @@ export const Input: React.FC<InputProps> = ({
        
         </>
       )}
-      { allowClear &&  inputValue && <TiDelete className={'twizzle-input-text-clear'} onClick={()=>{setInputValue('')}} />}
+      { allowClear &&  inputValue && <TiDelete className={'twizzle-input-text-clear'} onClick={()=>{setInputValue('')}} role="textdelete"/>}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { NONAME } from "dns";
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { TiDelete } from "react-icons/ti";
 import { ThemeContext } from "../../../../context/ThemeContext";
 import { InputProps } from "../../InputField/InputField/Input";
@@ -65,7 +65,7 @@ export const TextArea: React.FC<InputProps> = ({
         }}
         >
 
-        { allowClear &&  inputValue && <TiDelete className={'twizzle-input-textarea-clear'} onClick={()=>{setInputValue('')}} />}
+        { allowClear &&  inputValue && <TiDelete className={'twizzle-input-textarea-clear'} onClick={()=>{setInputValue('')}} role="textdelete"/>}
         {characterCount && (
         <span
           className="twizzle-input-text-character-count"

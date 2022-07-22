@@ -1,4 +1,4 @@
-import { useCallback, useContext, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
 import "./toggle.css";
 interface ToggleProps {
