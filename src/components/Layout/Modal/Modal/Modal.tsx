@@ -1,6 +1,4 @@
-//create modal component
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { Overlay } from "../../../Feedback/Overlay";
 import { Button } from "../../../General/Button";
 import "./modal.css";
@@ -11,7 +9,7 @@ interface ModalProps {
   bodyStyle?: React.CSSProperties;
   closable?: boolean;
   footer?: boolean;
-  onCanel?: () => void;
+  onCancel?: () => void;
   onOk?: () => void;
   onClose: () => void;
   children: React.ReactNode;
@@ -23,7 +21,7 @@ const Modal: React.FC<ModalProps> = ({
   bodyStyle,
   closable = true,
   footer = true,
-  onCanel,
+  onCancel,
   onOk,
   onClose,
   children,
@@ -39,13 +37,14 @@ const Modal: React.FC<ModalProps> = ({
   };
   const handleCanel = () => {
     setVisible(false);
-    onCanel?.();
+    onCancel?.();
   };
   return (
     <>
       <Overlay>
         <div
           className="twizzle-modal"
+          role={"dialog"}
         >
           <div
             className="twizzle-modal-content"

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React,{ useContext } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
 import {
   dangerAlertSVG,
@@ -16,7 +16,7 @@ interface AlertProps {
 const Alert: React.FC<AlertProps> = ({ children, variant = "info" }) => {
   const theme = useContext(ThemeContext);
   return (
-    <div className="twizzle-alert">
+    <div className="twizzle-alert" role={"alert"}>
       <div className="twizzle-alert-content">
         <div className={`twizzle-alert-${variant}`}
         style={{
