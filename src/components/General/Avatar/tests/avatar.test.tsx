@@ -25,4 +25,11 @@ describe("Avatar component", () => {
     expect(image).toHaveAttribute("alt", props.alt);
     expect(avatar).toHaveStyle(`height: 64px}`);
   });
+
+  it("should render Avatar with a square shape", () => {
+    render(<Avatar name="John Doe" shape="square" />);
+
+    const { getByRole } = screen;
+    expect(getByRole("avatar")).toHaveStyle(`border-radius: 5px`);
+  });
 });

@@ -1,5 +1,6 @@
 import React from "react";
 import { useMemo } from "react";
+import { StyledAvatar } from "./StyledAvatar";
 
 interface AvatarProps {
   /**
@@ -20,6 +21,12 @@ interface AvatarProps {
    */
   size?: string;
   /**
+   * The shape of the avatar out of the following options:
+   * circle, square
+   * @default circle
+   */
+  shape?: string;
+  /**
    * The backgorund color of the avatar, otherwise it will default to random preset colors
    */
   backgroundColor?: string;
@@ -34,6 +41,7 @@ const Avatar: React.FC<AvatarProps> = ({
   alt,
   name,
   size = "medium",
+  shape = "circle",
   backgroundColor,
   color,
   ...rest
@@ -58,22 +66,16 @@ const Avatar: React.FC<AvatarProps> = ({
   }, []);
 
   return (
-    <div
-      className="twizzle-avatar"
+    <StyledAvatar
       role={"avatar"}
       style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
         backgroundColor: !src? (backgroundColor || getColor[0]): undefined,
         color: color || getColor[1],
         fontSize: size === "small" ? "0.8rem" : size === "large" ? "1.5rem" : "1rem",
-        fontFamily: "sans-serif",
         width: size === "small" ? "32px" : size === "medium" ? "48px" : "64px",
         height: size === "small" ? "32px" : size === "medium" ? "48px" : "64px",
         borderRadius:
-          size === "small" ? "16px" : size === "medium" ? "24px" : "32px",
-        overflow: "hidden",
+          shape === "circle" ? "50%" : shape === "square" ? "5px" : "0px",
       }}
       {...rest}
     >
@@ -90,9 +92,9 @@ const Avatar: React.FC<AvatarProps> = ({
           }} 
           />
         ) : (
-          <span className="twizzle-avatar-initials">{getInitials(name)}</span>
+          <span>{getInitials(name)}</span>
         )}
-    </div>
+    </StyledAvatar>
   );
 };
 

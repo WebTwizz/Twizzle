@@ -20,6 +20,11 @@ export default {
             control: 'select',
             defaultValue: 'medium',
         },
+        shape: {
+            options: ['circle' , 'square'],
+            control: 'select',
+            defaultValue: 'circle',
+        },
     },
 } as ComponentMeta<typeof Avatar>;
 
