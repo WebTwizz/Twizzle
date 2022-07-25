@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
 import "./button.css";
+import { StyledButton } from "./StyledButton";
 
 interface ButtonProps {
   /**
@@ -65,7 +66,7 @@ const Button: React.FC<ButtonProps> = ({
     color ||
     theme?.primary?.backgroundColor;
   return (
-    <button
+    <StyledButton
       type="button"
       onMouseEnter={() => {
         setHover(true);
@@ -87,17 +88,15 @@ const Button: React.FC<ButtonProps> = ({
           ? "#EBEBE4"
           : outlined
           ? hover
-            ? color
+            ? "#F2F2F2"
             : "white"
           : color,
         color: disabled
           ? "white"
-          : outlined
-          ? hover
-            ? "white"
-            : color
+          : outlined?
+            color
           : 'white',
-        filter: hover ? "brightness(0.8)" : "brightness(1)",
+        filter: hover ? outlined? "brightness(0.9)" : "brightness(1.2)" : "brightness(1)",
         margin: "5px",
         ...style,
       }}
@@ -113,7 +112,7 @@ const Button: React.FC<ButtonProps> = ({
         {icon}
         {label}
       </div>
-    </button>
+    </StyledButton>
   );
 };
 
