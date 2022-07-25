@@ -1,7 +1,6 @@
 import React, { useContext, useMemo } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
-import "./loader.css";
-
+import { StyledLoader } from "./StyledLoader";
 interface LoaderProps {
   /**
    * Size of the loader
@@ -29,25 +28,26 @@ const Loader: React.FC<LoaderProps> = ({
     [color]
   );
 
+  
+
   return (
-    <div
-      role="loader"
-      className="twizzle-loader"
-      style={{
-        width: size === "small" ? "20px" : size === "large" ? "50px" : "40px",
-        height: size === "small" ? "20px" : size === "large" ? "50px" : "40px",
-        margin: "5px",
-        borderWidth:
-          size === "small" ? "2px" : size === "large" ? "5px" : "4px",
-        border: `3px solid ${overlayColor}`,
-        borderBottom: `3px solid transparent`,
-        borderRadius: "50%",
-        display: "inline-block",
-        boxSizing: "border-box",
-        animation: "twizzle-loader-rotation 1s linear infinite",
-        ...style,
-      }}
-    />
+    <StyledLoader 
+    role={"loader"}
+    style={{
+      width: size === "small" ? "20px" : size === "large" ? "50px" : "40px",
+      height: size === "small" ? "20px" : size === "large" ? "50px" : "40px",
+      margin: "5px",
+      border: `3px solid ${overlayColor}`,
+      borderWidth:
+        size === "small" ? "3px" : size === "large" ? "5px" : "4px",
+      borderBottom: `3px solid transparent`,
+      borderRadius: "50%",
+      display: "inline-block",
+      boxSizing: "border-box",
+      animation: "twizzle-loader-rotation 1s linear infinite",
+      ...style,
+    }}>
+    </StyledLoader>
   );
 };
 
