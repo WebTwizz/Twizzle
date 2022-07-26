@@ -1,4 +1,3 @@
-//creat Input story
 import React from "react";
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TextInput } from "..";
@@ -30,7 +29,6 @@ const InputTemplate: ComponentStory<typeof TextInput> = ({
     placeholder,
     value,
     onChange,
-    style,
     ...rest
 }) => {
     return (
@@ -38,7 +36,6 @@ const InputTemplate: ComponentStory<typeof TextInput> = ({
             placeholder={placeholder}
             value={value}
             onChange={onChange}
-            style={style}
             {...rest}
         />
     )

@@ -40,6 +40,14 @@ describe("Input Field component", () => {
         expect(input).not.toHaveValue("Hello");
     });
 
+    it("should display error message", () => {
+        render(<TextInput inputName={""} errorMessage={"Error"} invalid/>);
+        const input = screen.getByRole("textbox");
+        userEvent.click(input);
+        userEvent.type(input, "Hello");
+        expect(screen.getByText("Error")).toBeInTheDocument();
+    });
+
 
 });
 

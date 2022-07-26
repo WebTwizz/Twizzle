@@ -19,7 +19,7 @@ export const StyledTextInput = styled.input`
     background-color: white;
     cursor: text;
     outline: none;
-    width: 95%;
+    width: 98%;
     :disabled {
         background-color: #e9e9e9;
         cursor: not-allowed;

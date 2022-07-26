@@ -1,9 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Alert } from '..';
+import { TextAlert } from '..';
 
 export default {
-    title: 'Components/Layout/Alert',
-    component: Alert,  
+    title: 'Components/Layout/TextAlert',
+    component: TextAlert,  
     argTypes: {
         children: { 
             control: 'text' ,
@@ -14,10 +14,10 @@ export default {
             control: 'select'
           }
     },
-} as ComponentMeta<typeof Alert>;
+} as ComponentMeta<typeof TextAlert>;
 
-const AlertTemplate: ComponentStory<typeof Alert> = ({ children, ...rest }) => {
-    return <Alert {...rest}>{children}</Alert>;
+const AlertTemplate: ComponentStory<typeof TextAlert> = ({ children, ...rest }) => {
+    return <TextAlert {...rest}>{children}</TextAlert>;
 }
 
 export const AlertComponent = AlertTemplate.bind({});

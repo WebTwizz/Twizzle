@@ -1,41 +1,67 @@
-import React,{ useContext } from "react";
-import { ThemeContext } from "../../../../context/ThemeContext";
+import React from "react";
 import {
   dangerAlertSVG,
   infoAlertSVG,
   successAlertSVG,
   warningAlertSVG,
 } from "./svg";
-import "./alert.css";
+import { Box } from "../../../Box/Box";
+import { StyledAlert } from "./StyledAlert";
 
-interface AlertProps {
+export interface AlertProps {
+  /**
+   * The content of the alert
+   */
   children?: React.ReactNode;
+   /**
+   * The type of alert.
+   * @default "info"
+   */
   variant?: "success" | "info" | "warning" | "danger";
+   /**
+   * size of the alert
+   */
+    size?: "small" | "medium" | "large";
+  /**
+   * styling for the alert
+   */
+  style?: React.CSSProperties;
 }
 
-const Alert: React.FC<AlertProps> = ({ children, variant = "info" }) => {
-  const theme = useContext(ThemeContext);
+const Alert: React.FC<AlertProps> = ({ 
+  children, 
+  variant = "info",
+  size = "medium",
+  style }) => {
   return (
-    <div className="twizzle-alert" role={"alert"}>
-      <div className="twizzle-alert-content">
-        <div className={`twizzle-alert-${variant}`}
+    <StyledAlert role={"alert"} 
+    style={{
+      width: size === "small" ? "30%" : size === "large" ? "50%" : "40%",
+      ...style
+    }}
+    >
+        <Box className={`twizzle-alert-${variant}`}
         style={{
-          display: "flex",
           flexDirection: "row",
           alignItems: "center",
           paddingLeft: "0.5rem",
+          fontFamily: "sans-serif",
           gap: "0.5rem",
         }}>
-          <div className="twizzle-alert-content-icon">
             {variant === "info" && infoAlertSVG}
             {variant === "success" && successAlertSVG}
             {variant === "danger" && dangerAlertSVG}
             {variant === "warning" && warningAlertSVG}
-          </div>
-          <p className="twizzle-alert-content-text">{children}</p>
-        </div>
-      </div>
-    </div>
+            <Box
+              style={{
+               alignItems: "center",
+               width: "100%",
+              }}
+            >
+              <p className="twizzle-alert-content-text" style={{paddingLeft: '10px', fontSize: size == 'small'? '0.875em' : size ==  'medium'? '1em' : '1.25em', width:'96%'}}>{children}</p>
+           </Box>
+        </Box>
+    </StyledAlert>
   );
 };
 
