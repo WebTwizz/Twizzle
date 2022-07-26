@@ -1,11 +1,11 @@
 //creat Input story
 import React from "react";
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Input } from "../InputField/Input";
+import { TextInput } from "..";
 
 export default {
     title: 'Components/Input/TextInput',
-    component: Input,
+    component: TextInput,
     argTypes: {
         placeholder: {
             control: { type: 'text' },
@@ -16,11 +16,17 @@ export default {
         },
         style: {
             control: false,
+        },
+        size: {
+            control: {
+                type: 'select',
+                options: ['small', 'medium', 'large'],
+            },
         }
     }
-} as ComponentMeta<typeof Input>;
+} as ComponentMeta<typeof TextInput>;
 
-const InputTemplate: ComponentStory<typeof Input> = ({
+const InputTemplate: ComponentStory<typeof TextInput> = ({
     placeholder,
     value,
     onChange,
@@ -28,7 +34,7 @@ const InputTemplate: ComponentStory<typeof Input> = ({
     ...rest
 }) => {
     return (
-        <Input
+        <TextInput
             placeholder={placeholder}
             value={value}
             onChange={onChange}
