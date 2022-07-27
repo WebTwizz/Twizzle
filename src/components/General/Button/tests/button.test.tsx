@@ -17,7 +17,7 @@ describe("Button component", () => {
         expect(getByRole("button")).toHaveTextContent("🍎");
     })
     it("should render Button with loading", () => {
-        render(<Button label={""} loading={<div>Loading</div>} />);
+        render(<Button label={""} isLoading={true}/>);
     
         const { getByRole } = screen;
         expect(getByRole("button")).toHaveTextContent("Loading");

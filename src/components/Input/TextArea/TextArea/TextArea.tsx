@@ -1,8 +1,7 @@
-import { NONAME } from "dns";
 import React, { useContext, useState } from "react";
 import { TiDelete } from "react-icons/ti";
 import { ThemeContext } from "../../../../context/ThemeContext";
-import { InputProps } from "../../InputField/InputField/Input";
+import { InputProps } from "../../InputField/InputField/TextInput";
 import './textarea.css';
 
 
@@ -26,7 +25,7 @@ export const TextArea: React.FC<InputProps> = ({
     <div
     className="twizzle-input-textarea-container"
     style={{
-      border: `0.5px solid ${hover ? variant? theme?.variants?.[variant]?.color: theme.primary?.backgroundColor : "#E8E8E8"}`,
+      // border: `0.5px solid ${hover ? variant? theme?.variants?.[variant]?.color: theme.primary?.backgroundColor : "#E8E8E8"}`,
       backgroundColor: disabled ? "#e9e9e9" : "white",
       cursor: disabled ? "not-allowed" : "text",
       ...style,

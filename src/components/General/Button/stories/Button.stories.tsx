@@ -27,9 +27,12 @@ export default {
       options: ['success' , 'info' , 'warning' , 'danger'],
       control: 'select',
     },
+    size:{
+      options: ['small' , 'medium' , 'large'],
+      control: 'select',
+    },
     icon: { control: false },
     style: { control: false },
-    loading: { control: false },
 
   },
 } as ComponentMeta<typeof Button>;

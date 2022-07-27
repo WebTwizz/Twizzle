@@ -27,7 +27,7 @@ const ModalTemplate: ComponentStory<typeof Modal> = ({
   bodyStyle,
   closable,
   footer,
-  onCanel,
+  onCancel,
   onOk,
   onClose,
   children,
@@ -97,7 +97,7 @@ const ModalTemplate: ComponentStory<typeof Modal> = ({
         bodyStyle={bodyStyle}
         closable={closable}
         footer={footer}
-        onCanel={onCanel}
+        onCancel={onCancel}
         onOk={onOk}
         onClose={()=> setIsOpen(false)}
       >

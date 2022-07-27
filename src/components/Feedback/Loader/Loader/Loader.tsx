@@ -5,7 +5,7 @@ interface LoaderProps {
   /**
    * Size of the loader
    */
-  size?: "small" | "medium" | "large";
+  size?: "extraSmall"| "small" | "medium" | "large";
   /**
    * Color of the loader
    */
@@ -28,18 +28,23 @@ const Loader: React.FC<LoaderProps> = ({
     [color]
   );
 
-  
+  const loaderSize = {
+    extraSmall : {weight: "0.7rem", padding: "0.15rem", thickness: "0.085rem"},
+    small : {weight: "1rem", padding: "0.2rem", thickness: "0.1rem"},
+    medium :  {weight: "1.5rem", padding: "0.3rem", thickness: "0.15rem"},
+    large :  {weight: "2rem", padding: "0.4rem", thickness: "0.2rem"},
+  }
+
 
   return (
     <StyledLoader 
     role={"loader"}
     style={{
-      width: size === "small" ? "20px" : size === "large" ? "50px" : "40px",
-      height: size === "small" ? "20px" : size === "large" ? "50px" : "40px",
-      margin: "5px",
+      width: loaderSize[size].weight,
+      height: loaderSize[size].weight,
+      padding: loaderSize[size].padding,
       border: `3px solid ${overlayColor}`,
-      borderWidth:
-        size === "small" ? "3px" : size === "large" ? "5px" : "4px",
+      borderWidth: loaderSize[size].thickness,
       borderBottom: `3px solid transparent`,
       borderRadius: "50%",
       display: "inline-block",

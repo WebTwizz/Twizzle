@@ -16,6 +16,9 @@ export default {
         style: {
             control: false,
         },
+        characterCount: {
+            control: false,
+        },
         size: {
             control: {
                 type: 'select',

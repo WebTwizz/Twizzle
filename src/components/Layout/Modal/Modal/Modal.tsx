@@ -26,17 +26,13 @@ const Modal: React.FC<ModalProps> = ({
   onClose,
   children,
 }) => {
-  const [visible, setVisible] = useState(false);
   const handleClose = () => {
-    setVisible(false);
     onClose();
   };
   const handleOk = () => {
-    setVisible(false);
     onOk?.();
   };
   const handleCanel = () => {
-    setVisible(false);
     onCancel?.();
   };
   return (

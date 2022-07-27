@@ -1,5 +1,7 @@
 import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
+import { Box } from "../../../Box/Box";
+import { Loader } from "../../../Feedback/Loader";
 import "./button.css";
 import { StyledButton } from "./StyledButton";
 
@@ -27,7 +29,7 @@ interface ButtonProps {
   /**
    * loading state of the button
    */
-  loading?: React.ReactNode;
+  isLoading?: boolean;
   /**
    * icon displayed on the left of the button
    */
@@ -41,6 +43,11 @@ interface ButtonProps {
    */
   variant?: "success" | "info" | "warning" | "danger";
   /**
+   * Size of the button
+   * @default "medium"
+   */
+  size?: "small" | "medium" | "large" ;
+  /**
    * Styling added to the button
    */
   style?: React.CSSProperties;
@@ -52,14 +59,23 @@ const Button: React.FC<ButtonProps> = ({
   outlined,
   style,
   disabled,
-  loading,
+  isLoading,
   icon,
   corner,
   variant,
+  size = "medium",
   ...props
 }: ButtonProps) => {
   const theme = useContext(ThemeContext);
   const [hover, setHover] = useState(false);
+
+  disabled = isLoading || disabled;
+
+  const loaderSize = {
+    small: "extraSmall",
+    medium: "small",
+    large: "medium",
+  }
 
   color =
     theme?.variants?.[variant!]?.color ||
@@ -96,22 +112,29 @@ const Button: React.FC<ButtonProps> = ({
           : outlined?
             color
           : 'white',
-        filter: hover ? outlined? "brightness(0.9)" : "brightness(1.2)" : "brightness(1)",
+        filter: hover ? outlined? "brightness(0.95)" : "brightness(1.2)" : "brightness(1)",
         margin: "5px",
+        fontSize: size === "small" ? "12px" : size === "large" ? "20px" : "15px",
         ...style,
       }}
       disabled={disabled}
     >
-      <div
+      <Box
         style={{
           display: "inline-flex",
           alignItems: "center",
         }}
       >
-        {loading}
+        {isLoading && (<Loader 
+          size={size == "small" ? "extraSmall" : size == "medium" ? "small" : "medium"}
+          color={'#FFF'}
+          style={{
+            marginRight: "5px",
+          }}
+        />)}
         {icon}
         {label}
-      </div>
+      </Box>
     </StyledButton>
   );
 };
