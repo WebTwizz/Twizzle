@@ -5,7 +5,7 @@ import { Typography } from "..";
 
 describe("Typography component", () => {
   it("should render Typography with text", () => {
-    const { container } = render(
+    render(
       <Typography elementType={2}>Hello World</Typography>
     );
     expect(screen.getByText("Hello World")).toBeInTheDocument();
@@ -15,10 +15,8 @@ describe("Typography component", () => {
       style: {
         color: "red",
       },
-      copyable: true,
       bold: true,
-    italic: true,
-    onClick: jest.fn(),
+      onClick: jest.fn(),
     };
 
     const { container } = render(
@@ -26,10 +24,9 @@ describe("Typography component", () => {
         Hello World
       </Typography>
     );
-    const typography =
-      container.getElementsByClassName("twizzle-typography")[0];
+    const typography = screen.getByText("Hello World");
 
-    expect(typography).toHaveStyle(`font-weight: bold; color: red; font-style: italic;`);
+    expect(typography).toHaveStyle(`font-weight: bold; color: red;`);
 
     userEvent.click(typography);
 

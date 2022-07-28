@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button } from '../index';
+import { AiOutlineInfoCircle } from "react-icons/ai";
 
 const variants = [
   {type: 'success'},
@@ -47,3 +48,15 @@ export const ButtonComponent = ButtonTemplate.bind({});
 ButtonComponent.args= {
   label: 'Button',
 };
+
+export const IconButton = ButtonTemplate.bind({});
+IconButton.args= {
+  icon: <AiOutlineInfoCircle/>,
+  outlined: true,
+  style: {
+    padding: '5px',
+  },
+  color: '#848484',
+};
+
+

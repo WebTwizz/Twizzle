@@ -14,22 +14,21 @@ describe("Avatar component", () => {
     const props = {
       src: "https://example.com/avatar.png",
       alt: "John Doe",
-      size: "large",
     };
 
-    render(<Avatar {...props} />);
+    render(<Avatar {...props} size={'large'} />);
     const avatar = screen.getByRole("avatar");
     const image = screen.getByRole("img");
 
     expect(image).toHaveAttribute("src", props.src);
     expect(image).toHaveAttribute("alt", props.alt);
-    expect(avatar).toHaveStyle(`height: 64px}`);
+    expect(avatar).toHaveStyle(`height: 3rem;}`);
   });
 
   it("should render Avatar with a square shape", () => {
     render(<Avatar name="John Doe" shape="square" />);
 
     const { getByRole } = screen;
-    expect(getByRole("avatar")).toHaveStyle(`border-radius: 5px`);
+    expect(getByRole("avatar")).toHaveStyle(`border-radius: 24px;`);
   });
 });

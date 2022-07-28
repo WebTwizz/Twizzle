@@ -18,11 +18,6 @@ export default {
       disabled: { control: 'boolean' },
       bold: { control: 'boolean' },
       italic: { control: 'boolean' },
-      type:{
-        options: ['success' , 'info' , 'warning' , 'danger'],
-        control: 'select',
-      },
-      icon: { control: false },
       style: { control: false },
     },
   } as ComponentMeta<typeof Typography>;

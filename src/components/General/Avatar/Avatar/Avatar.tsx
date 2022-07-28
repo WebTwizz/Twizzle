@@ -9,6 +9,7 @@ interface AvatarProps {
   src?: string;
   /**
    * The alt text to be displayed
+   * @default "avatar-image"
    */
   alt?: string;
   /**
@@ -18,8 +19,9 @@ interface AvatarProps {
   /**
    * The size of the avatar out of the following options:
    * small, medium, large
+   * @default medium
    */
-  size?: string;
+  size?: "small" | "medium" | "large";
   /**
    * The shape of the avatar out of the following options:
    * circle, square
@@ -38,7 +40,7 @@ interface AvatarProps {
 
 const Avatar: React.FC<AvatarProps> = ({
   src,
-  alt,
+  alt = "avatar-image",
   name,
   size = "medium",
   shape = "circle",
@@ -53,6 +55,13 @@ const Avatar: React.FC<AvatarProps> = ({
     ["#D67278", "#FFABB7"],
     ["#848FD8", "##897592"],
   ];
+
+  const sizeAttributes = {
+    small : {fontSize: "0.8rem", width: "1.5rem", height: "1.5rem", borderRadius: "16px"},
+    medium: {fontSize: "1rem", width: "2rem", height: "2rem", borderRadius: "24px"},
+    large: {fontSize: "1.5rem", width: "3rem", height: "3rem", borderRadius: "32px"},
+  };
+
 
   //get initials from name
   const getInitials = (name: string = 'Anonymous') => {
@@ -71,11 +80,10 @@ const Avatar: React.FC<AvatarProps> = ({
       style={{
         backgroundColor: !src? (backgroundColor || getColor[0]): undefined,
         color: color || getColor[1],
-        fontSize: size === "small" ? "0.8rem" : size === "large" ? "1.5rem" : "1rem",
-        width: size === "small" ? "32px" : size === "medium" ? "48px" : "64px",
-        height: size === "small" ? "32px" : size === "medium" ? "48px" : "64px",
-        borderRadius:
-          shape === "circle" ? "50%" : shape === "square" ? "5px" : "0px",
+        fontSize: sizeAttributes[size].fontSize,
+        width: sizeAttributes[size].width,
+        height: sizeAttributes[size].height,
+        borderRadius: sizeAttributes[size].borderRadius,
       }}
       {...rest}
     >
@@ -83,10 +91,9 @@ const Avatar: React.FC<AvatarProps> = ({
           <img 
           src={src} 
           alt={alt} 
-          className={`avatar-${size}`} 
           style={{
-            width: size === "small" ? "32px" : size === "medium" ? "48px" : "64px",
-            height: size === "small" ? "32px" : size === "medium" ? "48px" : "64px",
+            width: sizeAttributes[size].width,
+            height: sizeAttributes[size].height,
             borderRadius:
             size === "small" ? "16px" : size === "medium" ? "24px" : "32px",    
           }} 

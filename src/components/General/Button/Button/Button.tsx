@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
 import { Box } from "../../../Box/Box";
 import { Loader } from "../../../Feedback/Loader";
-import "./button.css";
 import { StyledButton } from "./StyledButton";
 
 interface ButtonProps {
@@ -99,6 +98,7 @@ const Button: React.FC<ButtonProps> = ({
       }`}
       {...props}
       style={{
+        border: outlined ? "1px solid" : "none",
         borderRadius: corner === "round" ? "30px" : "5px",
         backgroundColor: disabled
           ? "#EBEBE4"

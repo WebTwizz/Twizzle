@@ -1,6 +1,9 @@
 import React, { useContext } from 'react'
-import { ThemeContext } from '../../../../context/ThemeContext'
-import { StyledTypography } from './StyledTypography'
+import {
+  StyledTypography,
+  StyledTypography1, StyledTypography2, StyledTypography3, StyledTypography4, StyledTypography5, StyledTypography6, StyledTypographyp
+}
+from './StyledTypography'
 
 interface TypographyProps {
 
@@ -10,9 +13,9 @@ interface TypographyProps {
    */
   elementType: 1 | 2 | 3 | 4 | 5 | 6 | 'p'
   /**
-   * The ability of the element to be copied to the clipboard
+   * The ability of the element to be edited
    */
-  copyable?: boolean
+   editable?: boolean
   /**
    * The ability of the element to be disabled
    */
@@ -30,14 +33,6 @@ interface TypographyProps {
    */
   onClick?: () => void
   /**
-   * icon displayed on the left of the element
-   */
-  icon?: React.ReactNode
-  /**
-   * variant of the element chosen from the theme
-   */
-  type?: 'success' | 'info' | 'warning' | 'danger'
-  /**
    * Children to be rendered inside the element
    */
   children?: React.ReactNode
@@ -51,42 +46,34 @@ interface TypographyProps {
 const Typography: React.FC<TypographyProps> = ({
   elementType,
   disabled,
+  editable,
   bold,
   italic,
   onClick,
-  icon,
   style,
-  type,
   children,
   ...props
 }: TypographyProps) => {
-  const theme = useContext(ThemeContext)
-
-  const textSize= {
-    1: '2.5rem',
-    2: '2rem',
-    3: '1.5rem',
-    4: '1.25rem',
-    5: '1rem',
-    6: '0.875rem',
-    p: '0.875rem'
-  }
 
   return (
     <StyledTypography
-      className={'twizzle-typography'}
-      onClick={onClick}
-      style={{
-        cursor: disabled ? 'not-allowed' : 'pointer',
-        fontStyle: italic ? 'italic' : 'normal',
-        fontFamily: 'sans-serif',
+    contentEditable={editable}
+    onClick={() => onClick?.()}
+    style={{
         fontWeight: bold ? 'bold' : 'normal',
-        color:'black',
-        ...style
-      }}
-      height={textSize[elementType]}
+        fontStyle: italic ? 'italic' : 'normal',
+        cursor: disabled ? 'not-allowed' : 'inherit',
+      ...style,
+      
+    }}
     >
-      {children}
+      {elementType == 1 && <StyledTypography1 style={{...style}} {...props}>{children}</StyledTypography1>}
+      {elementType == 2 && <StyledTypography2 style={{...style}} {...props}>{children}</StyledTypography2>}
+      {elementType == 3 && <StyledTypography3 style={{...style}} {...props}>{children}</StyledTypography3>}
+      {elementType == 4 && <StyledTypography4 style={{...style}} {...props}>{children}</StyledTypography4>}
+      {elementType == 5 && <StyledTypography5 style={{...style}} {...props}>{children}</StyledTypography5>}
+      {elementType == 6 && <StyledTypography6 style={{...style}} {...props}>{children}</StyledTypography6>}
+      {elementType == 'p' && <StyledTypographyp style={{...style}} {...props}>{children}</StyledTypographyp>}
     </StyledTypography>
   )
 }

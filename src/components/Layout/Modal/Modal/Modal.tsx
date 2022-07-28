@@ -1,74 +1,141 @@
 import React, { useState } from "react";
 import { Overlay } from "../../../Feedback/Overlay";
 import { Button } from "../../../General/Button";
-import "./modal.css";
+import { Typography } from "../../../General/Typography";
+import {
+  StyledModal,
+  StyledModalBody,
+  StyledModalClose,
+  StyledModalContent,
+  StyledModalFooter,
+  StyledModalHeader,
+} from "./StyledModal";
 
 interface ModalProps {
-  modalStyle?: React.CSSProperties;
-  modalTitle?: string;
-  bodyStyle?: React.CSSProperties;
+  /**
+   * Title of the modal
+   */
+  title?: string;
+  /**
+   * boolean to show close button
+   */
   closable?: boolean;
+  /**
+   * boolean to show the footer of the modal
+   */
   footer?: boolean;
+  /**
+   * onCancel callback function
+   */
   onCancel?: () => void;
-  onOk?: () => void;
-  onClose: () => void;
+  /**
+   * Show cancel button
+   */
+  showCancel?: boolean;
+  /**
+   * onOk callback function
+   */
+  onConfirm?: () => void;
+  /**
+   * Show confirm button
+   */
+  showConfirm?: boolean;
+  /**
+   * text for the confirm button
+   * @default "Confirm"
+   */
+  confirmText?: string;
+  /**
+   * onClose callback function
+   */
+  onClose?: () => void;
+  /**
+   * Content of the modal for the body
+   */
   children: React.ReactNode;
+  /**
+   * styling for the modal
+   */
+  style?: React.CSSProperties;
+  /**
+   * styling for the body of the modal content
+   */
+  bodyStyle?: React.CSSProperties;
 }
 
 const Modal: React.FC<ModalProps> = ({
-  modalStyle,
-  modalTitle,
-  bodyStyle,
+  title,
   closable = true,
   footer = true,
   onCancel,
-  onOk,
+  showCancel = true,
+  onConfirm,
+  showConfirm = true,
+  confirmText = "Confirm",
   onClose,
   children,
+  style,
+  bodyStyle,
 }) => {
   const handleClose = () => {
-    onClose();
+    onClose?.();
   };
-  const handleOk = () => {
-    onOk?.();
+  const handleConfirm = () => {
+    onConfirm?.();
   };
   const handleCanel = () => {
     onCancel?.();
   };
   return (
     <>
-      <Overlay>
-        <div
-          className="twizzle-modal"
-          role={"dialog"}
+      <Overlay
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <StyledModal
+          role={"modal"}
+          style={{
+            ...style,
+          }}
         >
-          <div
-            className="twizzle-modal-content"
-            
+          <StyledModalContent
+            style={{
+              ...bodyStyle,
+            }}
           >
-            <div className="twizzle-modal-header">
-              <div className="twizzle-modal-title">
-                <h4 style={{fontWeight: 'normal'}}>{modalTitle} </h4>
-              </div>
+            <StyledModalHeader>
+              <Typography
+                elementType={5}
+                style={{ fontWeight: "normal", margin: "12px 0px" }}
+              >
+                {title}{" "}
+              </Typography>
               {closable && (
-                <div className="twizzle-modal-close" onClick={handleClose}>
-                 <i className="twizzle-icon-close">&#215;</i>
-                </div>
+                <StyledModalClose
+                  onClick={() => handleClose()}
+                  className="twizzle-modal-close"
+                  role={"close-button"}
+                >
+                  &#215;
+                </StyledModalClose>
               )}
-            </div>
-            <div className="twizzle-modal-body" style={bodyStyle}>
-              {children}
-            </div>
+            </StyledModalHeader>
+            <StyledModalBody style={bodyStyle}>{children}</StyledModalBody>
             {footer && (
-              <div className="twizzle-modal-footer">
-                <div className="twizzle-modal-footer-buttons">
+              <StyledModalFooter>
+                {showCancel && (
                   <Button onClick={handleCanel} label="Cancel" outlined />
-                  <Button onClick={handleOk} label="Ok" />
-                </div>
-              </div>
+                )}
+                {showConfirm && (
+                  <Button onClick={handleConfirm} label={confirmText} />
+                )}
+              </StyledModalFooter>
             )}
-          </div>
-        </div>
+          </StyledModalContent>
+        </StyledModal>
       </Overlay>
     </>
   );

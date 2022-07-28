@@ -36,7 +36,7 @@ const Alert: React.FC<AlertProps> = ({
   return (
     <StyledAlert role={"alert"} 
     style={{
-      width: size === "small" ? "30%" : size === "large" ? "50%" : "40%",
+      minWidth: size === "small" ? "30%" : size === "large" ? "50%" : "40%",
       ...style
     }}
     >

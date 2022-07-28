@@ -7,30 +7,26 @@ export default {
   title: "Components/Layout/Modal",
   component: Modal,
   argTypes: {
-    modalStyle: {
-      control: { type: "object" },
+    title: { 
+      control: "text",
+      defaultValue: "Modal"
     },
-    modalTitle: { control: "text" },
-    bodyStyle: { control: "object" },
-    closable: { control: "boolean" },
-    footer: { control: "boolean" },
-    onCanel: { control: "func" },
-    onOk: { control: "func" },
-    onClose: { control: "func" },
-    children: { control: "text" },
+    children: {
+      control: "text",
+      defaultValue: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus
+      purus lectus, at imperdiet sem vulputate non. Donec ac elit augue.
+      Aliquam erat volutpat. Suspendisse non imperdiet dui. Donec quam orci,
+      pulvinar quis lorem sed, fringilla dictum lectus. Nulla venenatis orci
+      sit amet risus aliquam ultrices.`
+    }
+    
   },
 } as ComponentMeta<typeof Modal>;
 
 const ModalTemplate: ComponentStory<typeof Modal> = ({
-  modalStyle,
-  modalTitle,
-  bodyStyle,
-  closable,
-  footer,
-  onCancel,
-  onOk,
-  onClose,
+  title,
   children,
+  ...rest
 }) => {
 
   const [isOpen, setIsOpen] = useState(true);
@@ -92,14 +88,9 @@ const ModalTemplate: ComponentStory<typeof Modal> = ({
       </div>
       {isOpen && (
       <Modal
-        modalStyle={modalStyle}
-        modalTitle={modalTitle}
-        bodyStyle={bodyStyle}
-        closable={closable}
-        footer={footer}
-        onCancel={onCancel}
-        onOk={onOk}
-        onClose={()=> setIsOpen(false)}
+        title="Modal"
+        {...rest}
+        onClose={() => setIsOpen(false)}
       >
         {children}
       </Modal>
@@ -109,16 +100,4 @@ const ModalTemplate: ComponentStory<typeof Modal> = ({
 };
 
 export const ModalComponent = ModalTemplate.bind({});
-ModalComponent.args = {
-  modalStyle: {
-    width: "500px",
-    height: "300px",
-  },
-  modalTitle: "Modal",
-  bodyStyle: {
-    backgroundColor: "#f5f5f5",
-  },
-  closable: true,
-  footer: true,
-  children: "Modal content",
-};
+ModalComponent.args = {};

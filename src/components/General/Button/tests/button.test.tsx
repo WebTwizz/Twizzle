@@ -20,7 +20,7 @@ describe("Button component", () => {
         render(<Button label={""} isLoading={true}/>);
     
         const { getByRole } = screen;
-        expect(getByRole("button")).toHaveTextContent("Loading");
+        expect(getByRole("loader")).toBeInTheDocument();
     })
     it("should render Button with disabled", () => {
         render(<Button label={""} disabled />);
