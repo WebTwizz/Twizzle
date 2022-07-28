@@ -77,7 +77,7 @@ export const TextInput: React.FC<InputProps> = ({
   inputName,
   inputLabel,
   inputLabelDescription,
-  errorMessage: validationError,
+  errorMessage,
   placeholder,
   value,
   maxCount = 100,
@@ -91,16 +91,44 @@ export const TextInput: React.FC<InputProps> = ({
   ...props
 }) => {
   const [hover, setHover] = useState(false);
-  const [inputValue, setInputValue] = useState(value);
   const theme = useContext(ThemeContext);
+  const inputRef = React.createRef<HTMLInputElement>();
+  const [inputValue, setInputValue] = useState(value);
+
+  const sizeAttributes = {
+    small: {
+      fontSize: "12px",
+      descriptionFontSize: "10px",
+      labelMargin: "2px",
+      defaultWidth: "25%",
+      padding: "5px 10px",
+    },
+    medium: {
+      fontSize: "14px",
+      descriptionFontSize: "12px",
+      labelMargin: "4px",
+      defaultWidth: "35%",
+      padding: "10px 15px",
+    },
+    large: {
+      fontSize: "16px",
+      descriptionFontSize: "14px",
+      labelMargin: "6px",
+      defaultWidth: "50%",
+      padding: "15px 20px",
+
+    },
+  };
+
+
   return (
-    <Box style={{flexDirection: 'column'}}>
+    <Box style={{flexDirection: 'column'}} onClick={() => inputRef.current?.focus()}>
       {inputLabel && 
-      <Typography elementType={size == "small"? 6: 5 } style={{padding: '4px'}}>
+      <Typography elementType={'p'} bold style={{margin:0, fontSize: sizeAttributes[size].fontSize}}>
         {inputLabel}
       </Typography>}
       {inputLabelDescription && (
-        <Typography elementType={'p'} style={{padding: '2px 4px', color: '#848482', fontSize: "small"? "0.75em": size == "large"? "1em" : "0.875em"}}>
+        <Typography elementType={'p'} style={{marginTop:sizeAttributes[size].labelMargin, color: '#5c6178', fontSize: sizeAttributes[size].descriptionFontSize}}>
           {inputLabelDescription}
         </Typography>
       )}
@@ -117,26 +145,22 @@ export const TextInput: React.FC<InputProps> = ({
           }`,
           backgroundColor: disabled ? "#e9e9e9" : "white",
           cursor: disabled ? "not-allowed" : "text",
-          fontSize:
-            size === "small" ? "12px" : size === "large" ? "16px" : "14px",
-          width: size === "small" ? "25%" : size === "large" ? "50%" : "35%",
-          padding:
-            size === "small"
-              ? "5px 10px"
-              : size === "large"
-              ? "10px 20px"
-              : "10px 15px",
+          fontSize:sizeAttributes[size].fontSize,
+          width: sizeAttributes[size].defaultWidth,
+          padding: sizeAttributes[size].padding,
           ...style,
         }}
       >
         <StyledTextInput
           type="text"
+          ref={inputRef}
           name={inputName}
           placeholder={placeholder}
           value={inputValue}
           disabled={disabled}
           maxLength={maxCount}
           onChange={(e) => {
+            console.log(inputValue);
             setInputValue(e.target.value);
             if (onChange) {
               onChange(e.target.value);
@@ -156,12 +180,7 @@ export const TextInput: React.FC<InputProps> = ({
             <TiDelete
               style={{
                 color: "#e9e9e9",
-                fontSize:
-                  size === "small"
-                    ? "15px"
-                    : size === "large"
-                    ? "16px"
-                    : "14px",
+                fontSize: sizeAttributes[size].fontSize,
                 cursor: "pointer",
               }}
               onClick={() => {
@@ -172,8 +191,8 @@ export const TextInput: React.FC<InputProps> = ({
           )}
         </Box>
       </StyledInputContainer>
-      {validationError && invalid && (
-       <TextAlert variant="danger" size={size === "small"? "small" : "medium"}>{validationError}</TextAlert>
+      {errorMessage && invalid && (
+       <TextAlert variant="danger" style={{margin: '0px'}} size={size === "small"? "small" : "medium"}>{errorMessage}</TextAlert>
       )}
     </Box>
   );

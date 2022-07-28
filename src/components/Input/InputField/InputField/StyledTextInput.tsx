@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledInputContainer = styled.div`
-    margin: 8px 0;
+    margin: 2px 0;
     box-sizing: border-box;
     border-radius: 3px;
     -webkit-transition: 0.5s;
