@@ -3,7 +3,7 @@ import { Pagination } from '..';
 
 
 export default {
-    title: 'Components/Layout/Pagination',
+    title: 'Components/Navigation/Pagination',
     component: Pagination,
     argTypes: {
         page: {
