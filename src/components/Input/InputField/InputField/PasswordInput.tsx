@@ -6,6 +6,7 @@ import { TextAlert } from "../../../Layout/Alert";
 import { StyledInputContainer, StyledTextInput } from "./StyledTextInput";
 import { InputProps } from "./TextInput";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { greyBackgroundColor } from "../../../constants";
 
 interface PasswordInputProps extends InputProps {
   /**
@@ -137,7 +138,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
             (type === "password" ? (
               <AiFillEyeInvisible
                 style={{
-                  color: "#e9e9e9",
+                  color: greyBackgroundColor,
                   fontSize: sizeAttributes[size].fontSize,
                   cursor: "pointer",
                 }}
@@ -146,7 +147,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
             ) : (
               <AiFillEye
                 style={{
-                  color: "#e9e9e9",
+                  color: greyBackgroundColor,
                   fontSize: sizeAttributes[size].fontSize,
                   cursor: "pointer",
                 }}

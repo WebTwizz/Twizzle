@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, within } from "@testing-library/react";
-import { Avatar } from "../";
+import { Avatar, AvatarGroup } from "../";
 
 describe("Avatar component", () => {
   it("should render Avatar with initials", () => {
@@ -30,5 +30,21 @@ describe("Avatar component", () => {
 
     const { getByRole } = screen;
     expect(getByRole("avatar")).toHaveStyle(`border-radius: 24px;`);
+  });
+});
+
+describe("AvatarGroup component", () => {
+  it("should render AvatarGroup with 3 avatars", () => {
+    render(
+      <AvatarGroup>
+        <Avatar name="John Doe" />
+        <Avatar name="Adam Smith" />
+        <Avatar name="Bob Neill" />
+      </AvatarGroup>
+    );
+
+    expect(screen.getByText('JD')).toBeInTheDocument();
+    expect(screen.getByText('AS')).toBeInTheDocument();
+    expect(screen.getByText('BN')).toBeInTheDocument();
   });
 });

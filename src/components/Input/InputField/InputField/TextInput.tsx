@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { TiDelete } from "react-icons/ti";
 import { ThemeContext } from "../../../../context/ThemeContext";
 import { Box } from "../../../Box/Box";
+import { greyBackgroundColor } from "../../../constants";
 import { Typography } from "../../../General/Typography";
 import { TextAlert } from "../../../Layout/Alert";
 import { smallDangerAlertSVG } from "../../../Layout/Alert/Alert/svg";
@@ -177,7 +178,7 @@ export const TextInput: React.FC<InputProps> = ({
           {allowClear && inputValue && (
             <TiDelete
               style={{
-                color: "#e9e9e9",
+                color: greyBackgroundColor,
                 fontSize: sizeAttributes[size].fontSize,
                 cursor: "pointer",
               }}

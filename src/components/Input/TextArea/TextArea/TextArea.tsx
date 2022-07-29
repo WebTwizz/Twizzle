@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { TiDelete } from "react-icons/ti";
 import { ThemeContext } from "../../../../context/ThemeContext";
+import { greyBackgroundColor } from "../../../constants";
 import { InputProps } from "../../InputField/InputField/TextInput";
 import './textarea.css';
 
@@ -26,7 +27,7 @@ export const TextArea: React.FC<InputProps> = ({
     className="twizzle-input-textarea-container"
     style={{
       // border: `0.5px solid ${hover ? variant? theme?.variants?.[variant]?.color: theme.primary?.backgroundColor : "#E8E8E8"}`,
-      backgroundColor: disabled ? "#e9e9e9" : "white",
+      backgroundColor: disabled ? greyBackgroundColor : "white",
       cursor: disabled ? "not-allowed" : "text",
       ...style,
     }}
@@ -37,7 +38,7 @@ export const TextArea: React.FC<InputProps> = ({
       placeholder={placeholder}
       style={{
         border:'none',
-        backgroundColor: disabled ? "#e9e9e9" : "white",
+        backgroundColor: disabled ? greyBackgroundColor : "white",
         cursor: disabled ? "not-allowed" : "text",
       }}
       value={inputValue}
@@ -72,7 +73,7 @@ export const TextArea: React.FC<InputProps> = ({
             color: "#d5d5d5",
             marginLeft:'auto',
             marginTop:'auto',
-            backgroundColor: disabled ? "#e9e9e9" : "white",
+            backgroundColor: disabled ? greyBackgroundColor : "white",
           }}
         >
           {inputValue?.length}/{maxCount}

@@ -4,6 +4,7 @@ import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 import "./select.css";
+import { greyBackgroundColor } from "../../../constants";
 
 export interface SelectProps{
     value?: string;
@@ -47,7 +48,7 @@ const Select: React.FC<SelectProps> = ({
           border: `0.5px solid ${
             isSelecting ? theme.primary?.backgroundColor : "#E8E8E8"
           }`,
-          backgroundColor: disabled ? "#e9e9e9" : "white",
+          backgroundColor: disabled ? greyBackgroundColor : "white",
           color: disabled ? "#d5d5d5" : "black",
           cursor: disabled ? "not-allowed" : "pointer",
         }}

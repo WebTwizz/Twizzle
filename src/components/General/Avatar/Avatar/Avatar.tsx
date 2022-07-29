@@ -83,7 +83,7 @@ const Avatar: React.FC<AvatarProps> = ({
         fontSize: sizeAttributes[size].fontSize,
         width: sizeAttributes[size].width,
         height: sizeAttributes[size].height,
-        borderRadius: sizeAttributes[size].borderRadius,
+        borderRadius: shape == 'square'? '3px': sizeAttributes[size].borderRadius,
       }}
       {...rest}
     >
@@ -94,8 +94,7 @@ const Avatar: React.FC<AvatarProps> = ({
           style={{
             width: sizeAttributes[size].width,
             height: sizeAttributes[size].height,
-            borderRadius:
-            size === "small" ? "16px" : size === "medium" ? "24px" : "32px",    
+            borderRadius:shape == 'square'? '3px': sizeAttributes[size].borderRadius,  
           }} 
           />
         ) : (
