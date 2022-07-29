@@ -3,7 +3,11 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { SearchInput } from "..";
 
 export default {
+<<<<<<< HEAD
     title: 'Components/Input/SearchInput',
+=======
+    title: 'Components/Input/InputField/SearchInput',
+>>>>>>> 3105331 (Update Input components)
     component: SearchInput,
     argTypes: {
         placeholder: {

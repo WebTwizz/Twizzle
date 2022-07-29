@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {TextInput } from "..";
 
 export default {
-    title: 'Components/Input/TextInput',
+    title: 'Components/Input/InputField/TextInput',
     component: TextInput,
     argTypes: {
         placeholder: {

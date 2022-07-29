@@ -3,7 +3,11 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { PasswordInput } from "..";
 
 export default {
+<<<<<<< HEAD
     title: 'Components/Input/PasswordInput',
+=======
+    title: 'Components/Input/InputField/PasswordInput',
+>>>>>>> 3105331 (Update Input components)
     component: PasswordInput,
     argTypes: {
         placeholder: {
