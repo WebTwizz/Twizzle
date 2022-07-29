@@ -1,14 +1,14 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {TextInput } from "..";
+import { PasswordInput } from "..";
 
 export default {
-    title: 'Components/Input/TextInput',
-    component: TextInput,
+    title: 'Components/Input/PasswordInput',
+    component: PasswordInput,
     argTypes: {
         placeholder: {
             control: { type: 'text' },
-            defaultValue: 'Placeholder',
+            defaultValue: 'Password',
         },
         onChange: {
             control: { control: false },
@@ -26,16 +26,16 @@ export default {
             },
         }
     }
-} as ComponentMeta<typeof TextInput>;
+} as ComponentMeta<typeof PasswordInput>;
 
-const TextInputTemplate: ComponentStory<typeof TextInput> = ({
+const PasswordInputTemplate: ComponentStory<typeof PasswordInput> = ({
     placeholder,
     value,
     onChange,
     ...rest
 }) => {
     return (
-        <TextInput
+        <PasswordInput
             placeholder={placeholder}
             value={value}
             onChange={onChange}
@@ -45,4 +45,4 @@ const TextInputTemplate: ComponentStory<typeof TextInput> = ({
 }
 
 
-export const InputComponent = TextInputTemplate.bind({});
+export const PasswordInputComponent = PasswordInputTemplate.bind({});

@@ -21,7 +21,7 @@ export const StyledTextInput = styled.input`
     outline: none;
     width: 98%;
     :disabled {
-        background-color: #e9e9e9;
+        background-color: #ebebe4;
         cursor: not-allowed;
     }
 `;

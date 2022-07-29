@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { TextInput } from "..";
+import { PasswordInput, SearchInput, TextInput } from "..";
 import userEvent from "@testing-library/user-event";
 
 describe("Input Field component", () => {
@@ -20,6 +20,7 @@ describe("Input Field component", () => {
          const input = screen.getByRole("textbox");
         userEvent.click(input);
         userEvent.type(input, "Hello");
+        expect(screen.getByText("Hello")).toBeInTheDocument();
     });
 
     it("should limit character count", () => {
@@ -33,7 +34,6 @@ describe("Input Field component", () => {
         const input = screen.getByRole("textbox");
         userEvent.click(input);
         userEvent.type(input, "Hello");
-        expect(input).toHaveValue("Hello");
         const deleteButton = screen.getByRole("textdelete");
         expect(deleteButton).toBeInTheDocument();
         userEvent.click(deleteButton);
@@ -51,4 +51,20 @@ describe("Input Field component", () => {
 
 });
 
+describe("Search Input Field component", () => {
+    it("should render correctly", () => {
+        const onSearch = jest.fn();
+        render(<SearchInput inputName={""} inputLabel={"Search"} onSearch={onSearch()}/>);
+        expect(screen.getByRole("textbox")).toBeInTheDocument();
+        userEvent.click(screen.getByRole("button"));
+        expect(onSearch).toHaveBeenCalled();
+    });
+});
+
+describe("Password Input Field component", () => {
+    it("should render correctly", () => {
+        render(<PasswordInput inputName={""} placeholder="placeholder" />);
+        expect(screen.getByRole("password")).toBeInTheDocument();
+    });
+});
 

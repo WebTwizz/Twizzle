@@ -1,79 +1,24 @@
 import React, { useContext, useState } from "react";
-import { TiDelete } from "react-icons/ti";
 import { ThemeContext } from "../../../../context/ThemeContext";
 import { Box } from "../../../Box/Box";
 import { Typography } from "../../../General/Typography";
 import { TextAlert } from "../../../Layout/Alert";
-import { smallDangerAlertSVG } from "../../../Layout/Alert/Alert/svg";
 import { StyledInputContainer, StyledTextInput } from "./StyledTextInput";
+import { InputProps } from "./TextInput";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
-export interface InputProps {
+interface PasswordInputProps extends InputProps {
   /**
-   * The name of the input
+   * Display button to see password
    */
-  inputName: string;
+  showPasswordIcon?: boolean;
   /**
-   * Label for the input
+   * Change input type to text
    */
-  inputLabel?: string;
-  /**
-   * Label description for the input
-   */
-  inputLabelDescription?: string;
-   /**
-   * hint for the input
-   */
-  errorMessage?: string;
-  /**
-   * display character count
-   */
-  characterCount?: boolean;
-  /**
-   * limit character count to a certain number
-   */
-  maxCount?: number;
-  /**
-   * display placeholder in input
-   */
-  placeholder?: string;
-  /**
-   * give a default value to the input
-   */
-  value?: string;
-  /**
-   * onChange Callback method
-   */
-  onChange?: (value: string) => void;
-  /**
-   * Change styling based on variants that include:
-   * ['info', 'success', 'warning', 'danger']
-   */
-  variant?: "info" | "success" | "warning" | "danger";
-  /**
-   * Display button to clear text
-   */
-  allowClear?: boolean;
-  /**
-   * invalidate input
-   */
-  invalid?: boolean;
-  /**
-   * disable text input
-   */
-  disabled?: boolean;
-  /**
-   * Add customs styling
-   */
-  style?: React.CSSProperties;
-  /**
-   * size of input between the following:
-   * ['small', 'medium', 'large']
-   * @default 'medium'
-   */
-  size?: "small" | "medium" | "large";
+  inputType?: 'text' | 'password';
 }
 
-export const TextInput: React.FC<InputProps> = ({
+export const PasswordInput: React.FC<PasswordInputProps> = ({
   inputName,
   inputLabel,
   inputLabelDescription,
@@ -84,16 +29,17 @@ export const TextInput: React.FC<InputProps> = ({
   onChange,
   disabled,
   variant,
-  allowClear,
   invalid,
   style,
+  showPasswordIcon,
+  inputType = 'password',
   size = "medium",
   ...props
 }) => {
   const [hover, setHover] = useState(false);
   const theme = useContext(ThemeContext);
   const inputRef = React.createRef<HTMLInputElement>();
-  const [inputValue, setInputValue] = useState(value);
+  const [type, setType] = useState(inputType);
 
   const sizeAttributes = {
     small: {
@@ -116,19 +62,32 @@ export const TextInput: React.FC<InputProps> = ({
       labelMargin: "6px",
       defaultWidth: "50%",
       padding: "15px 20px",
-
     },
   };
 
-
   return (
-    <Box style={{flexDirection: 'column'}} onClick={() => inputRef.current?.focus()}>
-      {inputLabel && 
-      <Typography elementType={'p'} bold style={{margin:0, fontSize: sizeAttributes[size].fontSize}}>
-        {inputLabel}
-      </Typography>}
+    <Box
+      style={{ flexDirection: "column" }}
+      onClick={() => inputRef.current?.focus()}
+    >
+      {inputLabel && (
+        <Typography
+          elementType={"p"}
+          bold
+          style={{ margin: 0, fontSize: sizeAttributes[size].fontSize }}
+        >
+          {inputLabel}
+        </Typography>
+      )}
       {inputLabelDescription && (
-        <Typography elementType={'p'} style={{marginTop:sizeAttributes[size].labelMargin, color: '#5c6178', fontSize: sizeAttributes[size].descriptionFontSize}}>
+        <Typography
+          elementType={"p"}
+          style={{
+            marginTop: sizeAttributes[size].labelMargin,
+            color: "#5c6178",
+            fontSize: sizeAttributes[size].descriptionFontSize,
+          }}
+        >
           {inputLabelDescription}
         </Typography>
       )}
@@ -145,21 +104,21 @@ export const TextInput: React.FC<InputProps> = ({
           }`,
           backgroundColor: disabled ? "#ebebe4" : "white",
           cursor: disabled ? "not-allowed" : "text",
-          fontSize:sizeAttributes[size].fontSize,
+          fontSize: sizeAttributes[size].fontSize,
           width: sizeAttributes[size].defaultWidth,
           padding: sizeAttributes[size].padding,
           ...style,
         }}
       >
         <StyledTextInput
-          type="text"
+          type={type === 'text' ? 'text' : 'password'}
           ref={inputRef}
           name={inputName}
+          role="password"
           placeholder={placeholder}
           disabled={disabled}
           maxLength={maxCount}
           onChange={(e) => {
-            setInputValue(e.target.value);
             if (onChange) {
               onChange(e.target.value);
             }
@@ -174,26 +133,39 @@ export const TextInput: React.FC<InputProps> = ({
             justifyContent: "center",
           }}
         >
-          {allowClear && inputValue && (
-            <TiDelete
-              style={{
-                color: "#e9e9e9",
-                fontSize: sizeAttributes[size].fontSize,
-                cursor: "pointer",
-              }}
-              onClick={() => {
-                setInputValue("");
-              }}
-              role="textdelete"
-            />
-          )}
+          {showPasswordIcon &&
+            (type === "password" ? (
+              <AiFillEyeInvisible
+                style={{
+                  color: "#e9e9e9",
+                  fontSize: sizeAttributes[size].fontSize,
+                  cursor: "pointer",
+                }}
+                onClick={() => { setType('text'); }}
+              />
+            ) : (
+              <AiFillEye
+                style={{
+                  color: "#e9e9e9",
+                  fontSize: sizeAttributes[size].fontSize,
+                  cursor: "pointer",
+                }}
+                onClick={() => { setType('password'); }}
+              />
+            ))}
         </Box>
       </StyledInputContainer>
       {errorMessage && invalid && (
-       <TextAlert variant="danger" style={{margin: '0px'}} size={size === "small"? "small" : "medium"}>{errorMessage}</TextAlert>
+        <TextAlert
+          variant="danger"
+          style={{ margin: "0px" }}
+          size={size === "small" ? "small" : "medium"}
+        >
+          {errorMessage}
+        </TextAlert>
       )}
     </Box>
   );
 };
 
-export default TextInput;
+export default PasswordInput;

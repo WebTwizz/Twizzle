@@ -1,10 +1,10 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {TextInput } from "..";
+import { SearchInput } from "..";
 
 export default {
-    title: 'Components/Input/TextInput',
-    component: TextInput,
+    title: 'Components/Input/SearchInput',
+    component: SearchInput,
     argTypes: {
         placeholder: {
             control: { type: 'text' },
@@ -26,23 +26,17 @@ export default {
             },
         }
     }
-} as ComponentMeta<typeof TextInput>;
+} as ComponentMeta<typeof SearchInput>;
 
-const TextInputTemplate: ComponentStory<typeof TextInput> = ({
-    placeholder,
-    value,
-    onChange,
+
+const SearchInputTemplate: ComponentStory<typeof SearchInput> = ({
     ...rest
 }) => {
     return (
-        <TextInput
-            placeholder={placeholder}
-            value={value}
-            onChange={onChange}
-            {...rest}
+        <SearchInput     // inputName= "search"
+           {...rest}
         />
     )
 }
 
-
-export const InputComponent = TextInputTemplate.bind({});
+export const SearchInputComponent = SearchInputTemplate.bind({});
