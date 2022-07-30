@@ -63,6 +63,14 @@ export interface InputProps {
    */
   disabled?: boolean;
   /**
+   * boolean if border radius should be applied to input
+   */
+  cornerRadius?: boolean;
+   /**
+   * width size of input
+   */
+  width?: string;
+  /**
    * Add customs styling
    */
   style?: React.CSSProperties;
@@ -84,6 +92,8 @@ export const TextInput: React.FC<InputProps> = ({
   maxCount = 100,
   onChange,
   disabled,
+  cornerRadius,
+  width,
   variant,
   allowClear,
   invalid,
@@ -123,7 +133,7 @@ export const TextInput: React.FC<InputProps> = ({
 
 
   return (
-    <Box style={{flexDirection: 'column'}} onClick={() => inputRef.current?.focus()}>
+    <Box style={{flexDirection: 'column', width}} onClick={() => inputRef.current?.focus()}>
       {inputLabel && 
       <Typography elementType={'p'} bold style={{margin:0, fontSize: sizeAttributes[size].fontSize}}>
         {inputLabel}
@@ -135,6 +145,7 @@ export const TextInput: React.FC<InputProps> = ({
       )}
       <StyledInputContainer
         style={{
+          borderRadius: cornerRadius ? "5px" : "0px",
           border: `0.5px solid ${
             invalid
               ? "#b22222"

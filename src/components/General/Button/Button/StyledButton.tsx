@@ -5,7 +5,6 @@ export const StyledButton = styled.button`
     font-weight: 700;
     border: ${props => props.style?.border || "1px solid #EBEBE4"};
     border-radius: ${props => props.style?.borderRadius || "5px"};
-    margin: 5px;
     padding: 15px;
     cursor: pointer;
     display: flex;

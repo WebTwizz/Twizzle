@@ -68,7 +68,6 @@ const SearchInput: React.FC<SearchInputProps> = ({
         style={{
           margin: "0px",
           padding: sizeAttributes[size].padding,
-          // fontSize: sizeAttributes[size].fontSize,
           borderRadius: "0px 5px 5px 0px",
         }}
         isLoading={isLoading}

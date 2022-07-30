@@ -113,7 +113,6 @@ const Button: React.FC<ButtonProps> = ({
             color
           : 'white',
         filter: hover ? outlined? "brightness(0.95)" : "brightness(1.2)" : "brightness(1)",
-        margin: "5px",
         fontSize: size === "small" ? "12px" : size === "large" ? "20px" : "15px",
         ...style,
       }}
