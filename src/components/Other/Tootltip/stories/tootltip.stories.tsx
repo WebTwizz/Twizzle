@@ -1,30 +1,40 @@
 //create a storybook component
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Tooltip } from '..';
-import { TooltipPosition } from '../Tooltip/Tooltip';
-
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Tooltip } from "..";
+import { Box } from "../../../Box/Box";
+import { Typography } from "../../../General/Typography";
 
 export default {
-    title: 'Components/Other/Tootltip',
-    component: Tooltip,
-    argTypes: {
-        position: {
-            control: { type: 'select', options: Object.values(TooltipPosition) },
-        },
-    },  
+  title: "Components/Other/Tootltip",
+  component: Tooltip,
+  argTypes: {
+    position: {
+      control: {
+        type: "select",
+        options: ["TOP", "BOTTOM"],
+      },
+    },
+  },
 } as ComponentMeta<typeof Tooltip>;
 
-const TooltipTemplate: ComponentStory<typeof Tooltip> = ({ position, children, ...rest }) => {
-    
-    return (
-        <>
-            <h1>something</h1>
-            <Tooltip position={position} {...rest} > 
-            {/* <Button label='&#128712;' color='#364859'/>  */}
-            This is a really long text that will be truncated and wrapped in a tooltip.
-            </Tooltip>
-        </>
-    );
-}
+const TooltipTemplate: ComponentStory<typeof Tooltip> = ({
+  position,
+  children,
+  tooltipText = "Hello World!",
+  ...rest
+}) => {
+  return (
+    <>
+      <Typography elementType={2} bold>
+        Tooltip
+      </Typography>
+      <Tooltip position={position} tooltipText={tooltipText} {...rest}>
+        <Typography elementType={"p"}>
+          Hover on this text to see tooltip
+        </Typography>
+      </Tooltip>
+    </>
+  );
+};
 
 export const TooltipComponent = TooltipTemplate.bind({});

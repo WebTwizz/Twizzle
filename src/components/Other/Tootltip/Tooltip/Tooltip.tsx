@@ -1,54 +1,61 @@
-//create a tooltip component
-
-import { useState } from "react";
-
-export enum TooltipPosition {
-  top,
-  bottom,
-  left,
-  right,
-}
+import React, { useState } from "react";
+import { StyledTooltip, StyledTooltipContainer } from "./StyledTooltip";
 
 interface TooltipProps {
-  position: TooltipPosition;
+  /**
+   * position of the tooltip
+   */
+  position: 'TOP' | 'BOTTOM';
+  /**
+   * text to be rendered inside the tooltip
+   */
+   tooltipText: string;
+  /**
+   * content of the tooltip
+   */
   children?: React.ReactNode;
-  visible?: boolean;
+  /**
+   * boolean to show or hide the tooltip
+   */
+  alwaysShown?: boolean;
 }
 
 const Tooltip: React.FC<TooltipProps> = ({
-  position = TooltipPosition.top,
-  visible,
+  position = 'TOP',
+  alwaysShown,
+  tooltipText,
   children,
 }: TooltipProps) => {
 
-    const [visibility, setVisibility] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  const positioning = {
+    TOP: {
+      bottom: '80%',
+    },
+    BOTTOM: {
+      bottom: '-80%',
+    }
+  }
   return (
-    <div 
-    className={`twizzle-tooltip`}
-    onMouseEnter={()=>setVisibility(true)}
-    onMouseLeave={()=>setVisibility(false)}
-    style={{
-        position: 'relative',
-        width:'fit-content',
-    }}
-    >
+    <>
+      <StyledTooltipContainer 
+      onMouseEnter={() =>setShowTooltip(true)}
+      onMouseLeave={() =>setShowTooltip(false)}
+      >
         {children}
-      <span 
-      className={`twizzle-tooltip-${position}`} 
-      style={{
-        visibility: visibility? 'visible' : 'hidden',
-        transition: 'visibility 0.25s linear',
-        position: 'absolute',
-        color: '#fff',
-        backgroundColor: '#364859',
-        padding: '8px',
-        borderRadius: '4px',
-        fontSize: '1em',
-        fontFamily: 'sans-serif',
-      }}>
-       sample
-      </span>
-    </div>
+        <StyledTooltip 
+        className="twizzle-tooltip" 
+        style={{
+          bottom: positioning[position].bottom,
+          visibility: alwaysShown ? 'visible' : showTooltip ? 'visible' : 'hidden',
+          opacity: alwaysShown ? 1 : showTooltip ? 1 : 0,
+        }}
+        >
+          {tooltipText}
+          </StyledTooltip>
+      </StyledTooltipContainer>
+    </>
   );
 };
 
