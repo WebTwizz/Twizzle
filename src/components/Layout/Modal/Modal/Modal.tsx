@@ -127,10 +127,10 @@ const Modal: React.FC<ModalProps> = ({
             {footer && (
               <StyledModalFooter>
                 {showCancel && (
-                  <Button onClick={handleCanel} label="Cancel" outlined />
+                  <Button onClick={handleCanel} style={{margin: '0px 5px'}} label="Cancel" outlined />
                 )}
                 {showConfirm && (
-                  <Button onClick={handleConfirm} label={confirmText} />
+                  <Button onClick={handleConfirm} style={{margin: '0px 5px'}} label={confirmText} />
                 )}
               </StyledModalFooter>
             )}

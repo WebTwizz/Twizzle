@@ -55,25 +55,27 @@ const Typography: React.FC<TypographyProps> = ({
   ...props
 }: TypographyProps) => {
 
+  const fontWeight = bold ? '500' : '300'
+
   return (
     <StyledTypography
     contentEditable={editable}
     onClick={() => onClick?.()}
     style={{
-        fontWeight: bold ? 'bold' : 'normal',
         fontStyle: italic ? 'italic' : 'normal',
         cursor: disabled ? 'not-allowed' : 'inherit',
       ...style,
       
     }}
     >
-      {elementType == 1 && <StyledTypography1 style={{...style}} {...props}>{children}</StyledTypography1>}
-      {elementType == 2 && <StyledTypography2 style={{...style}} {...props}>{children}</StyledTypography2>}
-      {elementType == 3 && <StyledTypography3 style={{...style}} {...props}>{children}</StyledTypography3>}
-      {elementType == 4 && <StyledTypography4 style={{...style}} {...props}>{children}</StyledTypography4>}
-      {elementType == 5 && <StyledTypography5 style={{...style}} {...props}>{children}</StyledTypography5>}
-      {elementType == 6 && <StyledTypography6 style={{...style}} {...props}>{children}</StyledTypography6>}
-      {elementType == 'p' && <StyledTypographyp style={{...style}} {...props}>{children}</StyledTypographyp>}
+      {elementType == 1 && <StyledTypography1 style={{fontWeight:fontWeight, ...style}} {...props}>{children}</StyledTypography1>}
+      {elementType == 2 && <StyledTypography2 style={{fontWeight:fontWeight, ...style}} {...props}>{children}</StyledTypography2>}
+      {elementType == 3 && <StyledTypography3 style={{fontWeight:fontWeight, ...style}} {...props}>{children}</StyledTypography3>}
+      {elementType == 4 && <StyledTypography4 style={{fontWeight:fontWeight, ...style}} {...props}>{children}</StyledTypography4>}
+      {elementType == 5 && <StyledTypography5 style={{fontWeight:fontWeight, ...style}} {...props}>{children}</StyledTypography5>}
+      {elementType == 6 && <StyledTypography6 style={{fontWeight:fontWeight, ...style}} {...props}>{children}</StyledTypography6>}
+      {elementType == 'p' && <StyledTypographyp style={{fontWeight:fontWeight, ...style}} {...props}>{children}</StyledTypographyp>}
+
     </StyledTypography>
   )
 }
