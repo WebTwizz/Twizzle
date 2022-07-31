@@ -1,4 +1,6 @@
-.twizzle-back-to-top {
+import styled from 'styled-components';
+
+export const StyledBackToTop = styled.button`
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -8,9 +10,8 @@
     outline: none;
     color: white;
     cursor: pointer;
-    padding: 15px;
-    border-radius: 4px;
-}
-.twizzle-back-to-top:hover {
-    filter: brightness(0.8);
-}
+    padding: 10px;
+    :hover {
+        filter: brightness(0.8);
+    }
+`;
