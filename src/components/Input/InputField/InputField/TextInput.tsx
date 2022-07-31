@@ -26,10 +26,6 @@ export interface InputProps {
    */
   errorMessage?: string;
   /**
-   * display character count
-   */
-  characterCount?: boolean;
-  /**
    * limit character count to a certain number
    */
   maxCount?: number;

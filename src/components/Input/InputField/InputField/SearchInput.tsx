@@ -17,6 +17,8 @@ interface SearchInputProps extends InputProps {
 
 const SearchInput: React.FC<SearchInputProps> = ({
   onSearch,
+  disabled,
+  width,
   size = "medium",
   inputLabel,
   inputLabelDescription,
@@ -30,18 +32,21 @@ const SearchInput: React.FC<SearchInputProps> = ({
       fontSize: "12px",
       labelMargin: "2px",
       descriptionFontSize: "10px",
+      width: "25%",
     },
     medium: {
       padding: "11.625px",
       fontSize: "14px",
       labelMargin: "4px",
       descriptionFontSize: "12px",
+      width: "35%",
     },
     large: {
       padding: "16.625px",
       fontSize: "16px",
       labelMargin: "6px",
       descriptionFontSize: "14px",
+      width: "50%",
     },
   };
 
@@ -60,11 +65,14 @@ const SearchInput: React.FC<SearchInputProps> = ({
           borderRadius: "5px 0px 0px 5px",
         }}
         size={size}
+        disabled={disabled}
+        width={width || sizeAttributes[size].width}
         {...props}
       />
       <Button
         label={""}
         icon={<BiSearch />}
+        disabled={disabled}
         style={{
           margin: "0px",
           padding: sizeAttributes[size].padding,

@@ -16,7 +16,7 @@ describe("Input Field component", () => {
     });
 
     it("should display character count", () => {
-         render(<TextInput inputName={""} characterCount={true} />);
+         render(<TextInput inputName={""} />);
          const input = screen.getByRole("textbox");
         userEvent.click(input);
         userEvent.type(input, "Hello");

@@ -25,6 +25,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
   inputLabelDescription,
   errorMessage,
   placeholder,
+  width,
   value,
   maxCount = 100,
   onChange,
@@ -106,7 +107,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
           backgroundColor: disabled ? "#ebebe4" : "white",
           cursor: disabled ? "not-allowed" : "text",
           fontSize: sizeAttributes[size].fontSize,
-          width: sizeAttributes[size].defaultWidth,
+          width: width || sizeAttributes[size].defaultWidth,
           padding: sizeAttributes[size].padding,
           ...style,
         }}
