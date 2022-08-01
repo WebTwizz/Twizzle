@@ -59,6 +59,7 @@ const Button: React.FC<ButtonProps> = ({
   style,
   disabled,
   isLoading,
+  onClick,
   icon,
   corner,
   variant,
@@ -82,6 +83,7 @@ const Button: React.FC<ButtonProps> = ({
     theme?.primary?.backgroundColor;
   return (
     <StyledButton
+      onClick={() => onClick && onClick()}
       type="button"
       onMouseEnter={() => {
         setHover(true);
