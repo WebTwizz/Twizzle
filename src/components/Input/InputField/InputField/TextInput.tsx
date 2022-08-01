@@ -162,6 +162,7 @@ export const TextInput: React.FC<InputProps> = ({
         <StyledTextInput
           type="text"
           ref={inputRef}
+          value={inputValue}
           name={inputName}
           placeholder={placeholder}
           disabled={disabled}

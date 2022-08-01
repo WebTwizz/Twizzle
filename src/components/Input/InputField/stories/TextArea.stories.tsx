@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import TextArea from "../TextArea/TextArea";
+import {TextArea} from "..";
 
 export default {
   title: "Components/Input/TextArea",
@@ -16,9 +16,10 @@ export default {
       control: { type: "text" },
       defaultValue: "Placeholder",
     },
-    value: {
-      control: false,
-    },
+    width: {
+      control: { type: "text" },
+      defaultValue: "100%",
+    }
   },
 } as ComponentMeta<typeof TextArea>;
 
