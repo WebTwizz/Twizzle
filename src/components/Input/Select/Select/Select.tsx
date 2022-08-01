@@ -1,27 +1,60 @@
 //create select dropdown component
 
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
-import "./select.css";
-import { InputProps } from "../../InputField/InputField/Input";
+import { greyBackgroundColor } from "../../../constants";
+import {
+  StyledSelectContainer,
+  StyledSelectInput,
+  StyledSelectInputContainer,
+  StyledSelectInputOption,
+  StyledSelectInputValue,
+} from "./StyledSelect";
 
-export interface SelectProps{
-    value?: string;
-    options: string[];
-    onSelect?: (value: string) => void;
-    disabled?: boolean;
+export interface SelectProps {
+  /**
+   * The name of the input
+   */
+  inputName: string;
+  /**
+   * Value of the select
+   */
+  value?: string;
+  /**
+   * Options of the select
+   */
+  options: string[];
+  /**
+   * the width of the select
+   */
+  width?: string;
+  /**
+   * Size of the select
+   * ['small', 'medium', 'large']
+   * @default "medium"
+   */
+  size?: "small" | "medium" | "large";
+  /**
+   * onSelect callback function
+   */
+  onSelect?: (value: string) => void;
+  /**
+   * disabled state of the select
+   */
+  disabled?: boolean;
 }
 
 const Select: React.FC<SelectProps> = ({
+  inputName,
   value,
   options,
   onSelect,
+  size = "medium",
+  width,
   disabled,
   ...props
 }) => {
-  //create custom select textbox with options that float below it
-
   const [selected, setSelected] = useState(value || options[0]);
   const [isSelecting, setIsSelecting] = useState(false);
   const theme = useContext(ThemeContext);
@@ -33,44 +66,67 @@ const Select: React.FC<SelectProps> = ({
       onSelect(value);
     }
   };
+
+  const sizeAttributes = {
+    small: {
+      fontSize: "12px",
+      defaultWidth: "25%",
+      padding: "5px 10px",
+      marginTop: '45px',
+    },
+    medium: {
+      fontSize: "14px",
+      defaultWidth: "35%",
+      padding: "10px 15px",
+      marginTop: '60px',
+    },
+    large: {
+      fontSize: "16px",
+      defaultWidth: "50%",
+      padding: "15px 20px",
+      marginTop: '75px',
+    },
+  };
+
   return (
-    <div className="container">
-      <input
-        name="twizzle-selected-value"
-        type="hidden"
-        id="twizzle-selected-value"
-        value={selected}
-      />
-      <div
-        className="twizzle-display-select-value-container"
+    <>
+      <StyledSelectInput name={inputName} type="hidden" value={selected} role="hidden-select"/>
+      <StyledSelectInputContainer
+        role="select"
         onClick={() => (!disabled ? setIsSelecting(!isSelecting) : null)}
         style={{
           border: `0.5px solid ${
             isSelecting ? theme.primary?.backgroundColor : "#E8E8E8"
           }`,
-          backgroundColor: disabled ? "#e9e9e9" : "white",
+          backgroundColor: disabled ? greyBackgroundColor : "white",
           color: disabled ? "#d5d5d5" : "black",
           cursor: disabled ? "not-allowed" : "pointer",
+          padding: sizeAttributes[size].padding,
+          fontSize: sizeAttributes[size].fontSize,
+          width: width || sizeAttributes[size].defaultWidth,
         }}
         {...props}
       >
-        <span className="twizzle-display-select-value">{selected}</span>
+        <StyledSelectInputValue>{selected}</StyledSelectInputValue>
         {!isSelecting ? (
-          <BsChevronDown className="twizzle-select-arrow arrow-down" />
+          <BsChevronDown style={{marginRight: '5px'}} className="twizzle-select-arrow arrow-down" />
         ) : (
-          <BsChevronUp className="twizzle-select-arrow arrow-up" />
+          <BsChevronUp style={{marginRight: '5px'}} className="twizzle-select-arrow arrow-up" />
         )}
-      </div>
-      <ul
-        className="twizzle-select-container"
+      </StyledSelectInputContainer>
+      <StyledSelectContainer
         id="selectContainer"
         style={{
           visibility: isSelecting ? "visible" : "hidden",
+          width: width || sizeAttributes[size].defaultWidth,
+          fontSize: sizeAttributes[size].fontSize,
+          padding: sizeAttributes[size].padding,
+          marginTop: sizeAttributes[size].marginTop,
         }}
       >
         {options.map((option, index) => {
           return (
-            <li
+            <StyledSelectInputOption
               key={index}
               className="twizzle-select-option"
               id={option}
@@ -79,14 +135,14 @@ const Select: React.FC<SelectProps> = ({
                 handleSelect(e.currentTarget.innerText);
               }}
             >
-              <span className="item-text" id={option}>
+              <StyledSelectInputValue id={option}>
                 {option}
-              </span>
-            </li>
+              </StyledSelectInputValue>
+            </StyledSelectInputOption>
           );
         })}
-      </ul>
-    </div>
+      </StyledSelectContainer>
+    </>
   );
 };
 

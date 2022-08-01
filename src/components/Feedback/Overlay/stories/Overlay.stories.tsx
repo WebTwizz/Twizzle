@@ -15,7 +15,18 @@ export const Default: ComponentStory<typeof Overlay> = () =>
 
          <>
             <Button label={'Display overlay'} onClick={()=>setShow(true)} />
-            {show && <Overlay onClick={()=>setShow(false)}> <Loader/></Overlay>}
+            {show && <Overlay onClick={()=>setShow(false)}> 
+                <div
+                style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)'
+   
+                }}> 
+                <Loader/> 
+                </div>
+            </Overlay>}
         </>)
 };
 

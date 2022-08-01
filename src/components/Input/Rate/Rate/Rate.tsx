@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { AiFillStar } from "react-icons/ai";
 
 interface RateProps {
@@ -61,7 +61,7 @@ const Rate: React.FC<RateProps> = ({
   }, [rating]);
 
   return (
-    <div className="twizzle-rate" style={{ display: "flex", ...style }}>
+    <div className="twizzle-rate" style={{ display: "flex", ...style }} role="rate">
       {icon ? (
         <>
           {currentRating.map((item, index) => {

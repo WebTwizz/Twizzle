@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
-import "./button.css";
+import { Box } from "../../../Box/Box";
+import { Loader } from "../../../Feedback/Loader";
+import { StyledButton } from "./StyledButton";
 
 interface ButtonProps {
   /**
@@ -26,7 +28,7 @@ interface ButtonProps {
   /**
    * loading state of the button
    */
-  loading?: React.ReactNode;
+  isLoading?: boolean;
   /**
    * icon displayed on the left of the button
    */
@@ -40,6 +42,11 @@ interface ButtonProps {
    */
   variant?: "success" | "info" | "warning" | "danger";
   /**
+   * Size of the button
+   * @default "medium"
+   */
+  size?: "small" | "medium" | "large" ;
+  /**
    * Styling added to the button
    */
   style?: React.CSSProperties;
@@ -51,21 +58,32 @@ const Button: React.FC<ButtonProps> = ({
   outlined,
   style,
   disabled,
-  loading,
+  isLoading,
+  onClick,
   icon,
   corner,
   variant,
+  size = "medium",
   ...props
 }: ButtonProps) => {
   const theme = useContext(ThemeContext);
   const [hover, setHover] = useState(false);
+
+  disabled = isLoading || disabled;
+
+  const loaderSize = {
+    small: "extraSmall",
+    medium: "small",
+    large: "medium",
+  }
 
   color =
     theme?.variants?.[variant!]?.color ||
     color ||
     theme?.primary?.backgroundColor;
   return (
-    <button
+    <StyledButton
+      onClick={() => onClick && onClick()}
       type="button"
       onMouseEnter={() => {
         setHover(true);
@@ -82,38 +100,43 @@ const Button: React.FC<ButtonProps> = ({
       }`}
       {...props}
       style={{
+        border: outlined ? "1px solid" : "none",
         borderRadius: corner === "round" ? "30px" : "5px",
         backgroundColor: disabled
           ? "#EBEBE4"
           : outlined
           ? hover
-            ? color
+            ? "#F2F2F2"
             : "white"
           : color,
         color: disabled
           ? "white"
-          : outlined
-          ? hover
-            ? "white"
-            : color
+          : outlined?
+            color
           : 'white',
-        filter: hover ? "brightness(0.8)" : "brightness(1)",
-        margin: "5px",
+        filter: hover ? outlined? "brightness(0.95)" : "brightness(1.2)" : "brightness(1)",
+        fontSize: size === "small" ? "12px" : size === "large" ? "20px" : "15px",
         ...style,
       }}
       disabled={disabled}
     >
-      <div
+      <Box
         style={{
           display: "inline-flex",
           alignItems: "center",
         }}
       >
-        {loading}
+        {isLoading && (<Loader 
+          size={size == "small" ? "extraSmall" : size == "medium" ? "small" : "medium"}
+          color={'#FFF'}
+          style={{
+            marginRight: "5px",
+          }}
+        />)}
         {icon}
         {label}
-      </div>
-    </button>
+      </Box>
+    </StyledButton>
   );
 };
 

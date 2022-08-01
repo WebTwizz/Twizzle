@@ -1,5 +1,5 @@
-import { useState } from "react";
-import './overlay.css';
+import React, { useState } from "react";
+import { StyledOverlay } from "./StyledOverlay";
 
 interface BackDropProps {
 
@@ -26,11 +26,9 @@ const Overlay: React.FC<BackDropProps> = (
     
     return (
      <>
-        <div className="twizzle-overlay" onClick={onClick} style={style}>
-            <div className="twizzle-overlay-content" onClick={onClick} style={style}>
+        <StyledOverlay onClick={onClick} style={style} role="overlay">
             {children}
-            </div>
-        </div>
+        </StyledOverlay>
 
 
      </>

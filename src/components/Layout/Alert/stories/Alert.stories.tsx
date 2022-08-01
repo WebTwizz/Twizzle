@@ -1,5 +1,3 @@
-// create storybook for alert component similar to button component story
-
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Alert } from '..';
 
