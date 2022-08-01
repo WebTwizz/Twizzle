@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Toggle } from '..';
+import { Typography } from '../../../General/Typography';
 
 
 export default {
@@ -24,11 +25,16 @@ const ToggleTemplate: ComponentStory<typeof Toggle> = ({
     disabled,
     ...rest
 }) => {
+    const [toggled, setToggled] = useState(false);
     return (
-        <Toggle
-            disabled={disabled}
-            {...rest}
-        />
+        <>
+            <Toggle
+                onToggle={() => setToggled(!toggled)}
+                disabled={disabled}
+                {...rest}
+            />
+            <Typography elementType={'p'}> {toggled == false? 'false' : 'true'} </Typography>
+        </>
     )
 }
 

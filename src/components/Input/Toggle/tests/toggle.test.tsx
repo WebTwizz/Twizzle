@@ -5,7 +5,7 @@ import { Toggle } from "..";
 describe("Toggle component", () => {
     it("should render correctly", () => {
         render(<Toggle />);
-        expect(screen.getByRole("checkbox")).toBeInTheDocument();
+        expect(screen.getByRole("toggle")).toBeInTheDocument();
     });
 
 
