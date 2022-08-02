@@ -63,7 +63,6 @@ const Toggle: React.FC<ToggleProps> = ({
         checked={toggledState}
         disabled={disabled}
         type="checkbox"
-        role="toggle"
         id="twizzle-toggle"
         {...props}
         onChange={(e) => handleToggle(e)}

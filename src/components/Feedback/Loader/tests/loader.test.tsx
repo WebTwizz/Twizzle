@@ -8,7 +8,7 @@ describe('loader component', () => {
         render(<Loader/>);
 
         const loader = screen.getByRole('loader');
-        expect(loader).toHaveStyle('width: 40px; height: 40px;border-color: #1E90FF;');
+        expect(loader).toHaveStyle('width: 1.5rem; height: 1.5rem;border-color: #1E90FF;');
 
     })
     it('should render loader with small size', () => {
@@ -16,7 +16,7 @@ describe('loader component', () => {
             render(<Loader size="small"/>);
     
             const loader = screen.getByRole('loader');
-            expect(loader).toHaveStyle('width: 20px; height: 20px');
+            expect(loader).toHaveStyle('width: 1rem; height: 1rem');
     
     })
     it('should render loader with large size', () => {
@@ -24,7 +24,7 @@ describe('loader component', () => {
         render(<Loader size="large"/>);
 
         const loader = screen.getByRole('loader');
-        expect(loader).toHaveStyle('width: 50px; height: 50px');
+        expect(loader).toHaveStyle('width: 2rem; height: 2rem');
 
     })
     it('should render loader with custom color and custom styles', () => {

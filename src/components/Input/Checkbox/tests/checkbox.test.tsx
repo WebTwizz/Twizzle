@@ -4,8 +4,9 @@ import { Checkbox } from "..";
 
 describe("Checkbox", () => {
   it("should render correctly", () => {
-    const { container } = render(<Checkbox />);
-    expect(container.firstChild).toMatchSnapshot();
+    render(<Checkbox />);
+    expect(screen.getByRole("checkbox")).toBeInTheDocument();
+
   });
 
   it("should render with label", () => {

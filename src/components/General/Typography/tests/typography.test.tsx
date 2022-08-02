@@ -1,4 +1,4 @@
-import { render, within, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
 import { Typography } from "..";
@@ -26,7 +26,7 @@ describe("Typography component", () => {
     );
     const typography = screen.getByText("Hello World");
 
-    expect(typography).toHaveStyle(`font-weight: bold; color: red;`);
+    expect(typography).toHaveStyle(`font-weight: 500; color: red;`);
 
     userEvent.click(typography);
 

@@ -8,5 +8,4 @@ describe("FileUploader component", () => {
         expect(screen.getByRole("fileuploader")).toBeInTheDocument();
     });
 
-    //TBD
 });

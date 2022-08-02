@@ -29,7 +29,7 @@ describe("Avatar component", () => {
     render(<Avatar name="John Doe" shape="square" />);
 
     const { getByRole } = screen;
-    expect(getByRole("avatar")).toHaveStyle(`border-radius: 24px;`);
+    expect(getByRole("avatar")).toHaveStyle(`border-radius: 3px;`);
   });
 });
 

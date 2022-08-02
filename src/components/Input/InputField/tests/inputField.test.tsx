@@ -15,14 +15,6 @@ describe("Input Field component", () => {
         expect(screen.getByRole("textbox")).toBeDisabled();
     });
 
-    it("should display character count", () => {
-         render(<TextInput inputName={""} />);
-         const input = screen.getByRole("textbox");
-        userEvent.click(input);
-        userEvent.type(input, "Hello");
-        expect(screen.getByText("Hello")).toBeInTheDocument();
-    });
-
     it("should limit character count", () => {
         render(<TextInput maxCount={5} inputName={""} />);
         userEvent.type(screen.getByRole("textbox"), "Hello World!");
