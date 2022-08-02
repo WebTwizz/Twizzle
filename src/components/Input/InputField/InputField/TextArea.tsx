@@ -93,9 +93,9 @@ export const TextArea: React.FC<TextAreaProps> = ({
               : theme.primary?.backgroundColor
             : "#E8E8E8"
         }`,
+        fontSize: sizeAttributes[size].fontSize,
         backgroundColor: disabled ? "#ebebe4" : "white",
         cursor: disabled ? "not-allowed" : "text",
-        fontSize: sizeAttributes[size].fontSize,
         ...style,
       }}
       onClick={() => inputRef.current?.focus()}
@@ -112,6 +112,10 @@ export const TextArea: React.FC<TextAreaProps> = ({
         onChange={(e) => {
           setInputValue(e.target.value);
           onChange?.(e.target.value);
+        }}
+        style={{
+          fontSize: sizeAttributes[size].fontSize,
+          
         }}
       ></StyledTextArea>
       <Box
