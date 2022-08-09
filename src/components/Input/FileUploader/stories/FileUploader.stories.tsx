@@ -10,6 +10,19 @@ export default {
     argTypes: {
         multipleFiles: { control: 'boolean' },
         maxFiles: { control: 'number' },
+        maxFileSize: { control: 'number' },
+        width: {
+            control: {
+                type: 'select',
+                options: ['100%', '50%', '25%', '10%']
+            }
+        },
+        inputName: {
+            control: {
+                type: false,
+                defaultValue: 'file'
+            }
+        },
         disabled: { control: 'boolean' },
     },
 } as ComponentMeta<typeof FileUploader>;
