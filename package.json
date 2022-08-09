@@ -13,7 +13,6 @@
     "file-size": "^1.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-dropzone": "^14.2.2",
     "react-icons": "^4.3.1",
     "react-scripts": "5.0.0",
     "storybook": "^6.4.19",
