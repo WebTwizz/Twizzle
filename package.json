@@ -1,9 +1,6 @@
 {
   "name": "@twizzle-library/twizzle-library",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/twizzle-library"
-  },
-  "version": "0.1.0",
+  "version": "0.2.0",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
@@ -28,7 +25,8 @@
     "test": "jest",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "rollup": "rollup -c"
+    "rollup": "rollup -c",
+    "publish": "npm publish --access=public"
   },
   "eslintConfig": {
     "extends": [
