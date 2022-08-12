@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Typography } from "../../../General/Typography";
-import "./checkbox.css";
+// import "./checkbox.css";
 
 interface CheckboxProps {
   label?: string;

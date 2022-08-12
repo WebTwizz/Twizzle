@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import './slider.css'
+import React,{ useState } from 'react';
+// import './slider.css'
 interface SliderProps {
     label?: string;
     disabled?: boolean;

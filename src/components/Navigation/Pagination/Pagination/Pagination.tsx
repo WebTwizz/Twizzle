@@ -2,7 +2,7 @@ import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useEffect, useMemo, useState } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
-import "./pagination.css";
+// import "./pagination.css";
 
 interface PaginationProps {
   page: number;

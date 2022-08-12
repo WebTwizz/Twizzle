@@ -15,7 +15,6 @@ import {
 import { Typography } from "../../../General/Typography";
 import { AiOutlineFile, AiOutlineFileImage } from "react-icons/ai";
 import { Box } from "../../../Box/Box";
-import Dropzone from "react-dropzone";
 import { greyBackgroundColor } from "../../../constants";
 //In progress
 

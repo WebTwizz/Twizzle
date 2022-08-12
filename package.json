@@ -1,5 +1,8 @@
 {
-  "name": "twizzle-library",
+  "name": "@twizzle-library/twizzle-library",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/twizzle-library"
+  },
   "version": "0.1.0",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
@@ -24,7 +27,8 @@
   "scripts": {
     "test": "jest",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "rollup": "rollup -c"
   },
   "eslintConfig": {
     "extends": [
@@ -65,6 +69,9 @@
     ]
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-typescript": "^8.3.4",
     "@storybook/addon-actions": "^6.4.19",
     "@storybook/addon-essentials": "^6.4.19",
     "@storybook/addon-interactions": "^6.4.19",
@@ -87,6 +94,14 @@
     "eslint-plugin-promise": "^5.2.0",
     "eslint-plugin-react": "^7.29.4",
     "identity-obj-proxy": "^3.0.0",
+    "rollup": "^2.77.3",
+    "rollup-plugin-dts": "^4.2.2",
     "webpack": "^5.70.0"
-  }
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts"
 }
