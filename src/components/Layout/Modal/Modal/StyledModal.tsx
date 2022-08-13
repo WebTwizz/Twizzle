@@ -43,4 +43,5 @@ export const StyledModalFooter = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    padding: 5px;
 `;
