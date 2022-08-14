@@ -1,8 +1,12 @@
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext, useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { ThemeContext } from "../../../../context/ThemeContext";
-// import "./pagination.css";
+import {
+  StyledPagination,
+  StyledPaginationButton,
+  StyledPaginationPage,
+  StyledPaginationPages,
+} from "./StyledPagination";
 
 interface PaginationProps {
   page: number;
@@ -20,10 +24,21 @@ const Pagination: React.FC<PaginationProps> = ({
   onChange,
 }) => {
   const [currentPage, setCurrentPage] = useState(page);
+
   const getPages = useMemo(() => {
     const pages = [];
-    for (let i = 1; i <= totalPages; i++) {
-      pages.push(i);
+    if (currentPage > 5) {
+      pages.push(currentPage - 4);
+      pages.push(currentPage - 3);
+      pages.push(currentPage - 2);
+      pages.push(currentPage - 1);
+      for (let i = currentPage; i <= totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
     }
     return pages.slice(0, 5);
   }, [totalPages]);
@@ -75,51 +90,52 @@ const Pagination: React.FC<PaginationProps> = ({
     }
   };
 
-  const handleOnChange = (page: number) =>{
+  const handleOnChange = (page: number) => {
     setCurrentPage(page);
     if (onChange) {
-        onChange();
+      onChange();
     }
-    }
+  };
 
   return (
-    <div className="twizzle-pagination">
-      <button
-        className="twizzle-pagination-button"
-        onClick={() => handlePreviousPage()}
-      >
-        <FontAwesomeIcon icon={faAngleLeft} />
-      </button>
-      <div className="twizzle-pagination-pages">
+    <StyledPagination>
+      <StyledPaginationButton onClick={() => handlePreviousPage()} role='prev-button'>
+        <BsChevronLeft />
+      </StyledPaginationButton>
+      <StyledPaginationPages>
         {displayedPages.map((page) => {
           return (
-            <span
-              key={page}
-              className={
-                currentPage == page
-                  ? "twizzle-current-page"
-                  : "twizzle-pagination-page"
-              }
-              onClick={() => handleOnChange(page)}
+              <StyledPaginationPage
+                key={`pagination-page-${page}`}
+                onClick={() => handleOnChange(page)}
+                style={{
+                  borderColor: currentPage == page ? color : "transparent",
+                  color: currentPage == page ? color : "#afafaf",
+                }}
+              >
+                {page}
+              </StyledPaginationPage>
+          );
+        })}
+        {displayedPages[displayedPages.length - 1] != totalPages && (
+          <>
+            <span style={{ color: "#afafaf" }}> ... </span>
+            <StyledPaginationPage
+              onClick={() => handleOnChange(totalPages)}
               style={{
-                borderColor: currentPage == page ? color : "transparent",
-                color: currentPage == page ? color : "#afafaf",
+                borderColor: currentPage == totalPages ? color : "transparent",
+                color: currentPage == totalPages ? color : "#afafaf",
               }}
             >
-              {page}
-            </span>
-            
-          );
-          
-        })}
-      </div>
-      <button
-        className="twizzle-pagination-button"
-        onClick={() => handleNextPage()}
-      >
-        <FontAwesomeIcon icon={faAngleRight} />
-      </button>
-    </div>
+              {totalPages}
+            </StyledPaginationPage>
+          </>
+        )}
+      </StyledPaginationPages>
+      <StyledPaginationButton onClick={() => handleNextPage()} role='next-button'>
+        <BsChevronRight />
+      </StyledPaginationButton>
+    </StyledPagination>
   );
 };
 
