@@ -3,10 +3,8 @@ import { rgba } from 'polished';
 
 
 export const StyledBadge = styled.div`
-    font-family: 'Roboto', sans-serif;
-    opacity: 0.6;
-    color: darken(red, 10%);
+    font-family: system-ui;
     border-radius: 5px;
-    padding: 2px 3px;
+    padding: 2px 4px;
     width: fit-content;
 `;

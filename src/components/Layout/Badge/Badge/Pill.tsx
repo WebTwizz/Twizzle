@@ -4,7 +4,7 @@ import React, { useMemo } from "react";
 import { greyColor } from "../../../constants";
 import { StyledBadge } from "./StyledBadge";
 
-export interface BadgeProps {
+export interface PillProps {
   /**
    * color of the badge
    * hex only
@@ -14,10 +14,10 @@ export interface BadgeProps {
   /**
    * children to be rendered inside the badge
    */
-  children: React.ReactNode;
+  children: number;
 }
 
-const Badge: React.FC<BadgeProps> = ({ color = "#1E90FF", children }) => {
+const Pill: React.FC<PillProps> = ({ color = "#1E90FF", children }) => {
   const hexToRgba = (hex: string) => {
     const [r, g, b] = hex.match(/\w\w/g)!.map((x) => parseInt(x, 16));
     return `rgba(${r}, ${g}, ${b}, 0.4)`;
@@ -38,4 +38,4 @@ const Badge: React.FC<BadgeProps> = ({ color = "#1E90FF", children }) => {
     </StyledBadge>
   );
 };
-export default Badge;
+export default Pill;

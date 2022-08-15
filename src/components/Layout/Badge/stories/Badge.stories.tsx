@@ -5,22 +5,7 @@ export default {
   title: "Components/Layout/Badge",
   component: Badge,
   argTypes: {
-    color: { control: "color" },
-    variant: {
-      control: {
-        type: "select",
-        options: [
-          "primary",
-          "secondary",
-          "success",
-          "danger",
-          "warning",
-          "info",
-          "light",
-          "dark",
-        ],
-      },
-    },
+    color: { control: "color", defaultValue: "#b02020" },
     children: { control: "text", defaultValue: "BADGE" },
   },
 } as ComponentMeta<typeof Badge>;
