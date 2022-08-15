@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Overlay } from "../../../Feedback/Overlay";
 import { Button } from "../../../General/Button";
 import { Typography } from "../../../General/Typography";
+import { ModalProps } from "./Modal";
 import {
   StyledModal,
   StyledModalBody,
@@ -11,59 +12,15 @@ import {
   StyledModalHeader,
 } from "./StyledModal";
 
-export interface ModalProps {
+interface CornerModalProps extends ModalProps {
   /**
-   * Title of the modal
+   * Position of the modal
+   * @default "BOTTOM_RIGHT"
    */
-  title?: string;
-  /**
-   * boolean to show close button
-   */
-  closable?: boolean;
-  /**
-   * boolean to show the footer of the modal
-   */
-  footer?: boolean;
-  /**
-   * onCancel callback function
-   */
-  onCancel?: () => void;
-  /**
-   * Show cancel button
-   */
-  showCancel?: boolean;
-  /**
-   * onOk callback function
-   */
-  onConfirm?: () => void;
-  /**
-   * Show confirm button
-   */
-  showConfirm?: boolean;
-  /**
-   * text for the confirm button
-   * @default "Confirm"
-   */
-  confirmText?: string;
-  /**
-   * onClose callback function
-   */
-  onClose?: () => void;
-  /**
-   * Content of the modal for the body
-   */
-  children: React.ReactNode;
-  /**
-   * styling for the modal
-   */
-  style?: React.CSSProperties;
-  /**
-   * styling for the body of the modal content
-   */
-  bodyStyle?: React.CSSProperties;
+  position?: "TOP_LEFT" | "TOP_RIGHT" | "BOTTOM_LEFT" | "BOTTOM_RIGHT";
 }
 
-const Modal: React.FC<ModalProps> = ({
+const CornerModal: React.FC<CornerModalProps> = ({
   title,
   closable = true,
   footer = true,
@@ -76,6 +33,7 @@ const Modal: React.FC<ModalProps> = ({
   children,
   style,
   bodyStyle,
+  position = "BOTTOM_RIGHT",
 }) => {
   const handleClose = () => {
     onClose?.();
@@ -86,18 +44,40 @@ const Modal: React.FC<ModalProps> = ({
   const handleCanel = () => {
     onCancel?.();
   };
+
+  const positionAtrributes = {
+    TOP_LEFT: {
+      alignItems: "flex-start",
+      justifyContent: "flex-start",
+    },
+    TOP_RIGHT: {
+      alignItems: "flex-start",
+      justifyContent: "flex-end",
+    },
+    BOTTOM_LEFT: {
+      alignItems: "flex-end",
+      justifyContent: "flex-start",
+    },
+    BOTTOM_RIGHT: {
+      alignItems: "flex-end",
+      justifyContent: "flex-end",
+    },
+  };
+
   return (
     <>
       <Overlay
         style={{
           display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          alignItems: positionAtrributes[position].alignItems,
+          justifyContent: positionAtrributes[position].justifyContent
         }}
       >
         <StyledModal
           role={"modal"}
           style={{
+            margin: "12px",
+            width: "80vh",
             ...style,
           }}
         >
@@ -141,4 +121,4 @@ const Modal: React.FC<ModalProps> = ({
   );
 };
 
-export default Modal;
+export default CornerModal;

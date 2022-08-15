@@ -1,15 +1,15 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { useState } from "react";
-import { Modal } from "..";
+import { CornerModal } from "..";
 import { Button } from "../../../General/Button";
 
 export default {
-  title: "Components/Layout/Modal/Modal",
-  component: Modal,
+  title: "Components/Layout/Modal/CornerModal",
+  component: CornerModal,
   argTypes: {
     title: { 
       control: "text",
-      defaultValue: "Modal"
+      defaultValue: "Corner Modal"
     },
     children: {
       control: "text",
@@ -21,9 +21,9 @@ export default {
     }
     
   },
-} as ComponentMeta<typeof Modal>;
+} as ComponentMeta<typeof CornerModal>;
 
-const ModalTemplate: ComponentStory<typeof Modal> = ({
+const CornerModalTemplate: ComponentStory<typeof CornerModal> = ({
   title,
   children,
   ...rest
@@ -33,7 +33,7 @@ const ModalTemplate: ComponentStory<typeof Modal> = ({
   
   return (
     <>
-      <Button outlined onClick={() => setIsOpen(true)} label="Open Modal"/>
+      <Button outlined onClick={() => setIsOpen(true)} label="Open Corner Modal"/>
       <div className="Lorem Ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus
         purus lectus, at imperdiet sem vulputate non. Donec ac elit augue.
@@ -87,18 +87,18 @@ const ModalTemplate: ComponentStory<typeof Modal> = ({
         auctor. Sed risus libero, lacinia non tortor eu, posuere commodo elit.{" "}
       </div>
       {isOpen && (
-      <Modal
+      <CornerModal
         title="Modal"
         {...rest}
         onClose={() => setIsOpen(false)}
       >
         {children}
-      </Modal>
+      </CornerModal>
       )}
     </>
   );
 };
 
-export const ModalComponent = ModalTemplate.bind({});
+export const CornerModalComponent = CornerModalTemplate.bind({});
 
-ModalComponent.args = {};
+CornerModalComponent.args = {};
