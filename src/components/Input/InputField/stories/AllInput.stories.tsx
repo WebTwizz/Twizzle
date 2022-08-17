@@ -14,15 +14,21 @@ export default {
         options: ["small", "medium", "large"],
       },
     },
+    rightIcon: {
+      control: false
+    },
+    leftIcon: {
+      control: false
+    }
   },
 } as ComponentMeta<typeof TextInput>;
 
 const AllInputFieldsTemplate: ComponentStory<typeof TextInput> = ({ size, ...props }) => {
   return (
     <>
-      <TextInput size={size} {...props}/>
-      <PasswordInput size={size} {...props} />
-      <SearchInput size={size} {...props} style={{ width: "100%" }} />
+      <TextInput size={size} placeholder="Text" {...props}/>
+      <PasswordInput size={size} placeholder="Password" showPasswordIcon {...props} />
+      <SearchInput size={size} {...props} />
     </>
   );
 };

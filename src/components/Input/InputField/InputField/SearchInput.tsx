@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Box } from "../../../Box/Box";
 import { Button } from "../../../General/Button";
 import TextInput, { InputProps } from "./TextInput";
 import { BiSearch } from "react-icons/bi";
+import { ThemeContext, Typography } from "../../../..";
+import { greyBackgroundColor } from "../../../constants";
 
 interface SearchInputProps extends InputProps {
   /**
@@ -28,60 +30,32 @@ const SearchInput: React.FC<SearchInputProps> = ({
 }) => {
   const sizeAttributes = {
     small: {
-      padding: "6.625px",
-      fontSize: "12px",
-      labelMargin: "2px",
-      descriptionFontSize: "10px",
-      width: "25%",
+      defaultWidth: "25%",
     },
     medium: {
-      padding: "11.625px",
-      fontSize: "14px",
-      labelMargin: "4px",
-      descriptionFontSize: "12px",
-      width: "35%",
+      defaultWidth: "35%",
     },
     large: {
-      padding: "16.625px",
-      fontSize: "16px",
-      labelMargin: "6px",
-      descriptionFontSize: "14px",
-      width: "50%",
+      defaultWidth: "50%",
     },
   };
 
+  const theme = useContext(ThemeContext);
+
   return (
-    <Box
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-      }}
-    >
-      
+    
       <TextInput
-        style={{
-          width: "100%",
-          borderRadius: "5px 0px 0px 5px",
-        }}
         size={size}
         disabled={disabled}
-        width={width || sizeAttributes[size].width}
+        placeholder="Search"
+        onEnter={onSearch}
+        width={width || sizeAttributes[size].defaultWidth}
+        errorMessage={errorMessage}
+        leftIcon={
+          <BiSearch style={{ color: theme.primary?.backgroundColor }} />
+        }
         {...props}
       />
-      <Button
-        label={""}
-        icon={<BiSearch />}
-        disabled={disabled}
-        style={{
-          margin: "0px",
-          padding: sizeAttributes[size].padding,
-          borderRadius: "0px 5px 5px 0px",
-        }}
-        isLoading={isLoading}
-        onClick={() => onSearch?.()}
-      />
-    </Box>
   );
 };
 

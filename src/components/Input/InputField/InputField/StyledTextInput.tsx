@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledInputContainer = styled.div`
     margin: 2px 0;
     box-sizing: border-box;
-    border-radius: ${props => props.theme.borderRadius};
+    border-radius: 5px;
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;

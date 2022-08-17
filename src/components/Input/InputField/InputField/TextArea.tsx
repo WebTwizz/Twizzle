@@ -35,7 +35,6 @@ export const TextArea: React.FC<TextAreaProps> = ({
   maxCount = 1000,
   onChange,
   disabled,
-  cornerRadius,
   width,
   variant,
   allowClear,

@@ -11,6 +11,7 @@ import { greyBackgroundColor } from "../../../constants";
 interface PasswordInputProps extends InputProps {
   /**
    * Display button to see password
+   * @default true
    */
   showPasswordIcon?: boolean;
   /**
@@ -33,7 +34,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
   variant,
   invalid,
   style,
-  showPasswordIcon,
+  showPasswordIcon = true,
   inputType = 'password',
   size = "medium",
   ...props
@@ -161,7 +162,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
         <TextAlert
           variant="danger"
           style={{ margin: "0px" }}
-          size={size === "small" ? "small" : "medium"}
+          size={"small"}
         >
           {errorMessage}
         </TextAlert>

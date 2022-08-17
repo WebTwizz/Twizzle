@@ -5,7 +5,6 @@ import { Box } from "../../../Box/Box";
 import { greyBackgroundColor } from "../../../constants";
 import { Typography } from "../../../General/Typography";
 import { TextAlert } from "../../../Layout/Alert";
-import { smallDangerAlertSVG } from "../../../Layout/Alert/Alert/svg";
 import { StyledInputContainer, StyledTextInput } from "./StyledTextInput";
 
 export interface InputProps {
@@ -21,7 +20,7 @@ export interface InputProps {
    * Label description for the input
    */
   inputLabelDescription?: string;
-   /**
+  /**
    * hint for the input
    */
   errorMessage?: string;
@@ -42,10 +41,22 @@ export interface InputProps {
    */
   onChange?: (value: string) => void;
   /**
+   * onEnter Callback method
+   */
+  onEnter?: () => void;
+  /**
    * Change styling based on variants that include:
    * ['info', 'success', 'warning', 'danger']
    */
   variant?: "info" | "success" | "warning" | "danger";
+  /**
+   * Add right icon to the left of the input
+   */
+  rightIcon?: React.ReactElement;
+  /**
+   * Add left icon to the left of the input
+   */
+  leftIcon?: React.ReactElement;
   /**
    * Display button to clear text
    */
@@ -59,10 +70,6 @@ export interface InputProps {
    */
   disabled?: boolean;
   /**
-   * boolean if border radius should be applied to input
-   */
-  cornerRadius?: boolean;
-   /**
    * width size of input
    */
   width?: string;
@@ -87,10 +94,12 @@ export const TextInput: React.FC<InputProps> = ({
   value,
   maxCount = 100,
   onChange,
+  onEnter,
   disabled,
-  cornerRadius,
   width,
   variant,
+  rightIcon,
+  leftIcon,
   allowClear,
   invalid,
   style,
@@ -123,25 +132,42 @@ export const TextInput: React.FC<InputProps> = ({
       labelMargin: "6px",
       defaultWidth: "50%",
       padding: "15px 20px",
-
     },
   };
 
-
   return (
-    <Box style={{flexDirection: 'column', width}} onClick={() => inputRef.current?.focus()}>
-      {inputLabel && 
-      <Typography elementType={'p'} bold style={{margin:0, fontSize: sizeAttributes[size].fontSize}}>
-        {inputLabel}
-      </Typography>}
+    <Box
+      style={{ flexDirection: "column" }}
+      onClick={() => inputRef.current?.focus()}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          onEnter?.();
+        }
+      } }
+    >
+      {inputLabel && (
+        <Typography
+          elementType={"p"}
+          bold
+          style={{ margin: 0, fontSize: sizeAttributes[size].fontSize }}
+        >
+          {inputLabel}
+        </Typography>
+      )}
       {inputLabelDescription && (
-        <Typography elementType={'p'} style={{marginTop:sizeAttributes[size].labelMargin, color: '#5c6178', fontSize: sizeAttributes[size].descriptionFontSize}}>
+        <Typography
+          elementType={"p"}
+          style={{
+            marginTop: sizeAttributes[size].labelMargin,
+            color: "#5c6178",
+            fontSize: sizeAttributes[size].descriptionFontSize,
+          }}
+        >
           {inputLabelDescription}
         </Typography>
       )}
       <StyledInputContainer
         style={{
-          borderRadius: cornerRadius ? "5px" : "0px",
           border: `0.5px solid ${
             invalid
               ? "#b22222"
@@ -153,12 +179,13 @@ export const TextInput: React.FC<InputProps> = ({
           }`,
           backgroundColor: disabled ? "#ebebe4" : "white",
           cursor: disabled ? "not-allowed" : "text",
-          fontSize:sizeAttributes[size].fontSize,
-          width: sizeAttributes[size].defaultWidth,
+          fontSize: sizeAttributes[size].fontSize,
           padding: sizeAttributes[size].padding,
+          width: width || sizeAttributes[size].defaultWidth,
           ...style,
         }}
       >
+        {leftIcon}
         <StyledTextInput
           type="text"
           ref={inputRef}
@@ -177,6 +204,7 @@ export const TextInput: React.FC<InputProps> = ({
           onBlur={() => setHover(false)}
           {...props}
         ></StyledTextInput>
+        {rightIcon}
         <Box
           style={{
             alignItems: "center",
@@ -199,7 +227,13 @@ export const TextInput: React.FC<InputProps> = ({
         </Box>
       </StyledInputContainer>
       {errorMessage && invalid && (
-       <TextAlert variant="danger" style={{margin: '0px'}} size={size === "small"? "small" : "medium"}>{errorMessage}</TextAlert>
+        <TextAlert
+          variant="danger"
+          style={{ margin: "0px" }}
+          size={"small"}
+        >
+          {errorMessage}
+        </TextAlert>
       )}
     </Box>
   );
