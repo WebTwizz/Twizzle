@@ -27,7 +27,7 @@ const Pill: React.FC<PillProps> = ({ color = "#1E90FF", children }) => {
   return (
     <StyledPill
       style={{
-        backgroundColor: badgeColor,
+        backgroundColor: PillColor,
         color: color,
       }}
     >
