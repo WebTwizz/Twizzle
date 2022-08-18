@@ -6,6 +6,7 @@ export const StyledTooltipContainer = styled.div`
 }`;
 
 export const StyledTooltip = styled.span`
+    font-size: 0.8em;
     font-family: 'Roboto', sans-serif;
     visibility: visible;
     background-color: #364859;

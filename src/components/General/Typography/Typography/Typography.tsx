@@ -55,7 +55,7 @@ const Typography: React.FC<TypographyProps> = ({
   ...props
 }: TypographyProps) => {
 
-  const fontWeight = bold ? '500' : '300'
+  const fontWeight = bold ? '600' : '300'
 
   return (
     <StyledTypography

@@ -72,19 +72,22 @@ const Select: React.FC<SelectProps> = ({
       fontSize: "12px",
       defaultWidth: "25%",
       padding: "5px 10px",
-      marginTop: '45px',
+      optionsPadding: "5px 7px",
+      marginTop: '5px',
     },
     medium: {
       fontSize: "14px",
       defaultWidth: "35%",
       padding: "10px 15px",
-      marginTop: '60px',
+      optionsPadding: "5px 10px",
+      marginTop: '5px',
     },
     large: {
       fontSize: "16px",
       defaultWidth: "50%",
       padding: "15px 20px",
-      marginTop: '75px',
+      optionsPadding: "5px 14px",
+      marginTop: '5px',
     },
   };
 
@@ -120,7 +123,7 @@ const Select: React.FC<SelectProps> = ({
           visibility: isSelecting ? "visible" : "hidden",
           width: width || sizeAttributes[size].defaultWidth,
           fontSize: sizeAttributes[size].fontSize,
-          padding: sizeAttributes[size].padding,
+          padding: sizeAttributes[size].optionsPadding,
           marginTop: sizeAttributes[size].marginTop,
         }}
       >

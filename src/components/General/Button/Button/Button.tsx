@@ -133,8 +133,12 @@ const Button: React.FC<ButtonProps> = ({
             marginRight: "5px",
           }}
         />)}
-        {icon}
         {label}
+        <Box style={{
+            marginLeft: "5px",
+          }}>
+        {icon}
+        </Box>
       </Box>
     </StyledButton>
   );

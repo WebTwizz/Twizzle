@@ -7,6 +7,7 @@ export const StyledButton = styled.button`
     border-radius: ${props => props.style?.borderRadius || "5px"};
     padding: 15px;
     cursor: pointer;
+    text-align: center;
     display: flex;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;

@@ -17,7 +17,7 @@ export const StyledSelectInputContainer = styled.div`
     justify-content: space-between;
     border-radius: 3px;
     align-items: center;
-    position: absolute;
+    position: relative;
     overflow:hidden;
 `;
 
@@ -31,7 +31,7 @@ export const StyledSelectContainer = styled.ul`
     padding: 0px;
     position: absolute;
     visibility: visible;
-    margin-top: 60px;
+    margin-top: 20px;
     height: fit-content;
     background-color: #fff;
     list-style-type: none;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledModal = styled.div`
+    margin: 10px;
     display:flex;
     width:100vh;
     border-radius: 3px;
