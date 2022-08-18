@@ -3,6 +3,7 @@
 import { greyColor } from "../../../constants";
 import { StyledBadge } from "./StyledBadge";
 import chroma from "chroma-js";
+import { useMemo } from "react";
 
 export interface BadgeProps {
   /**
@@ -21,6 +22,10 @@ const Badge: React.FC<BadgeProps> = ({
     color,
     children,
 }) => {
+
+  const badgeColor = useMemo(() => {
+    return chroma(color).alpha(0.4).hex();
+  } , [color]);
 
   return (
     <StyledBadge
