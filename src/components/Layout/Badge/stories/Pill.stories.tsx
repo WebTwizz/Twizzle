@@ -6,7 +6,6 @@ export default {
   component: Pill,
   argTypes: {
     color: { control: "color", defaultValue: "#b02020" },
-    children: { control: "text", defaultValue: "BADGE" },
   },
 } as ComponentMeta<typeof Pill>;
 
