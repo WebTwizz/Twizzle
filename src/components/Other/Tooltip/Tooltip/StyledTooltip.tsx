@@ -7,6 +7,7 @@ export const StyledTooltipContainer = styled.div`
 
 export const StyledTooltip = styled.span`
     font-family: 'Roboto', sans-serif;
+    font-size: 12px;
     visibility: visible;
     background-color: #364859;
     color: #fff;

@@ -78,6 +78,7 @@ export const StyledUploadedFileInfo = styled.div`
     margin: 10px;
     flex-direction: row;
     align-items: center;
+    overflow: auto;
 `;
 
 export const StyledUploadedFileDescription = styled.div`

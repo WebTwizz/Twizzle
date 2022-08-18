@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 export const StyledToggle = styled.div`
-    display: "flex",
-    alignItems: "center",
-    fontFamily: "sans-serif",
-    margin: "5px",
+    display: flex;
+    align-items: center;
+    width: fit-content;
 `;
 
 export const StyledToggleInput = styled.input`

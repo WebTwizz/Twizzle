@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledSelectInput = styled.input`
+    font-family: "Roboto", sans-serif;
     display: flex;
     width:75%;
     align-items: center;
@@ -11,13 +12,14 @@ export const StyledSelectInput = styled.input`
 `;
 
 export const StyledSelectInputContainer = styled.div`
+    font-family: sans-serif;
     height: 30px;
     width: 120px;
     display: flex;
     justify-content: space-between;
-    border-radius: 3px;
+    border-radius: 5px;
     align-items: center;
-    position: absolute;
+    position: relative;
     overflow:hidden;
 `;
 
@@ -26,12 +28,13 @@ export const StyledSelectInputValue = styled.span`
 `;
 
 export const StyledSelectContainer = styled.ul`
+    font-family: sans-serif;
     max-height: 200px;
     overflow: scroll;
     padding: 0px;
     position: absolute;
     visibility: visible;
-    margin-top: 60px;
+    margin-top: 10px;
     height: fit-content;
     background-color: #fff;
     list-style-type: none;
@@ -41,6 +44,7 @@ export const StyledSelectContainer = styled.ul`
 `;
 
 export const StyledSelectInputOption = styled.li`
+    font-family: sans-serif;
     display: none;
     height: 40px;
     display: flex;

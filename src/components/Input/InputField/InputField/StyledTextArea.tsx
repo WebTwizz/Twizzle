@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const StyledTextAreaContainer = styled.div`
-    padding: 6px 10px;
+    padding: 10px;
     border: none;
     box-sizing: border-box;
-    border-radius: 3px;
+    border-radius: 5px;
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
@@ -15,12 +15,11 @@ export const StyledTextAreaContainer = styled.div`
 `;
 
 export const StyledTextArea = styled.textarea`
+    font-family: "Roboto", sans-serif;
     width: 95%;
     height: 100%;
-    padding: 12px 20px;
     border: none;
     box-sizing: border-box;
-    border-radius: 3px;
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;

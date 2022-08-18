@@ -59,4 +59,15 @@ IconButton.args= {
   color: '#848484',
 };
 
+export const LabelAndIconButton = ButtonTemplate.bind({});
+LabelAndIconButton.args= {
+  label: 'Button',
+  icon: <AiOutlineInfoCircle/>,
+  outlined: true,
+  style: {
+    padding: '5px',
+  },
+  color: '#848484',
+};
+
 

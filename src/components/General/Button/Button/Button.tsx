@@ -45,7 +45,7 @@ interface ButtonProps {
    * Size of the button
    * @default "medium"
    */
-  size?: "small" | "medium" | "large" ;
+  size?: "small" | "medium" | "large";
   /**
    * Styling added to the button
    */
@@ -75,7 +75,7 @@ const Button: React.FC<ButtonProps> = ({
     small: "extraSmall",
     medium: "small",
     large: "medium",
-  }
+  };
 
   color =
     theme?.variants?.[variant!]?.color ||
@@ -109,33 +109,67 @@ const Button: React.FC<ButtonProps> = ({
             ? "#F2F2F2"
             : "white"
           : color,
-        color: disabled
-          ? "white"
-          : outlined?
-            color
-          : 'white',
-        filter: hover ? outlined? "brightness(0.95)" : "brightness(1.2)" : "brightness(1)",
-        fontSize: size === "small" ? "12px" : size === "large" ? "20px" : "15px",
+        color: disabled ? "white" : outlined ? color : "white",
+        filter: hover
+          ? outlined
+            ? "brightness(0.95)"
+            : "brightness(1.2)"
+          : "brightness(1)",
+        fontSize:
+          size === "small" ? "12px" : size === "large" ? "20px" : "15px",
         ...style,
       }}
       disabled={disabled}
     >
-      <Box
+      <span
         style={{
-          display: "inline-flex",
+          display: "flex",
           alignItems: "center",
+          justifyContent: "center",
         }}
       >
-        {isLoading && (<Loader 
-          size={size == "small" ? "extraSmall" : size == "medium" ? "small" : "medium"}
-          color={'#FFF'}
-          style={{
-            marginRight: "5px",
-          }}
-        />)}
-        {icon}
+        {isLoading && (
+          <Loader
+            size={
+              size == "small"
+                ? "extraSmall"
+                : size == "medium"
+                ? "small"
+                : "medium"
+            }
+            color={"#FFF"}
+            style={{
+              marginRight: "5px",
+            }}
+          />
+        )}
         {label}
-      </Box>
+        {icon &&
+          (label ? (
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginLeft: "5px",
+              }}
+            >
+              {" "}
+              {icon}{" "}
+            </span>
+          ) : (
+            <span
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {" "}
+              {icon}
+            </span>
+          ))}
+      </span>
     </StyledButton>
   );
 };

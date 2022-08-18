@@ -70,21 +70,24 @@ const Select: React.FC<SelectProps> = ({
   const sizeAttributes = {
     small: {
       fontSize: "12px",
-      defaultWidth: "25%",
-      padding: "5px 10px",
-      marginTop: '45px',
+      defaultWidth: "22%",
+      padding: "0px 8px",
+      valuePaddding: "0px",
+      marginTop: '5px',
     },
     medium: {
       fontSize: "14px",
-      defaultWidth: "35%",
-      padding: "10px 15px",
-      marginTop: '60px',
+      defaultWidth: "33%",
+      padding: "5px 6px",
+      valuePaddding: "15px",
+      marginTop: '5px',
     },
     large: {
       fontSize: "16px",
-      defaultWidth: "50%",
-      padding: "15px 20px",
-      marginTop: '75px',
+      defaultWidth: "47%",
+      padding: "10px 8px",
+      valuePaddding: "20px",
+      marginTop: '5px',
     },
   };
 
@@ -107,7 +110,9 @@ const Select: React.FC<SelectProps> = ({
         }}
         {...props}
       >
-        <StyledSelectInputValue>{selected}</StyledSelectInputValue>
+        <StyledSelectInputValue 
+          style={{padding: sizeAttributes[size].valuePaddding}}>
+          {selected}</StyledSelectInputValue>
         {!isSelecting ? (
           <BsChevronDown style={{marginRight: '5px'}} className="twizzle-select-arrow arrow-down" />
         ) : (
@@ -120,7 +125,6 @@ const Select: React.FC<SelectProps> = ({
           visibility: isSelecting ? "visible" : "hidden",
           width: width || sizeAttributes[size].defaultWidth,
           fontSize: sizeAttributes[size].fontSize,
-          padding: sizeAttributes[size].padding,
           marginTop: sizeAttributes[size].marginTop,
         }}
       >
@@ -135,7 +139,9 @@ const Select: React.FC<SelectProps> = ({
                 handleSelect(e.currentTarget.innerText);
               }}
             >
-              <StyledSelectInputValue id={option}>
+              <StyledSelectInputValue id={option}
+              style={{padding: sizeAttributes[size].valuePaddding}}
+              >
                 {option}
               </StyledSelectInputValue>
             </StyledSelectInputOption>

@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledAlert = styled.div`
     position: relative;
     top: 5;
+    width: fit-content;
     border-radius: 10px !important;
 
     .twizzle-alert-info {

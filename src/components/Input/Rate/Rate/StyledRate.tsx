@@ -9,7 +9,7 @@ export const StyledRate = styled.div`
 `;
 
 export const StyledRateIcon = styled.div`
-    display: block;
+    display: inline-flex;
     color: ${props => props.color || '#ccc'};
     margin-right: auto;
     margin-left:  auto;

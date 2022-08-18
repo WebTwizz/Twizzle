@@ -47,7 +47,6 @@ const Loader: React.FC<LoaderProps> = ({
       borderWidth: loaderSize[size].thickness,
       borderBottom: `3px solid transparent`,
       borderRadius: "50%",
-      display: "inline-block",
       boxSizing: "border-box",
       animation: "twizzle-loader-rotation 1s linear infinite",
       ...style,
