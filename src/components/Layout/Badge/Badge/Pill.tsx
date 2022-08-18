@@ -1,8 +1,8 @@
 //create a badge component
 
 import React, { useMemo } from "react";
-import { StyledPill } from "./StyledBadge";
-import chroma from "chroma-js";
+import { greyColor } from "../../../constants";
+import { StyledBadge } from "./StyledBadge";
 
 export interface PillProps {
   /**
@@ -18,21 +18,24 @@ export interface PillProps {
 }
 
 const Pill: React.FC<PillProps> = ({ color = "#1E90FF", children }) => {
- 
+  const hexToRgba = (hex: string) => {
+    const [r, g, b] = hex.match(/\w\w/g)!.map((x) => parseInt(x, 16));
+    return `rgba(${r}, ${g}, ${b}, 0.4)`;
+  };
 
-  const PillColor = useMemo(() => {
-    return chroma(color).alpha(0.4).hex();
+  const badgeColor = useMemo(() => {
+    return hexToRgba(color);
   }, [color]);
 
   return (
-    <StyledPill
+    <StyledBadge
       style={{
-        backgroundColor: PillColor,
+        backgroundColor: badgeColor,
         color: color,
       }}
     >
       {children}
-    </StyledPill>
+    </StyledBadge>
   );
 };
 export default Pill;
