@@ -1,8 +1,8 @@
 //create a badge component
 
-import React, { useMemo } from "react";
 import { greyColor } from "../../../constants";
 import { StyledBadge } from "./StyledBadge";
+import chroma from "chroma-js";
 
 export interface BadgeProps {
   /**
@@ -17,15 +17,10 @@ export interface BadgeProps {
   children: React.ReactNode;
 }
 
-const Badge: React.FC<BadgeProps> = ({ color = "#1E90FF", children }) => {
-  const hexToRgba = (hex: string) => {
-    const [r, g, b] = hex.match(/\w\w/g)!.map((x) => parseInt(x, 16));
-    return `rgba(${r}, ${g}, ${b}, 0.4)`;
-  };
-
-  const badgeColor = useMemo(() => {
-    return hexToRgba(color);
-  }, [color]);
+const Badge: React.FC<BadgeProps> = ({
+    color,
+    children,
+}) => {
 
   return (
     <StyledBadge
