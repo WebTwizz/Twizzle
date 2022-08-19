@@ -48,7 +48,6 @@ describe("Search Input Field component", () => {
         const onSearch = jest.fn();
         render(<SearchInput inputName={""} inputLabel={"Search"} onSearch={onSearch()}/>);
         expect(screen.getByRole("textbox")).toBeInTheDocument();
-        userEvent.click(screen.getByRole("button"));
         expect(onSearch).toHaveBeenCalled();
     });
 });

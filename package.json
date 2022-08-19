@@ -15,7 +15,7 @@
     "url": "https://github.com/ahmedwab/Twizzle/issues"
   },
   "homepage": "https://twizzlelibrary.com",
-
+  "keywords": ["twizzle", "library", "react", "next.js", "typescript", "frontend"],
   "scripts": {
     "test": "jest",
     "storybook": "start-storybook -p 6006 -s public",

@@ -3,7 +3,7 @@
 import { greyColor } from "../../../constants";
 import { StyledBadge } from "./StyledBadge";
 import chroma from "chroma-js";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 
 export interface BadgeProps {
   /**
