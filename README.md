@@ -6,7 +6,7 @@
 
 Twizzle is an open source React UI framework available to build web projects
 
-##Documentation
+## Documentation
 [Documentation](https://twizzlelibrary.com)
 
 ## Installation
