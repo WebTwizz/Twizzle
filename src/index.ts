@@ -7,6 +7,7 @@ export * from './components/Input/Checkbox';
 export * from './components/Input/FileUploader';
 export * from './components/Input/InputField';
 export * from './components/Input/Rate';
+export * from './components/Input/Radio';
 export * from './components/Input/Select';
 export * from './components/Input/Toggle';
 export * from './components/Layout/Alert';
