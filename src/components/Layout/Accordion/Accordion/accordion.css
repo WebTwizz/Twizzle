@@ -1,0 +1,13 @@
+.twizzle-accordion.hidden {
+    width: 100%;
+    margin: 10px;
+    background-color: red;
+    height: 0px;
+    display: none;
+    transition: all 0.5s;
+}
+
+.twizzle-accordion.visible {
+    display: block;
+    height: 150px;
+}

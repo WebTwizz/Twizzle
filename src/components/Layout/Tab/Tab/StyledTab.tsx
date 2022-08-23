@@ -18,7 +18,7 @@ export const StyledTabList = styled.div<StyledTabListProps>`
 `;
 
 export const StyledTab = styled.button`
-    width: max-content;
+    width: 100%;
     border: none;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
@@ -27,7 +27,6 @@ export const StyledTab = styled.button`
     border-bottom: 1px solid #ccc;
     cursor: pointer;
     transition: all 0.25s ease-in-out;
-    // min-width: 50px;
     &:hover {
         background-color: #f5f5f5;
     }

@@ -44,8 +44,6 @@ const Tabs = [
 
 const TabTemplate: ComponentStory<typeof TabList> = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [content, setContent] = useState(useState(1));
-//   const Tabs = ["Tab 1", "Tab 2", "Tab 3", "Tab 4", "Tab 5", "Tab 6"];
 
   return (
     <div>
@@ -93,9 +91,6 @@ const VerticalTabTemplate: ComponentStory<typeof TabList> = () => {
             isActive={selectedIndex == index}
             onClick={() => setSelectedIndex(index)}
             key={index}
-            style={{
-                width: '120px',
-            }}
           >
             {tab.label}
           </Tab>

@@ -1,3 +1,4 @@
+export * from './components/Box/Box';
 export * from './components/Feedback/Loader';
 export * from './components/Feedback/Overlay';
 export * from './components/General/Avatar';
