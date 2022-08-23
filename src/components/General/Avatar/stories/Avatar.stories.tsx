@@ -30,6 +30,6 @@ export default {
 
 
 const AvatarTemplate: ComponentStory<typeof Avatar> = ({ ...rest }) => {
-    return <Avatar {...rest} style={{height: '400px', width:'400px'}} src="https://bit.ly/2k1H1t6"/>;
+    return <Avatar {...rest}/>;
 }
 export const AvatarComponent = AvatarTemplate.bind({});
