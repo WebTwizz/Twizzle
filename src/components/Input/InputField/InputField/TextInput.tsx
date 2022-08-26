@@ -70,6 +70,11 @@ export interface InputProps {
    */
   disabled?: boolean;
   /**
+   * required input
+   * @default false
+   */
+  required?: boolean;
+  /**
    * width size of input
    */
   width?: string;
@@ -96,6 +101,7 @@ export const TextInput: React.FC<InputProps> = ({
   onChange,
   onEnter,
   disabled,
+  required = false,
   width,
   variant,
   rightIcon,
@@ -109,7 +115,7 @@ export const TextInput: React.FC<InputProps> = ({
   const [hover, setHover] = useState(false);
   const theme = useContext(ThemeContext);
   const inputRef = React.createRef<HTMLInputElement>();
-  const [inputValue, setInputValue] = useState(value);
+  const [inputValue, setInputValue] = useState(value || "");
 
   const sizeAttributes = {
     small: {
@@ -193,6 +199,7 @@ export const TextInput: React.FC<InputProps> = ({
           name={inputName}
           placeholder={placeholder}
           disabled={disabled}
+          required={required}
           maxLength={maxCount}
           onChange={(e) => {
             setInputValue(e.target.value);

@@ -91,25 +91,9 @@ const Button: React.FC<ButtonProps> = ({
       onMouseLeave={() => {
         setHover(false);
       }}
-      className={`${
-        disabled
-          ? "twizzle-button-disabled"
-          : outlined
-          ? "twizzle-button-outlined"
-          : "twizzle-button"
-      }`}
-      {...props}
       style={{
         border: outlined ? "1px solid" : "none",
         borderRadius: corner === "round" ? "30px" : "5px",
-        backgroundColor: disabled
-          ? "#EBEBE4"
-          : outlined
-          ? hover
-            ? "#F2F2F2"
-            : "white"
-          : color,
-        color: disabled ? "white" : outlined ? color : "white",
         filter: hover
           ? outlined
             ? "brightness(0.95)"
@@ -119,6 +103,8 @@ const Button: React.FC<ButtonProps> = ({
           size === "small" ? "12px" : size === "large" ? "20px" : "15px",
         ...style,
       }}
+      backgroundColor={outlined ? (hover ? "#F2F2F2" : "white") : color}
+      color={disabled ? "white" : outlined ? color : "white"}
       disabled={disabled}
     >
       <span
@@ -154,8 +140,7 @@ const Button: React.FC<ButtonProps> = ({
                 marginLeft: "5px",
               }}
             >
-              {" "}
-              {icon}{" "}
+              {icon}
             </span>
           ) : (
             <span
@@ -165,7 +150,6 @@ const Button: React.FC<ButtonProps> = ({
                 justifyContent: "center",
               }}
             >
-              {" "}
               {icon}
             </span>
           ))}

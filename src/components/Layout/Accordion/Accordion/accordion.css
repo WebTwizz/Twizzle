@@ -1,13 +1,32 @@
-.twizzle-accordion.hidden {
-    width: 100%;
-    margin: 10px;
-    background-color: red;
-    height: 0px;
-    display: none;
-    transition: all 0.5s;
-}
-
-.twizzle-accordion.visible {
+.accordion {
     display: block;
-    height: 150px;
+    width: 100%;
+    overflow: hidden;
 }
+.accordion-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+
+}
+.accordion-item {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+.accordion-content {
+    display: block;
+    background-color: white;
+    padding: 10px;
+    height: 0px;
+    transition: all 1s ease-in;
+    -moz-transition: all 1s ease-in; /* Firefox 4 */
+    -webkit-transition: all 1s ease-in; /* Safari 和 Chrome */
+    -o-transition: all 1s ease-in; /* Opera */
+}
+.accordion-content.active {
+    height: auto;
+}
+/* .accordion-content:hover {
+    height: 200px;
+} */

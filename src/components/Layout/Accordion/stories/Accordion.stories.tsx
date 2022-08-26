@@ -10,7 +10,11 @@ export default {
 
 const AccordionTemplate: ComponentStory<typeof Accordion> = () => {
     return (
+        <>
         <Accordion/>
+        <Accordion/>
+        <Accordion/>
+        </>
     )
 }
 

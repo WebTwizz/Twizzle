@@ -8,7 +8,8 @@ import { InputProps } from "./TextInput";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { greyBackgroundColor } from "../../../constants";
 
-interface PasswordInputProps extends InputProps {
+//extend InputProps interface without onEnter property
+interface PasswordInputProps extends Omit<InputProps, 'onEnter'>{
   /**
    * Display button to see password
    * @default true

@@ -95,7 +95,13 @@ const Rate: React.FC<RateProps> = ({
                 }}
                 onClick={() => {
                   !disabled?handleRateChange(item.rating): null;
-                  allowClear? clicked? clearAll(): setClicked(true): null;
+                  if(allowClear) {
+                    //IF IT IS THE SAME ITEM CLICKED, CLEAR ALL
+                    if (item.isActive && clicked) {
+                      clearAll();
+                    } 
+                    setClicked(true);
+                  }
                 }}
                 onMouseDown={() => {
                   !disabled && !clicked? handleRateChange(item.rating) : null;
