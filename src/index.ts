@@ -15,6 +15,7 @@ export * from './components/Layout/Alert';
 export * from './components/Layout/Modal';
 export * from './components/Layout/Tab';
 export * from './components/Layout/Badge';
+export * from './components/Layout/Breadcrumbs';
 export * from './components/Navigation/Pagination';
 export * from './components/Other/BackToTop';
 export * from './components/Other/Tooltip';
