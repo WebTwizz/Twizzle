@@ -1,10 +1,9 @@
 # <img src="public/images/Twizzle-logo.png" alt="twizzle" width="500px"/>
 
-![GitHub](https://img.shields.io/github/license/ahmedwab/twizzle) ![GitHub contributors](https://img.shields.io/github/contributors/ahmedwab/twizzle) ![GitHub package.json version](https://img.shields.io/github/package-json/v/ahmedwab/twizzle) ![example workflow](https://github.com/ahmedwab/twizzle/actions/workflows/node.js.yml/badge.svg) 
-
 ## About 
 
 Twizzle is an open source React UI framework available to build web projects
+![GitHub](https://img.shields.io/github/license/ahmedwab/twizzle) ![GitHub contributors](https://img.shields.io/github/contributors/ahmedwab/twizzle) ![GitHub package.json version](https://img.shields.io/github/package-json/v/ahmedwab/twizzle) ![example workflow](https://github.com/ahmedwab/twizzle/actions/workflows/node.js.yml/badge.svg) 
 
 ## Documentation
 [Documentation](https://twizzlelibrary.com)
