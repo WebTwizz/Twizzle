@@ -55,10 +55,11 @@ const Alert: React.FC<AlertProps> = ({
             <Box
               style={{
                alignItems: "center",
+               padding: "1rem",
                width: "100%",
               }}
             >
-              <p className="twizzle-alert-content-text" style={{paddingLeft: '10px', fontSize: size == 'small'? '0.875em' : size ==  'medium'? '1em' : '1.25em', width:'96%'}}>{children}</p>
+              {children}
            </Box>
         </Box>
     </StyledAlert>

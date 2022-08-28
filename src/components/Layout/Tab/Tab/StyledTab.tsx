@@ -7,7 +7,6 @@ type StyledTabListProps = {
   }
 export const StyledTabList = styled.div<StyledTabListProps>`
     display: flex;
-    overflow-x: scroll;
     width: 100%;
     & > button {
         border: none;

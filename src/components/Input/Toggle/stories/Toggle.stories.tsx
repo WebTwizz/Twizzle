@@ -50,7 +50,6 @@ const ToggleTemplate: ComponentStory<typeof Toggle> = ({
                 toggled={toggled}
                 {...rest}
             />
-            <Checkbox checked={toggled} inputName={''} size={size}/>
             <Typography elementType={'p'}> {toggled == false? 'false' : 'true'} </Typography>
         </>
     )

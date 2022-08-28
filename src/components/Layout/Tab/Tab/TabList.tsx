@@ -26,8 +26,6 @@ const TabList: React.FC<TabListProps> = ({
   <StyledTabList
     style={{
       flexDirection: orientation === "horizontal" ? "row" : "column",
-      overflowX: orientation === "horizontal" ? "scroll" : "auto",
-      overflowY: orientation === "vertical" ? "scroll" : "auto",
       ...style,
     }}
     borderRight={orientation === "vertical" ? "1px solid #dcdcdc" : "none"}

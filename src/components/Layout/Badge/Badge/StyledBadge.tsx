@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { rgba } from "polished";
 
 export const StyledBadge = styled.div`
   font-size: 0.8rem;
@@ -10,9 +9,9 @@ export const StyledBadge = styled.div`
 `;
 
 export const StyledPill = styled.div`
-  font-size: 0.5rem;
+  font-size: 0.75rem;
   font-family: system-ui;
-  border-radius: 25%;
-  padding: 2px 8px;
+  border-radius: 10px;
+  padding: 1px 10px;
   width: fit-content;
 `;
