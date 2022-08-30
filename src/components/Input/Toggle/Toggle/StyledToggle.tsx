@@ -4,15 +4,20 @@ export const StyledToggle = styled.div`
     display: flex;
     align-items: center;
     width: fit-content;
+    margin: 3px;
 `;
 
 export const StyledToggleInput = styled.input`
     height: 0;
     width: 0;
-    visibility: hidden;
+    display: none;
 `;
 
-export const StyledToggleInputLabel = styled.label`
+type StyledToggleInputLabelProps = {
+    toggleSize: string;
+};
+
+export const StyledToggleInputLabel = styled.label<StyledToggleInputLabelProps>`
     cursor: pointer;
     width: 60px;
     height: 30px;
@@ -24,8 +29,8 @@ export const StyledToggleInputLabel = styled.label`
         position: absolute;
         top: 2.5px;
         left: 5px;
-        width: 25px;
-        height: 25px;
+        width: ${(props) => props.toggleSize};
+        height: ${(props) => props.toggleSize};
         background: #fff;
         border-radius: 25px;
         transition: 0.3s;

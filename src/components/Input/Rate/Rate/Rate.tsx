@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { AiFillStar } from "react-icons/ai";
 import { StyledRate, StyledRateIcon } from "./StyledRate";
 
-interface RateProps {
+interface RateProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onRateChange"> {
   /**
    * icon to be displayed
    */
@@ -40,6 +40,7 @@ const Rate: React.FC<RateProps> = ({
   color = "#ffc107",
   iconSize = "2rem",
   allowClear = true,
+  ...props
 }) => {
   const [clicked, setClicked] = useState(true);
   const [currentRating, setCurrentRating] = useState([
@@ -81,7 +82,7 @@ const Rate: React.FC<RateProps> = ({
   }, [rating]);
 
   return (
-    <StyledRate role="rate">
+    <StyledRate role="rate" {...props}>
       {icon ? (
         <>
           {currentRating.map((item, index) => {
@@ -95,7 +96,13 @@ const Rate: React.FC<RateProps> = ({
                 }}
                 onClick={() => {
                   !disabled?handleRateChange(item.rating): null;
-                  allowClear? clicked? clearAll(): setClicked(true): null;
+                  if(allowClear) {
+                    //IF IT IS THE SAME ITEM CLICKED, CLEAR ALL
+                    if (item.isActive && clicked) {
+                      clearAll();
+                    } 
+                    setClicked(true);
+                  }
                 }}
                 onMouseDown={() => {
                   !disabled && !clicked? handleRateChange(item.rating) : null;

@@ -18,9 +18,6 @@ export default {
             control: { type: 'text' },
             defaultValue: 'Checkbox',
         },
-        name: {
-            control: { type: 'text' },
-        },
         onChange: {
             control: { control: false },
         },

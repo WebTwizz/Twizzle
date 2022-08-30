@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledModal = styled.div`
     display:flex;
     width:100vh;
+    margin: 10px;
     border-radius: 3px;
     overflow:hidden;
     cursor: default;

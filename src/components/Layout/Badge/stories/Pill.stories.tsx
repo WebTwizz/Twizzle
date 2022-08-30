@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import Pill from "../Badge/Badge";
+import Pill from "../Badge/Pill";
 
 export default {
   title: "Components/Layout/Pill",

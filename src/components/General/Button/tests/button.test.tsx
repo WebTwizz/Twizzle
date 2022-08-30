@@ -27,11 +27,6 @@ describe("Button component", () => {
     
         expect(screen.getByRole("button")).toBeDisabled;
     })
-    it("should render Button with outlined prop", () => {
-       render(<Button label={""} outlined />);
-
-         expect(screen.getByRole("button")).toHaveClass("twizzle-button-outlined");
-    })
     it("should render Button with corner prop", () => {
         render(<Button label={""} corner="round" />);
 

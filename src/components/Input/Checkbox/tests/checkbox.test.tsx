@@ -4,29 +4,29 @@ import { Checkbox } from "..";
 
 describe("Checkbox", () => {
   it("should render correctly", () => {
-    render(<Checkbox />);
+    render(<Checkbox inputName={""} />);
     expect(screen.getByRole("checkbox")).toBeInTheDocument();
 
   });
 
   it("should render with label", () => {
-    const { getByText } = render(<Checkbox label="Checkbox" />);
+    const { getByText } = render(<Checkbox inputName={""} label="Checkbox" />);
     expect(getByText("Checkbox")).toBeInTheDocument();
   });
 
   it("should be disabled if given the disabled prop", () => {
-    render(<Checkbox label="Checkbox" disabled />);
+    render(<Checkbox inputName={""} label="Checkbox" disabled />);
     expect(screen.getByRole("checkbox")).toBeDisabled();
   });
 
   it("should be checked if given the checked prop", () => {
-    render(<Checkbox label="Checkbox" checked />);
+    render(<Checkbox inputName={""} label="Checkbox" checked />);
     expect(screen.getByRole("checkbox")).toBeChecked();
   });
 
   it("should call onCheck if given the onCheck prop", () => {
     const onCheck = jest.fn();
-    render(<Checkbox label="Checkbox" onCheck={onCheck} />);
+    render(<Checkbox label="Checkbox" onCheck={onCheck} inputName={""} />);
     screen.getByRole("checkbox").click();
     expect(onCheck).toHaveBeenCalled();
   });

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Toggle } from '..';
+import {Checkbox} from '../../Checkbox';
 import { Typography } from '../../../General/Typography';
 
 
@@ -18,22 +19,37 @@ export default {
             control: { type: 'text' },
             defaultValue: 'Toggle',
         },
+        size: {
+            control: {
+                type: 'select',
+                options: ['small', 'medium', 'large'],
+            },
+            defaultValue: 'medium',
+        },
+        disabled: {
+            control: {
+                type: 'boolean',
+            },
+            defaultValue: false,
+        },
     }
 } as ComponentMeta<typeof Toggle>;
 
 const ToggleTemplate: ComponentStory<typeof Toggle> = ({
     disabled,
+    size = "medium",
     ...rest
 }) => {
     const [toggled, setToggled] = useState(false);
     return (
         <>
             <Toggle
-                onToggle={() => setToggled(!toggled)}
+                onChange={() => setToggled(!toggled)}
                 disabled={disabled}
+                size={size}
+                toggled={toggled}
                 {...rest}
             />
-            <Typography elementType={'p'}> {toggled == false? 'false' : 'true'} </Typography>
         </>
     )
 }

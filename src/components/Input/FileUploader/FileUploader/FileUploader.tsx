@@ -15,10 +15,9 @@ import {
 import { Typography } from "../../../General/Typography";
 import { AiOutlineFile, AiOutlineFileImage } from "react-icons/ai";
 import { Box } from "../../../Box/Box";
-import { greyBackgroundColor } from "../../../constants";
 //In progress
 
-interface FileUploaderProps {
+interface FileUploaderProps extends React.HTMLAttributes<HTMLDivElement>{
   /**
    * Name of the input field
    */
@@ -65,6 +64,8 @@ const FileUploader: React.FC<FileUploaderProps> = ({
   width = "100%",
   onUpload,
   disabled = false,
+  style,
+  ...props
 }) => {
   const [files, setFiles] = useState<File[] | null>(null);
   const [message, setMessage] = useState<string | null>(
@@ -138,7 +139,7 @@ const FileUploader: React.FC<FileUploaderProps> = ({
   };
 
   return (
-    <StyledFileUploaderComponent role={"fileuploader"} style={{ width }}>
+    <StyledFileUploaderComponent role={"fileuploader"} style={{ width, ...style }} {...props}>
       <StyledFileUploader
         onClick={() => handleButtonClick()}
         onDragOver={(e) => e.preventDefault()}

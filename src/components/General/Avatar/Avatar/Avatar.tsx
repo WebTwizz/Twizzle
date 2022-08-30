@@ -2,7 +2,7 @@ import React from "react";
 import { useMemo } from "react";
 import { StyledAvatar } from "./StyledAvatar";
 
-interface AvatarProps {
+interface AvatarProps extends React.HTMLAttributes<HTMLSpanElement>{
   /**
    * The image url to be displayed
    */
@@ -46,7 +46,8 @@ const Avatar: React.FC<AvatarProps> = ({
   shape = "circle",
   backgroundColor,
   color,
-  ...rest
+  style,
+  ...props
 }) => {
   const colorPalette = [
     ["#D77373", "#FFABAB"],
@@ -57,9 +58,9 @@ const Avatar: React.FC<AvatarProps> = ({
   ];
 
   const sizeAttributes = {
-    small : {fontSize: "0.8rem", width: "1.5rem", height: "1.5rem", borderRadius: "16px"},
-    medium: {fontSize: "1rem", width: "2rem", height: "2rem", borderRadius: "24px"},
-    large: {fontSize: "1.5rem", width: "3rem", height: "3rem", borderRadius: "32px"},
+    small : {fontSize: "0.8rem", width: "1.5rem", height: "1.5rem", borderRadius: "50%"},
+    medium: {fontSize: "1rem", width: "2rem", height: "2rem", borderRadius: "50%"},
+    large: {fontSize: "1.5rem", width: "3rem", height: "3rem", borderRadius: "50%"},
   };
 
 
@@ -84,8 +85,9 @@ const Avatar: React.FC<AvatarProps> = ({
         width: sizeAttributes[size].width,
         height: sizeAttributes[size].height,
         borderRadius: shape == 'square'? '3px': sizeAttributes[size].borderRadius,
+        ...style,
       }}
-      {...rest}
+      {...props}
     >
         {src ? (
           <img 
@@ -95,6 +97,7 @@ const Avatar: React.FC<AvatarProps> = ({
             width: sizeAttributes[size].width,
             height: sizeAttributes[size].height,
             borderRadius:shape == 'square'? '3px': sizeAttributes[size].borderRadius,  
+            ...style,
           }} 
           />
         ) : (

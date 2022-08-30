@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyledTooltip, StyledTooltipContainer } from "./StyledTooltip";
 
-interface TooltipProps {
+interface TooltipProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
    * position of the tooltip
    */
@@ -25,6 +25,7 @@ const Tooltip: React.FC<TooltipProps> = ({
   alwaysShown,
   tooltipText,
   children,
+  ...props
 }: TooltipProps) => {
 
   const [showTooltip, setShowTooltip] = useState(false);
@@ -42,6 +43,7 @@ const Tooltip: React.FC<TooltipProps> = ({
       <StyledTooltipContainer 
       onMouseEnter={() =>setShowTooltip(true)}
       onMouseLeave={() =>setShowTooltip(false)}
+      {...props}
       >
         {children}
         <StyledTooltip 

@@ -26,5 +26,12 @@
   "include": [
     "src"
   ],
+  "exclude": [
+    "**/tests",
+    "**/*.test.tsx",
+    "**/stories",
+    "**/*.stories.tsx",
+  ],
+  "buildOnSave": true,
   "rootDir": "src"
 }

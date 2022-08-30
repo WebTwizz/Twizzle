@@ -1,10 +1,9 @@
 import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
-import { Box } from "../../../Box/Box";
 import { Loader } from "../../../Feedback/Loader";
 import { StyledButton } from "./StyledButton";
 
-interface ButtonProps {
+interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement>{
   /**
    * Color of the button, otherwise it will default to the theme color
    */
@@ -46,10 +45,6 @@ interface ButtonProps {
    * @default "medium"
    */
   size?: "small" | "medium" | "large";
-  /**
-   * Styling added to the button
-   */
-  style?: React.CSSProperties;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -71,12 +66,6 @@ const Button: React.FC<ButtonProps> = ({
 
   disabled = isLoading || disabled;
 
-  const loaderSize = {
-    small: "extraSmall",
-    medium: "small",
-    large: "medium",
-  };
-
   color =
     theme?.variants?.[variant!]?.color ||
     color ||
@@ -91,25 +80,9 @@ const Button: React.FC<ButtonProps> = ({
       onMouseLeave={() => {
         setHover(false);
       }}
-      className={`${
-        disabled
-          ? "twizzle-button-disabled"
-          : outlined
-          ? "twizzle-button-outlined"
-          : "twizzle-button"
-      }`}
-      {...props}
       style={{
         border: outlined ? "1px solid" : "none",
         borderRadius: corner === "round" ? "30px" : "5px",
-        backgroundColor: disabled
-          ? "#EBEBE4"
-          : outlined
-          ? hover
-            ? "#F2F2F2"
-            : "white"
-          : color,
-        color: disabled ? "white" : outlined ? color : "white",
         filter: hover
           ? outlined
             ? "brightness(0.95)"
@@ -119,7 +92,10 @@ const Button: React.FC<ButtonProps> = ({
           size === "small" ? "12px" : size === "large" ? "20px" : "15px",
         ...style,
       }}
+      backgroundColor={outlined ? (hover ? "#F2F2F2" : "white") : color}
+      color={disabled ? "white" : outlined ? color : "white"}
       disabled={disabled}
+      {...props}
     >
       <span
         style={{
@@ -154,8 +130,7 @@ const Button: React.FC<ButtonProps> = ({
                 marginLeft: "5px",
               }}
             >
-              {" "}
-              {icon}{" "}
+              {icon}
             </span>
           ) : (
             <span
@@ -165,7 +140,6 @@ const Button: React.FC<ButtonProps> = ({
                 justifyContent: "center",
               }}
             >
-              {" "}
               {icon}
             </span>
           ))}

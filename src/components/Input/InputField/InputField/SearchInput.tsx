@@ -26,6 +26,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
   inputLabelDescription,
   errorMessage,
   isLoading,
+  style,
   ...props
 }) => {
   const sizeAttributes = {

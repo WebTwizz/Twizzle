@@ -64,9 +64,6 @@ LabelAndIconButton.args= {
   label: 'Button',
   icon: <AiOutlineInfoCircle/>,
   outlined: true,
-  style: {
-    padding: '5px',
-  },
   color: '#848484',
 };
 

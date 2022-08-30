@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledTypography = styled.div`
+export const StyledTypography = styled.span`
     font-family: 'Roboto', sans-serif;
     color: ${props => props.style?.color || 'black'};
     `;

@@ -8,7 +8,7 @@ import {
 import { Box } from "../../../Box/Box";
 import { StyledAlert } from "./StyledAlert";
 
-export interface AlertProps {
+export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * The content of the alert
    */
@@ -22,23 +22,22 @@ export interface AlertProps {
    * size of the alert
    */
     size?: "small" | "medium" | "large";
-  /**
-   * styling for the alert
-   */
-  style?: React.CSSProperties;
 }
 
 const Alert: React.FC<AlertProps> = ({ 
   children, 
   variant = "info",
   size = "medium",
-  style }) => {
+  style,
+  ...props
+ }) => {
   return (
     <StyledAlert role={"alert"} 
     style={{
       minWidth: size === "small" ? "30%" : size === "large" ? "50%" : "40%",
       ...style
     }}
+    {...props}
     >
         <Box className={`twizzle-alert-${variant}`}
         style={{
@@ -55,10 +54,11 @@ const Alert: React.FC<AlertProps> = ({
             <Box
               style={{
                alignItems: "center",
+               padding: "1rem",
                width: "100%",
               }}
             >
-              <p className="twizzle-alert-content-text" style={{paddingLeft: '10px', fontSize: size == 'small'? '0.875em' : size ==  'medium'? '1em' : '1.25em', width:'96%'}}>{children}</p>
+              {children}
            </Box>
         </Box>
     </StyledAlert>

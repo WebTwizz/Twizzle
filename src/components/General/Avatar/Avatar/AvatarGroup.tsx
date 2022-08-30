@@ -3,10 +3,9 @@ import { useMemo } from "react";
 import { Box } from "../../../Box/Box";
 import { greyBackgroundColor, greyColor } from "../../../constants";
 import Avatar from "./Avatar";
-import { StyledAvatar } from "./StyledAvatar";
 import { StyledAvatarGroup } from "./StyledAvatarGroup";
 
-interface AvatarGroupProps {
+interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement>{
   /**
    * The size of the avatar out of the following options:
    * small, medium, large

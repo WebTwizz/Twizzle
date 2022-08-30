@@ -8,7 +8,8 @@ import { InputProps } from "./TextInput";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { greyBackgroundColor } from "../../../constants";
 
-interface PasswordInputProps extends InputProps {
+//extend InputProps interface without onEnter property
+interface PasswordInputProps extends Omit<InputProps, 'onEnter'>{
   /**
    * Display button to see password
    * @default true
@@ -70,8 +71,9 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
 
   return (
     <Box
-      style={{ flexDirection: "column" }}
+      style={{ flexDirection: "column", ...style }}
       onClick={() => inputRef.current?.focus()}
+      {...props}
     >
       {inputLabel && (
         <Typography
@@ -110,7 +112,6 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
           fontSize: sizeAttributes[size].fontSize,
           width: width || sizeAttributes[size].defaultWidth,
           padding: sizeAttributes[size].padding,
-          ...style,
         }}
       >
         <StyledTextInput
@@ -128,7 +129,6 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
           }}
           onFocus={() => setHover(true)}
           onBlur={() => setHover(false)}
-          {...props}
         ></StyledTextInput>
         <Box
           style={{

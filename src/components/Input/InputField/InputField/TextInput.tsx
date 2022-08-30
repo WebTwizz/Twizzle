@@ -7,7 +7,7 @@ import { Typography } from "../../../General/Typography";
 import { TextAlert } from "../../../Layout/Alert";
 import { StyledInputContainer, StyledTextInput } from "./StyledTextInput";
 
-export interface InputProps {
+export interface InputProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
   /**
    * The name of the input
    */
@@ -70,13 +70,14 @@ export interface InputProps {
    */
   disabled?: boolean;
   /**
+   * required input
+   * @default false
+   */
+  required?: boolean;
+  /**
    * width size of input
    */
   width?: string;
-  /**
-   * Add customs styling
-   */
-  style?: React.CSSProperties;
   /**
    * size of input between the following:
    * ['small', 'medium', 'large']
@@ -96,6 +97,7 @@ export const TextInput: React.FC<InputProps> = ({
   onChange,
   onEnter,
   disabled,
+  required = false,
   width,
   variant,
   rightIcon,
@@ -109,7 +111,7 @@ export const TextInput: React.FC<InputProps> = ({
   const [hover, setHover] = useState(false);
   const theme = useContext(ThemeContext);
   const inputRef = React.createRef<HTMLInputElement>();
-  const [inputValue, setInputValue] = useState(value);
+  const [inputValue, setInputValue] = useState(value || "");
 
   const sizeAttributes = {
     small: {
@@ -143,7 +145,8 @@ export const TextInput: React.FC<InputProps> = ({
         if (e.key === "Enter") {
           onEnter?.();
         }
-      } }
+      }}
+      {...props}
     >
       {inputLabel && (
         <Typography
@@ -193,6 +196,7 @@ export const TextInput: React.FC<InputProps> = ({
           name={inputName}
           placeholder={placeholder}
           disabled={disabled}
+          required={required}
           maxLength={maxCount}
           onChange={(e) => {
             setInputValue(e.target.value);
@@ -202,7 +206,6 @@ export const TextInput: React.FC<InputProps> = ({
           }}
           onFocus={() => setHover(true)}
           onBlur={() => setHover(false)}
-          {...props}
         ></StyledTextInput>
         {rightIcon}
         <Box

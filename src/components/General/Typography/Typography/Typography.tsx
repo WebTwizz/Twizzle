@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
+import { ThemeContext } from '../../../../context/ThemeContext'
 import {
   StyledTypography,
   StyledTypography1, StyledTypography2, StyledTypography3, StyledTypography4, StyledTypography5, StyledTypography6, StyledTypographyp
 }
 from './StyledTypography'
 
-interface TypographyProps {
+interface TypographyProps extends React.HTMLAttributes<HTMLSpanElement>{
 
   /**
    * Element to be rendered
@@ -36,11 +37,6 @@ interface TypographyProps {
    * Children to be rendered inside the element
    */
   children?: React.ReactNode
-  /**
-   * Styling added to the element
-   */
-
-  style?: React.CSSProperties
 }
 
 const Typography: React.FC<TypographyProps> = ({
@@ -55,7 +51,9 @@ const Typography: React.FC<TypographyProps> = ({
   ...props
 }: TypographyProps) => {
 
-  const fontWeight = bold ? '500' : '300'
+  const fontWeight = bold ? '500' : '300';
+
+  const fontFamily = useContext(ThemeContext).typography?.fontFamily || 'sans-serif';
 
   return (
     <StyledTypography
@@ -63,6 +61,7 @@ const Typography: React.FC<TypographyProps> = ({
     onClick={() => onClick?.()}
     style={{
         fontStyle: italic ? 'italic' : 'normal',
+        fontFamily,
         cursor: disabled ? 'not-allowed' : 'inherit',
       ...style,
       

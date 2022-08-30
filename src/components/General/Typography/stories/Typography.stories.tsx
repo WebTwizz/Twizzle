@@ -24,7 +24,7 @@ export default {
 
 const TypographyTemplate: ComponentStory<typeof Typography> = ({ ...args }) => {
   
-    return <Typography {...args}>Typography</Typography>;
+    return <Typography {...args} style={{ margin: '5px'}}>Typography</Typography>;
   };
   
   export const TypographyComponent = TypographyTemplate.bind({});
