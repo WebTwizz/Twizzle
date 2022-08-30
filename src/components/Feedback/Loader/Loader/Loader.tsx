@@ -1,7 +1,8 @@
-import React, { useContext, useMemo } from "react";
+import React, {  useContext, useMemo } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
 import { StyledLoader } from "./StyledLoader";
-interface LoaderProps {
+
+interface LoaderProps extends React.HTMLAttributes<HTMLDivElement>{
   /**
    * Size of the loader
    */
@@ -10,16 +11,13 @@ interface LoaderProps {
    * Color of the loader
    */
   color?: string;
-  /**
-   * Styling added to the spinner
-   */
-  style?: React.CSSProperties;
 }
 
 const Loader: React.FC<LoaderProps> = ({
   size = "medium",
   color,
   style,
+  ...props
 }: LoaderProps) => {
   const theme = useContext(ThemeContext);
 
@@ -39,19 +37,18 @@ const Loader: React.FC<LoaderProps> = ({
   return (
     <StyledLoader 
     role={"loader"}
+   
     style={{
       width: loaderSize[size].weight,
       height: loaderSize[size].weight,
       padding: loaderSize[size].padding,
       border: `3px solid ${overlayColor}`,
+      borderBottom: '3px solid transparent',
       borderWidth: loaderSize[size].thickness,
-      borderBottom: `3px solid transparent`,
-      borderRadius: "50%",
-      boxSizing: "border-box",
-      animation: "twizzle-loader-rotation 1s linear infinite",
       ...style,
-    }}>
-    </StyledLoader>
+    }}
+    {...props}
+    />
   );
 };
 

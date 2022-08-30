@@ -2,7 +2,7 @@
 import React from "react";
 import { StyledTabList } from "./StyledTab";
 
-interface TabListProps {
+interface TabListProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * orientation of the tab list
    * @default "horizontal"
@@ -22,6 +22,7 @@ const TabList: React.FC<TabListProps> = ({
   children,
   orientation = "horizontal",
   style,
+  ...props
 }) => (
   <StyledTabList
     style={{
@@ -31,6 +32,7 @@ const TabList: React.FC<TabListProps> = ({
     borderRight={orientation === "vertical" ? "1px solid #dcdcdc" : "none"}
     borderBottom={orientation === "horizontal" ? "1px solid #dcdcdc" : "none"}
     textAlign={orientation === "horizontal" ? "center" : "left"}
+    {...props}
   >
     {children}
   </StyledTabList>

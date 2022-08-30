@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledAccordionContent, StyledAccordionItem } from "./StyledAccordion";
 
-interface AccordionItemProps {
+interface AccordionItemProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
    * Content of the accordion item
    */
@@ -11,19 +11,16 @@ interface AccordionItemProps {
    * @note This is an uncontrolled component
    */
   isOpen?: boolean;
-  /**
-   * Style of the accordion item
-   */
-  style?: React.CSSProperties;
 }
 
 const AccordionItem: React.FC<AccordionItemProps> = ({
   content,
   isOpen,
   style,
+  ...props
 }) => {
   return (
-    <StyledAccordionItem className={`${!isOpen ? "closed" : ""}`} style={style}>
+    <StyledAccordionItem className={`${!isOpen ? "closed" : ""}`} style={style} {...props}>
       <StyledAccordionContent className="accordion-content">
         {content}
       </StyledAccordionContent>

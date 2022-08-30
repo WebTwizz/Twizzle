@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyledOverlay } from "./StyledOverlay";
 
-interface BackDropProps {
+interface BackDropProps extends React.HTMLAttributes<HTMLDivElement>{
 
     /**
      * Children to be rendered inside the backdrop
@@ -11,22 +11,18 @@ interface BackDropProps {
      * onClick handler for the backdrop
      */
     onClick?: () => void;
-    /**
-     * Styling added to the backdrop
-    */
-    style?: React.CSSProperties;
-
 }
 const Overlay: React.FC<BackDropProps> = (
 {   children, 
     onClick,
     style,
+    ...props
 }
 ) => {
     
     return (
      <>
-        <StyledOverlay onClick={onClick} style={style} role="overlay">
+        <StyledOverlay onClick={onClick} style={style} role="overlay" {...props}>
             {children}
         </StyledOverlay>
 

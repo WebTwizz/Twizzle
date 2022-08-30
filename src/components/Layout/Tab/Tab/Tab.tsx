@@ -1,9 +1,8 @@
 import React, { useState, useContext } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
-import { greyBackgroundColor } from "../../../constants";
 import { StyledTab } from "./StyledTab";
 
-interface TabProps {
+interface TabProps extends React.HTMLAttributes<HTMLButtonElement> {
   /**
    * onClick callback function
    */
@@ -33,7 +32,8 @@ const Tab: React.FC<TabProps> = ({
   isActive,
   color,
   style,
-  children
+  children,
+  ...props
 }) => {
 
     const theme = useContext(ThemeContext);
@@ -48,6 +48,7 @@ const Tab: React.FC<TabProps> = ({
       borderWidth: isActive ? '2px' : '1px',
       ...style
     }}
+    {...props}
     >
       {children}
     </StyledTab>

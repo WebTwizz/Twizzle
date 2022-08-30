@@ -1,10 +1,8 @@
-import React, { cloneElement, useEffect, useMemo, useState } from "react";
-import { BiChevronDown } from "react-icons/bi";
-import AccordionItem from "./AccordionItem";
-import AccordionTitle from "./AccordionTitle";
+import React, { useEffect, useState } from "react";
+
 import { StyledAccordion } from "./StyledAccordion";
 
-interface AccordionProps {
+interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Children of the accordion
    */
@@ -17,10 +15,6 @@ interface AccordionProps {
    * disabled state of the accordion
    */
   disabled?: boolean;
-  /**
-   * Style of the accordion
-   */
-  style?: React.CSSProperties;
 }
 
 interface AccordionChild {
@@ -35,6 +29,7 @@ const Accordion: React.FC<AccordionProps> = ({
   isOpen,
   style,
   disabled,
+  ...props
 }) => {
  
   const [isOpenState, setIsOpenState] = useState(isOpen || false);
@@ -45,7 +40,7 @@ const Accordion: React.FC<AccordionProps> = ({
     }
   } , [isOpen]);
   return (
-    <StyledAccordion style={style}>
+    <StyledAccordion style={style} {...props}>
       {React.Children.map(children, (child) => {
         if (!React.isValidElement<AccordionChild>(child)) {
           return child;

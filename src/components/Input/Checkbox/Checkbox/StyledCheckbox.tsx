@@ -11,7 +11,7 @@ type StyledCheckboxProps = {
 
 };
 
-export const StyledCheckboxContainer = styled.div`
+export const StyledCheckboxContainer = styled.span`
   display: inline-block;
 `;
 

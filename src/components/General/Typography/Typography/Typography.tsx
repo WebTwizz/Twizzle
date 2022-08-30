@@ -6,7 +6,7 @@ import {
 }
 from './StyledTypography'
 
-interface TypographyProps {
+interface TypographyProps extends React.HTMLAttributes<HTMLSpanElement>{
 
   /**
    * Element to be rendered
@@ -37,11 +37,6 @@ interface TypographyProps {
    * Children to be rendered inside the element
    */
   children?: React.ReactNode
-  /**
-   * Styling added to the element
-   */
-
-  style?: React.CSSProperties
 }
 
 const Typography: React.FC<TypographyProps> = ({

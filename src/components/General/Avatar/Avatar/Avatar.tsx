@@ -2,7 +2,7 @@ import React from "react";
 import { useMemo } from "react";
 import { StyledAvatar } from "./StyledAvatar";
 
-interface AvatarProps {
+interface AvatarProps extends React.HTMLAttributes<HTMLSpanElement>{
   /**
    * The image url to be displayed
    */
@@ -36,10 +36,6 @@ interface AvatarProps {
    * The text color of the avatar, otherwise it will default to random preset colors
    */
   color?: string;
-  /**
-   * 
-   */
-  style?: React.CSSProperties;
 }
 
 const Avatar: React.FC<AvatarProps> = ({
@@ -51,6 +47,7 @@ const Avatar: React.FC<AvatarProps> = ({
   backgroundColor,
   color,
   style,
+  ...props
 }) => {
   const colorPalette = [
     ["#D77373", "#FFABAB"],
@@ -90,6 +87,7 @@ const Avatar: React.FC<AvatarProps> = ({
         borderRadius: shape == 'square'? '3px': sizeAttributes[size].borderRadius,
         ...style,
       }}
+      {...props}
     >
         {src ? (
           <img 

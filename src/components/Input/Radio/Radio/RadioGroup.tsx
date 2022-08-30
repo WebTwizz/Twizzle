@@ -13,7 +13,7 @@ type option = {
   value: string;
 };
 
-export interface RadioGroupProps {
+export interface RadioGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * The name of the input.
    */
@@ -51,10 +51,6 @@ export interface RadioGroupProps {
    * Options array for a radio.
    */
   options: option[];
-  /**
-   * The style of the checkbox.
-   */
-  style?: React.CSSProperties;
 }
 
 const RadioGroup: React.FC<RadioGroupProps> = ({
@@ -68,6 +64,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
   orientation = "vertical",
   options,
   style,
+  ...props
 }) => {
   const sizeAttributes = useMemo(() => {
     switch (size) {
@@ -131,7 +128,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
 
 
   return (
-    <Box style={{ flexDirection: orientation == 'horizontal' ? 'row' : 'column'}}>
+    <Box style={{ flexDirection: orientation == 'horizontal' ? 'row' : 'column', ...style}} {...props}>
       {options.map((option, index) => {
         return (
           <Box className="radio" key={index}>
@@ -153,9 +150,6 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
                 onChange={() => {
                   setIsChecked(option);
                   onCheck?.();
-                }}
-                style={{
-                  ...style,
                 }}
               />
               <StyledChecked

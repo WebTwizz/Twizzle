@@ -50,7 +50,6 @@ const ToggleTemplate: ComponentStory<typeof Toggle> = ({
                 toggled={toggled}
                 {...rest}
             />
-            <Typography elementType={'p'}> {toggled == false? 'false' : 'true'} </Typography>
         </>
     )
 }

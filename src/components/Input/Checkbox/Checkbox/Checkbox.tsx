@@ -9,7 +9,7 @@ import {
 import { ThemeContext } from "../../../..";
 import { greyBackgroundColor } from "../../../constants";
 
-interface CheckboxProps {
+interface CheckboxProps extends React.HTMLAttributes<HTMLSpanElement>{
   /**
    * The name of the input.
    */
@@ -42,10 +42,6 @@ interface CheckboxProps {
    * The size of the checkbox.
    */
   size?: "small" | "medium" | "large";
-  /**
-   * The style of the checkbox.
-   */
-  style?: React.CSSProperties;
 }
 const Checkbox: React.FC<CheckboxProps> = ({
   inputName,
@@ -57,6 +53,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   labelColor,
   size = "medium",
   style,
+  ...props
 }) => {
   const [isChecked, setIsChecked] = useState(checked);
   
@@ -129,7 +126,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   } , [isChecked]);
 
   return (
-    <StyledCheckboxContainer>
+    <StyledCheckboxContainer {...props}>
       <StyledCheckboxArea>
         <StyledCheckbox
           name={inputName}
@@ -142,7 +139,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
           }}
           style={{
             border: border,
-            ...style,
           }}
           disabled={disabled}
           className={isChecked ? "checked" : ""}

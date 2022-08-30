@@ -8,13 +8,22 @@ type BreadcrumbItem = {
     href: string,
 }
 
-interface BreadcrumbsProps {
-    items: {title: string, href: string,}[];
-    seperator?: string;
+interface BreadcrumbsProps  extends React.HTMLAttributes<HTMLDivElement> {
+    /**
+     * The items to be rendered in the breadcrumbs.
+     */
+    items: BreadcrumbItem[];
+    /**
+     * The seperator to be used between the items.
+     */
+    seperator?: string | React.ReactNode;
+    /**
+     * The color of the breadcrumbs.
+     */
     color?: string;
 }
 
-const Breadcrumbs:React.FC<BreadcrumbsProps> = ({ items, seperator = '/', color }) => {
+const Breadcrumbs:React.FC<BreadcrumbsProps> = ({ items, seperator = '/', color, ...props }) => {
 
 
     const theme = useContext(ThemeContext);
@@ -25,7 +34,7 @@ const Breadcrumbs:React.FC<BreadcrumbsProps> = ({ items, seperator = '/', color 
     },[color]);
 
     return (
-        <Box>
+        <Box {...props}>
             {items.map((item, index) => {
                 return (
 

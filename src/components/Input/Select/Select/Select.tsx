@@ -12,7 +12,7 @@ import {
   StyledSelectInputValue,
 } from "./StyledSelect";
 
-export interface SelectProps {
+export interface SelectProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onSelect"> {
   /**
    * The name of the input
    */
@@ -53,6 +53,7 @@ const Select: React.FC<SelectProps> = ({
   size = "medium",
   width,
   disabled,
+  style,
   ...props
 }) => {
   const [selected, setSelected] = useState(value || options[0]);
@@ -93,7 +94,7 @@ const Select: React.FC<SelectProps> = ({
 
   return (
     <>
-      <StyledSelectInput name={inputName} type="hidden" value={selected} role="hidden-select"/>
+      <StyledSelectInput name={inputName} type="hidden" value={selected} role="hidden-select" {...props}/>
       <StyledSelectInputContainer
         role="select"
         onClick={() => (!disabled ? setIsSelecting(!isSelecting) : null)}
@@ -107,8 +108,8 @@ const Select: React.FC<SelectProps> = ({
           padding: sizeAttributes[size].padding,
           fontSize: sizeAttributes[size].fontSize,
           width: width || sizeAttributes[size].defaultWidth,
+          ...style,
         }}
-        {...props}
       >
         <StyledSelectInputValue 
           style={{padding: sizeAttributes[size].valuePaddding}}>

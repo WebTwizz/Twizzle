@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledTooltipContainer = styled.div`
+export const StyledTooltipContainer = styled.span`
     position: relative;
     display: inline-block;
 }`;

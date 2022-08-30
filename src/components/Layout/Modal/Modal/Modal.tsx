@@ -11,7 +11,7 @@ import {
   StyledModalHeader,
 } from "./StyledModal";
 
-export interface ModalProps {
+export interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Title of the modal
    */
@@ -82,6 +82,7 @@ const Modal: React.FC<ModalProps> = ({
   children,
   style,
   bodyStyle,
+  ...props
 }) => {
   const handleClose = () => {
     onClose?.();
@@ -106,6 +107,7 @@ const Modal: React.FC<ModalProps> = ({
           style={{
             ...style,
           }}
+          {...props}
         >
           <StyledModalContent
             style={{

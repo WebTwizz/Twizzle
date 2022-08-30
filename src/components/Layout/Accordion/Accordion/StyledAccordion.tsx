@@ -5,7 +5,7 @@ font-family: sans-serif;
 border-bottom:1px solid #D8D8D8;
 `;
 
-export const StyledAccordionTitle = styled.div`
+export const StyledAccordionTitle = styled.span`
 display: flex;
 align-items: center;
 justify-content: space-between;
@@ -24,7 +24,7 @@ padding: 0.5rem 1rem;
 
 `;
 
-export const StyledAccordionItem = styled.div`
+export const StyledAccordionItem = styled.span`
     overflow: hidden;
     transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
     height: auto;

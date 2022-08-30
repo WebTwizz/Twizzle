@@ -5,7 +5,7 @@ import { StyledBadge } from "./StyledBadge";
 import chroma from "chroma-js";
 import React, { useMemo } from "react";
 
-export interface BadgeProps {
+export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
    * color of the badge
    * hex only
@@ -21,6 +21,8 @@ export interface BadgeProps {
 const Badge: React.FC<BadgeProps> = ({
     color,
     children,
+    style,
+    ...props
 }) => {
 
   const badgeColor = useMemo(() => {
@@ -33,6 +35,7 @@ const Badge: React.FC<BadgeProps> = ({
         backgroundColor: badgeColor,
         color: color,
       }}
+      {...props}
     >
       {children}
     </StyledBadge>

@@ -7,7 +7,7 @@ import { Typography } from "../../../General/Typography";
 import { TextAlert } from "../../../Layout/Alert";
 import { StyledInputContainer, StyledTextInput } from "./StyledTextInput";
 
-export interface InputProps {
+export interface InputProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
   /**
    * The name of the input
    */
@@ -79,10 +79,6 @@ export interface InputProps {
    */
   width?: string;
   /**
-   * Add customs styling
-   */
-  style?: React.CSSProperties;
-  /**
    * size of input between the following:
    * ['small', 'medium', 'large']
    * @default 'medium'
@@ -149,7 +145,8 @@ export const TextInput: React.FC<InputProps> = ({
         if (e.key === "Enter") {
           onEnter?.();
         }
-      } }
+      }}
+      {...props}
     >
       {inputLabel && (
         <Typography
@@ -209,7 +206,6 @@ export const TextInput: React.FC<InputProps> = ({
           }}
           onFocus={() => setHover(true)}
           onBlur={() => setHover(false)}
-          {...props}
         ></StyledTextInput>
         {rightIcon}
         <Box

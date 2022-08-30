@@ -8,11 +8,27 @@ import {
   StyledPaginationPages,
 } from "./StyledPagination";
 
-interface PaginationProps {
+interface PaginationProps extends React.HTMLAttributes<HTMLDivElement> {
+  /**
+   * The current page.
+   * @default 1
+   */
   page: number;
+  /**
+   * The total number of pages.
+   */
   totalPages: number;
+  /**
+   * onNext callback function
+   */
   onNext?: () => void;
+  /**
+   * onPrevious callback function
+   */
   onPrevious?: () => void;
+  /**
+   * onChange callback function
+   */
   onChange?: () => void;
 }
 
@@ -22,6 +38,7 @@ const Pagination: React.FC<PaginationProps> = ({
   onNext,
   onPrevious,
   onChange,
+  ...props
 }) => {
   const [currentPage, setCurrentPage] = useState(page);
 
@@ -98,7 +115,7 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <StyledPagination>
+    <StyledPagination {...props}>
       <StyledPaginationButton onClick={() => handlePreviousPage()} role='prev-button'>
         <BsChevronLeft />
       </StyledPaginationButton>

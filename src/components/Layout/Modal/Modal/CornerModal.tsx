@@ -35,6 +35,7 @@ const CornerModal: React.FC<CornerModalProps> = ({
   style,
   bodyStyle,
   position = "BOTTOM_RIGHT",
+  ...props
 }) => {
   const handleClose = () => {
     onClose?.();
@@ -81,6 +82,7 @@ const CornerModal: React.FC<CornerModalProps> = ({
             width: "80vh",
             ...style,
           }}
+          {...props}
         >
           <StyledModalContent
             style={{

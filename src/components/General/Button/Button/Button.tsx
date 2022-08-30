@@ -1,10 +1,9 @@
 import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
-import { Box } from "../../../Box/Box";
 import { Loader } from "../../../Feedback/Loader";
 import { StyledButton } from "./StyledButton";
 
-interface ButtonProps {
+interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement>{
   /**
    * Color of the button, otherwise it will default to the theme color
    */
@@ -46,10 +45,6 @@ interface ButtonProps {
    * @default "medium"
    */
   size?: "small" | "medium" | "large";
-  /**
-   * Styling added to the button
-   */
-  style?: React.CSSProperties;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -70,12 +65,6 @@ const Button: React.FC<ButtonProps> = ({
   const [hover, setHover] = useState(false);
 
   disabled = isLoading || disabled;
-
-  const loaderSize = {
-    small: "extraSmall",
-    medium: "small",
-    large: "medium",
-  };
 
   color =
     theme?.variants?.[variant!]?.color ||
@@ -106,6 +95,7 @@ const Button: React.FC<ButtonProps> = ({
       backgroundColor={outlined ? (hover ? "#F2F2F2" : "white") : color}
       color={disabled ? "white" : outlined ? color : "white"}
       disabled={disabled}
+      {...props}
     >
       <span
         style={{

@@ -3,7 +3,7 @@ import { BiChevronDown } from "react-icons/bi";
 import { greyBackgroundColor } from "../../../constants";
 import { StyledAccordionTitle } from "./StyledAccordion";
 
-interface AccordionTitleProps {
+interface AccordionTitleProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
    * Content of the accordion title
    */
@@ -38,6 +38,7 @@ const AccordionTitle: React.FC<AccordionTitleProps> = ({
   disabled,
   icon,
   style,
+  ...props
 }) => {
   return (
     <StyledAccordionTitle
@@ -49,6 +50,7 @@ const AccordionTitle: React.FC<AccordionTitleProps> = ({
         cursor: disabled ? "not-allowed" : "pointer",
         ...style,
       }}
+      {...props}
     >
       {content}
       {!icon && (

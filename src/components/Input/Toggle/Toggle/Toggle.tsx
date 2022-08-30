@@ -5,7 +5,7 @@ import {
   StyledToggleInput,
   StyledToggleInputLabel,
 } from "./StyledToggle";
-interface ToggleProps {
+interface ToggleProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
    * The label of the toggle
    */
@@ -33,10 +33,6 @@ interface ToggleProps {
    * @default medium
    */
   size?: "small" | "medium" | "large";
-  /**
-   * custom style for the toggle
-   */
-  style?: React.CSSProperties;
 }
 const Toggle: React.FC<ToggleProps> = ({
   label,

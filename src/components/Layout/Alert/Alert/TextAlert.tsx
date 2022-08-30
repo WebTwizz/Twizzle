@@ -22,7 +22,9 @@ const TextAlert: React.FC<AlertProps> = ({
   children, 
   variant = "info",
   size = "medium",
-  style }) => {
+  style,
+  ...props
+ }) => {
     
     const colors = {
         info: "#0B5394",
@@ -37,7 +39,9 @@ const TextAlert: React.FC<AlertProps> = ({
           fontFamily: "sans-serif",
           gap: "0.5rem",
           ...style
-        }}>
+        }}
+        {...props}
+        >
             {variant === "info" && (size === "small"? smallInfoAlertSVG: size === "medium"? infoAlertSVG: largeInfoAlertSVG)}
             {variant === "success" && (size === "small"? smallSuccessAlertSVG: size === "medium"? successAlertSVG: largeSuccessAlertSVG)}
             {variant === "danger" && (size === "small"? smallDangerAlertSVG: size === "medium"? dangerAlertSVG: largeDangerAlertSVG)}

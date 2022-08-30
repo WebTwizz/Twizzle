@@ -4,7 +4,7 @@ import React, { useCallback, useContext, useEffect, useState } from "react";
 import { BsChevronUp } from "react-icons/bs";
 import { ThemeContext } from "../../../../context/ThemeContext";
 import { StyledBackToTop } from "./StyledBackToTop";
-interface BackToTopProps {
+interface BackToTopProps extends React.HTMLAttributes<HTMLButtonElement> {
   /**
    * onClick callback for the button
    */
@@ -37,6 +37,8 @@ const BackToTop: React.FC<BackToTopProps> = ({
   shape = "circle",
   size = "medium",
   icon = <BsChevronUp />,
+  style,
+  ...props
 }) => {
   const Theme = useContext(ThemeContext);
   const [isVisible, setIsVisible] = useState(false);
@@ -88,10 +90,12 @@ const BackToTop: React.FC<BackToTopProps> = ({
         fontSize: sizeAttributes[size].fontSize,
         padding: sizeAttributes[size].padding,
         color: "white",
+        ...style,
       }}
       onClick={() => {
         handleClick();
       }}
+      {...props}
     >
       {icon}
     </StyledBackToTop>

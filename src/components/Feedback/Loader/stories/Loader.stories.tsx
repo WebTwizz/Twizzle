@@ -16,7 +16,7 @@ export default {
 } as ComponentMeta<typeof Loader>
 
 const LoaderTemplate: ComponentStory<typeof Loader> = ({ size }) => {
-  return <Loader size={size} />
+  return <Loader size={size} className={'bla bla'}/>
 }
 export const LoaderComponent = LoaderTemplate.bind({});
 LoaderComponent.args = {
