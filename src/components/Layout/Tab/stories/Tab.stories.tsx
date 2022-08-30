@@ -81,7 +81,6 @@ const VerticalTabTemplate: ComponentStory<typeof TabList> = () => {
     style={{
         display: 'flex',
         width: '100%',
-        height: '200px',
         backgroundColor: '#f5f5f5',
     }}
     >

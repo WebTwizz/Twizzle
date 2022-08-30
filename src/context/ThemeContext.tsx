@@ -16,7 +16,9 @@ interface Theme {
     loader?: {
         color: string,
     },
-
+    typography?: {
+      fontFamily: string
+    },
     variants?: {
         'success': {color: string},
         'info': {color: string},
@@ -32,6 +34,9 @@ export const ThemeContext = React.createContext<Theme>({
   },
   loader: {
     color: '#1E90FF'
+  },
+  typography: {
+    fontFamily: 'sans-serif'
   },
   variants: {
     success: { color: '#339900' },
