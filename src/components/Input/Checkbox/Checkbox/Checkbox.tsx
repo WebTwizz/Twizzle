@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { Typography } from "../../../General/Typography";
 import {
   StyledCheckboxContainer,
@@ -59,6 +59,10 @@ const Checkbox: React.FC<CheckboxProps> = ({
   style,
 }) => {
   const [isChecked, setIsChecked] = useState(checked);
+  
+  useEffect(() => {
+    setIsChecked(checked);
+  } , [checked]);
 
   const theme = useContext(ThemeContext);
 

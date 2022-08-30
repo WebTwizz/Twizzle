@@ -21,7 +21,12 @@ export interface ModalProps {
    */
   closable?: boolean;
   /**
+   * boolean to show the header of the modal
+   */
+  header?: boolean;
+  /**
    * boolean to show the footer of the modal
+   * @default true
    */
   footer?: boolean;
   /**
@@ -66,6 +71,7 @@ export interface ModalProps {
 const Modal: React.FC<ModalProps> = ({
   title,
   closable = true,
+  header = true,
   footer = true,
   onCancel,
   showCancel = true,
@@ -106,7 +112,7 @@ const Modal: React.FC<ModalProps> = ({
               ...bodyStyle,
             }}
           >
-            <StyledModalHeader>
+            {header && <StyledModalHeader>
               <Typography
                 elementType={5}
                 style={{ fontWeight: "normal", margin: "12px 0px" }}
@@ -122,7 +128,7 @@ const Modal: React.FC<ModalProps> = ({
                   &#215;
                 </StyledModalClose>
               )}
-            </StyledModalHeader>
+            </StyledModalHeader>}
             <StyledModalBody style={bodyStyle}>{children}</StyledModalBody>
             {footer && (
               <StyledModalFooter>

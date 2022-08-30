@@ -23,6 +23,7 @@ interface CornerModalProps extends ModalProps {
 const CornerModal: React.FC<CornerModalProps> = ({
   title,
   closable = true,
+  header = true,
   footer = true,
   onCancel,
   showCancel = true,
@@ -86,7 +87,7 @@ const CornerModal: React.FC<CornerModalProps> = ({
               ...bodyStyle,
             }}
           >
-            <StyledModalHeader>
+            {header && <StyledModalHeader>
               <Typography
                 elementType={5}
                 style={{ fontWeight: "normal", margin: "12px 0px" }}
@@ -102,7 +103,7 @@ const CornerModal: React.FC<CornerModalProps> = ({
                   &#215;
                 </StyledModalClose>
               )}
-            </StyledModalHeader>
+            </StyledModalHeader>}
             <StyledModalBody style={bodyStyle}>{children}</StyledModalBody>
             {footer && (
               <StyledModalFooter>
