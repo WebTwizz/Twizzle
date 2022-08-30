@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
 import {
   StyledToggle,
@@ -51,6 +51,10 @@ const Toggle: React.FC<ToggleProps> = ({
 }) => {
   const theme = useContext(ThemeContext);
   const [toggledState, setToggledState] = useState<boolean>(toggled);
+
+  useEffect(() => {
+    setToggledState(toggled);
+  } , [toggled]);
 
   const sizeAttributes = {
     small: {
