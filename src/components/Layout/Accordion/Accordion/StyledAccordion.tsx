@@ -24,7 +24,7 @@ padding: 0.5rem 1rem;
 
 `;
 
-export const StyledAccordionItem = styled.span`
+export const StyledAccordionItem = styled.div`
     overflow: hidden;
     transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
     height: auto;
