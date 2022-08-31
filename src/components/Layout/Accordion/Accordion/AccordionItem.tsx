@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyledAccordionContent, StyledAccordionItem } from "./StyledAccordion";
 
-interface AccordionItemProps extends React.HTMLAttributes<HTMLSpanElement> {
+interface AccordionItemProps extends React.HTMLAttributes<HTMLDivElement> {
+
   /**
    * Content of the accordion item
    */
