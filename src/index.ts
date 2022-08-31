@@ -14,6 +14,7 @@ export * from './components/Input/Toggle';
 export * from './components/Layout/Alert';
 export * from './components/Layout/Modal';
 export * from './components/Layout/Tab';
+export * from './components/Layout/Table';
 export * from './components/Layout/Badge';
 export * from './components/Layout/Breadcrumbs';
 export * from './components/Navigation/Pagination';
