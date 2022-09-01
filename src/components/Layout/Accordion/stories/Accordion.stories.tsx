@@ -12,16 +12,16 @@ const AccordionTemplate: ComponentStory<typeof Accordion> = ({isOpen, disabled})
     return (
         <>
         <Accordion isOpen={isOpen} disabled={disabled}>
-            <AccordionTitle content="Title 1" />
-            <AccordionItem content={"Content 1"} />
+            <AccordionTitle> Title 1 </AccordionTitle>
+            <AccordionItem onSelect={() => alert('selected')}> Content 1 </AccordionItem>
         </Accordion>
         <Accordion isOpen={isOpen} disabled={disabled}>
-            <AccordionTitle content="Title 2" />
-            <AccordionItem content={"Content 2"} />
+            <AccordionTitle> Title 2 </AccordionTitle>
+            <AccordionItem> Content 2 </AccordionItem>
         </Accordion>
         <Accordion isOpen={isOpen} disabled={disabled}>
-            <AccordionTitle content="Title 3" />
-            <AccordionItem content={"Content 3"} />
+            <AccordionTitle> Title 3 </AccordionTitle>
+            <AccordionItem> Content 3 </AccordionItem>
         </Accordion>
       
         </>

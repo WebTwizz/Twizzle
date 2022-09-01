@@ -4,6 +4,7 @@ export const StyledAlert = styled.div`
     position: relative;
     top: 5;
     border-radius: 10px !important;
+    width: 100%;
 
     .twizzle-alert-info {
         background-color: #f4f6ff;

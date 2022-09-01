@@ -14,10 +14,10 @@ const Table = ({
   id,
   style,
 }: {
-  children: React.ReactNode;
-  className: string;
-  id: string;
-  style: React.CSSProperties;
+  children?: React.ReactNode;
+  className?: string;
+  id?: string;
+  style?: React.CSSProperties;
 }) => {
   return (
     <StyledTable className={className} id={id} style={style}>
