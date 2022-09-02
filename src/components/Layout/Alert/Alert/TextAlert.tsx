@@ -18,7 +18,16 @@ import { AlertProps } from "./Alert";
 import { StyledTextAlert } from "./StyledAlert";
 import { Typography } from "../../../General/Typography";
 
-const TextAlert: React.FC<AlertProps> = ({ 
+interface TextAlertProps extends AlertProps {
+  /**
+   * Size of the alert
+   * @default "medium"
+   * @type "small" | "medium" | "large"
+   */
+  size?: "small" | "medium" | "large";
+}
+
+const TextAlert: React.FC<TextAlertProps> = ({ 
   children, 
   variant = "info",
   size = "medium",
@@ -37,7 +46,6 @@ const TextAlert: React.FC<AlertProps> = ({
     <StyledTextAlert role={"text-alert"}
         style={{
           fontFamily: "sans-serif",
-          gap: "0.5rem",
           ...style
         }}
         {...props}
