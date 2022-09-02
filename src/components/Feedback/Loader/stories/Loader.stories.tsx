@@ -10,13 +10,12 @@ export default {
       options: ['extraSmall', 'small', 'medium', 'large'],
       defaultValue: 'medium'
     },
-    color: {control: false},
     style: {control: false},
   }
 } as ComponentMeta<typeof Loader>
 
-const LoaderTemplate: ComponentStory<typeof Loader> = ({ size }) => {
-  return <Loader size={size} className={'bla bla'}/>
+const LoaderTemplate: ComponentStory<typeof Loader> = ({ size, color }) => {
+  return <Loader size={size} color={color} />
 }
 export const LoaderComponent = LoaderTemplate.bind({});
 LoaderComponent.args = {
