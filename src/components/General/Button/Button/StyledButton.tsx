@@ -12,6 +12,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
     border-radius: ${props => props.style?.borderRadius || "5px"};
     background-color: ${props => props?.backgroundColor || "white"};
     color: ${props => props?.color || "black"};
+    margin: 5px;
     padding: 15px;
     cursor: pointer;
     display: block;

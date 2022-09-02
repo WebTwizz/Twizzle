@@ -29,7 +29,7 @@ interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement>{
    */
   isLoading?: boolean;
   /**
-   * icon displayed on the left of the button
+   * icon displayed on the right of the button
    */
   icon?: React.ReactNode;
   /**
