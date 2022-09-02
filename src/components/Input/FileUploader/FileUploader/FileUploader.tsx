@@ -156,7 +156,7 @@ const FileUploader: React.FC<FileUploaderProps> = ({
         >
           <BsCloudUpload />
           <Typography
-            elementType={"p"}
+            variant={"p"}
             style={{
               fontSize:
                 width === "100%" ? "20px" : width === "50%" ? "15px" : "12px",

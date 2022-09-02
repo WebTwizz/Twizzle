@@ -25,11 +25,11 @@ const TooltipTemplate: ComponentStory<typeof Tooltip> = ({
 }) => {
   return (
     <>
-      <Typography elementType={2} bold>
+      <Typography variant={2} bold>
         Tooltip
       </Typography>
       <Tooltip position={position} tooltipText={tooltipText} {...rest}>
-        <Typography elementType={"p"}>
+        <Typography variant={"p"}>
           Hover on this text to see tooltip
         </Typography>
       </Tooltip>

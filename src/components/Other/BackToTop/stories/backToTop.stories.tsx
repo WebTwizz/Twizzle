@@ -30,7 +30,7 @@ const BackToTopTemplate: ComponentStory<typeof BackToTop> = ({
 }) => {
   return (
     <>
-      <Typography elementType={'p'}>
+      <Typography variant={'p'}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel
         condimentum turpis, sit amet semper nunc. Nam dui diam, elementum at
         hendrerit in, dictum id magna. Curabitur posuere eu arcu sit amet

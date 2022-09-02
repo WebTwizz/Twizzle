@@ -60,7 +60,7 @@ const TextAlert: React.FC<TextAlertProps> = ({
                width: "100%",
               }}
             >
-              <Typography  style={{ paddingLeft: '5px', color: colors[variant] }} elementType={size == "small"? "p" :size == "medium"? 5 : 4}>{children}</Typography>
+              <Typography  style={{ paddingLeft: '5px', color: colors[variant] }} variant={size == "small"? "p" :size == "medium"? 5 : 4}>{children}</Typography>
            </Box>
     </StyledTextAlert>
   );

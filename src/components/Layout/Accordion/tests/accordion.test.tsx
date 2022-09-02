@@ -8,12 +8,12 @@ describe("Accordion", () => {
     render(
       <>
         <Accordion>
-          <AccordionTitle content="Title 1" />
-          <AccordionItem content={"Content 1"} />
+          <AccordionTitle>Title 1</AccordionTitle>
+          <AccordionItem>Content 1</AccordionItem>
         </Accordion>
         <Accordion>
-          <AccordionTitle content="Title 2" />
-          <AccordionItem content={"Content 2"} />
+        <AccordionTitle>Title 2</AccordionTitle>
+        <AccordionItem>Content 2</AccordionItem>
         </Accordion>
       </>
     );
@@ -29,8 +29,8 @@ describe("Accordion", () => {
     render(
       <>
         <Accordion disabled>
-          <AccordionTitle content="Title 1" />
-          <AccordionItem content={"Content 1"} />
+          <AccordionTitle>Title 1</AccordionTitle>
+          <AccordionItem>Content 1</AccordionItem>
         </Accordion>
       </>
     );
@@ -40,9 +40,9 @@ describe("Accordion", () => {
   it("renders correctly with isOpen prop", () => {
     render(
       <>
-        <Accordion isOpen>
-          <AccordionTitle content="Title 1" />
-          <AccordionItem content={"Content 1"} />
+       <Accordion isOpen>
+          <AccordionTitle>Title 1</AccordionTitle>
+          <AccordionItem>Content 1</AccordionItem>
         </Accordion>
       </>
     );

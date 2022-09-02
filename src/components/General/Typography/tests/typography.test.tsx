@@ -6,7 +6,7 @@ import { Typography } from "..";
 describe("Typography component", () => {
   it("should render Typography with text", () => {
     render(
-      <Typography elementType={2}>Hello World</Typography>
+      <Typography variant={2}>Hello World</Typography>
     );
     expect(screen.getByText("Hello World")).toBeInTheDocument();
   });
@@ -20,7 +20,7 @@ describe("Typography component", () => {
     };
 
     const { container } = render(
-      <Typography elementType={2} {...props}>
+      <Typography variant={2} {...props}>
         Hello World
       </Typography>
     );
