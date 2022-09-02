@@ -3,6 +3,7 @@ import  styled from 'styled-components';
 
 export const StyledFileUploaderComponent = styled.div`
     position: relative;
+    margin: 10px;
     width: ${props => props?.style?.width || '100%'};
 `;
 
