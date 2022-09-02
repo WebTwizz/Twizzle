@@ -5,6 +5,7 @@ export const StyledLoader  = styled.div`
   font-weight: bold;
   text-align: center;
   padding: 1rem;
+  margin: 5px;
   border-radius: 50%;
   transition: all 0.3s ease-in-out;
   background: transparent;

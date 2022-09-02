@@ -116,7 +116,7 @@ const Modal: React.FC<ModalProps> = ({
           >
             {header && <StyledModalHeader>
               <Typography
-                elementType={5}
+                variant={5}
                 style={{ fontWeight: "normal", margin: "12px 0px" }}
               >
                 {title}{" "}

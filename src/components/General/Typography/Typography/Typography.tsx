@@ -1,46 +1,49 @@
-import React, { useContext } from 'react'
-import { ThemeContext } from '../../../../context/ThemeContext'
+import React, { useContext } from "react";
+import { ThemeContext } from "../../../../context/ThemeContext";
 import {
-  StyledTypography,
-  StyledTypography1, StyledTypography2, StyledTypography3, StyledTypography4, StyledTypography5, StyledTypography6, StyledTypographyp
-}
-from './StyledTypography'
+  StyledTypography1,
+  StyledTypography2,
+  StyledTypography3,
+  StyledTypography4,
+  StyledTypography5,
+  StyledTypography6,
+  StyledTypographyp,
+} from "./StyledTypography";
 
-interface TypographyProps extends React.HTMLAttributes<HTMLSpanElement>{
-
+interface TypographyProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
    * Element to be rendered
    * Numbers indicate the size of the element
    */
-  elementType: 1 | 2 | 3 | 4 | 5 | 6 | 'p'
+  variant: 1 | 2 | 3 | 4 | 5 | 6 | "p";
   /**
    * The ability of the element to be edited
    */
-   editable?: boolean
+  editable?: boolean;
   /**
    * The ability of the element to be disabled
    */
-  disabled?: boolean
+  disabled?: boolean;
   /**
    * Bold text
    */
-  bold?: boolean
+  bold?: boolean;
   /**
    * Italic text
    */
-  italic?: boolean
+  italic?: boolean;
   /**
    * OnClick handler for the element
    */
-  onClick?: () => void
+  onClick?: () => void;
   /**
    * Children to be rendered inside the element
    */
-  children?: React.ReactNode
+  children?: React.ReactNode;
 }
 
 const Typography: React.FC<TypographyProps> = ({
-  elementType,
+  variant,
   disabled,
   editable,
   bold,
@@ -50,33 +53,91 @@ const Typography: React.FC<TypographyProps> = ({
   children,
   ...props
 }: TypographyProps) => {
+  const fontWeight = bold ? "500" : "300";
 
-  const fontWeight = bold ? '500' : '300';
+  const fontFamily =
+    useContext(ThemeContext).typography?.fontFamily || "sans-serif";
 
-  const fontFamily = useContext(ThemeContext).typography?.fontFamily || 'sans-serif';
-
+  const customStyle = {
+    fontStyle: italic ? "italic" : "normal",
+    fontFamily,
+    cursor: disabled ? "not-allowed" : "inherit",
+    ...style,
+  };
   return (
-    <StyledTypography
-    contentEditable={editable}
-    onClick={() => onClick?.()}
-    style={{
-        fontStyle: italic ? 'italic' : 'normal',
-        fontFamily,
-        cursor: disabled ? 'not-allowed' : 'inherit',
-      ...style,
-      
-    }}
-    >
-      {elementType == 1 && <StyledTypography1 style={{fontWeight:fontWeight, ...style}} {...props}>{children}</StyledTypography1>}
-      {elementType == 2 && <StyledTypography2 style={{fontWeight:fontWeight, ...style}} {...props}>{children}</StyledTypography2>}
-      {elementType == 3 && <StyledTypography3 style={{fontWeight:fontWeight, ...style}} {...props}>{children}</StyledTypography3>}
-      {elementType == 4 && <StyledTypography4 style={{fontWeight:fontWeight, ...style}} {...props}>{children}</StyledTypography4>}
-      {elementType == 5 && <StyledTypography5 style={{fontWeight:fontWeight, ...style}} {...props}>{children}</StyledTypography5>}
-      {elementType == 6 && <StyledTypography6 style={{fontWeight:fontWeight, ...style}} {...props}>{children}</StyledTypography6>}
-      {elementType == 'p' && <StyledTypographyp style={{fontWeight:fontWeight, ...style}} {...props}>{children}</StyledTypographyp>}
-
-    </StyledTypography>
-  )
-}
+    <>
+      {variant == 1 && (
+        <StyledTypography1
+          contentEditable={editable}
+          onClick={() => onClick?.()}
+          style={{ fontWeight: fontWeight, ...customStyle }}
+          {...props}
+        >
+          {children}
+        </StyledTypography1>
+      )}
+      {variant == 2 && (
+        <StyledTypography2
+          contentEditable={editable}
+          onClick={() => onClick?.()}
+          style={{ fontWeight: fontWeight, ...customStyle }}
+          {...props}
+        >
+          {children}
+        </StyledTypography2>
+      )}
+      {variant == 3 && (
+        <StyledTypography3
+          contentEditable={editable}
+          onClick={() => onClick?.()}
+          style={{ fontWeight: fontWeight, ...customStyle }}
+          {...props}
+        >
+          {children}
+        </StyledTypography3>
+      )}
+      {variant == 4 && (
+        <StyledTypography4
+          contentEditable={editable}
+          onClick={() => onClick?.()}
+          style={{ fontWeight: fontWeight, ...customStyle }}
+          {...props}
+        >
+          {children}
+        </StyledTypography4>
+      )}
+      {variant == 5 && (
+        <StyledTypography5
+          contentEditable={editable}
+          onClick={() => onClick?.()}
+          style={{ fontWeight: fontWeight, ...customStyle }}
+          {...props}
+        >
+          {children}
+        </StyledTypography5>
+      )}
+      {variant == 6 && (
+        <StyledTypography6
+          contentEditable={editable}
+          onClick={() => onClick?.()}
+          style={{ fontWeight: fontWeight, ...customStyle }}
+          {...props}
+        >
+          {children}
+        </StyledTypography6>
+      )}
+      {variant == "p" && (
+        <StyledTypographyp
+          contentEditable={editable}
+          onClick={() => onClick?.()}
+          style={{ fontWeight: fontWeight, ...customStyle }}
+          {...props}
+        >
+          {children}
+        </StyledTypographyp>
+      )}
+    </>
+  );
+};
 
 export default Typography;

@@ -15,7 +15,7 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
    * children to be rendered inside the badge
    */
-  children: React.ReactNode;
+  children: string | React.ReactNode;
 }
 
 const Badge: React.FC<BadgeProps> = ({
@@ -34,6 +34,7 @@ const Badge: React.FC<BadgeProps> = ({
       style={{
         backgroundColor: badgeColor,
         color: color,
+        ...style,
       }}
       {...props}
     >

@@ -67,16 +67,19 @@ const BackToTop: React.FC<BackToTopProps> = ({
 
   const sizeAttributes = {
     small: {
-      fontSize: "1.5rem",
       padding: "0.5rem",
+      width: "2rem",
+      height: "2rem",
     },
     medium: {
-      fontSize: "1.7rem",
       padding: "0.7rem",
+      width: "2.5rem",
+      height: "2.5rem",
     },
     large: {
-      fontSize: "2rem",
       padding: "1rem",
+      width: "3rem",
+      height: "3rem",
     },
   };
 
@@ -87,7 +90,8 @@ const BackToTop: React.FC<BackToTopProps> = ({
       style={{
         backgroundColor: color || Theme.primary?.backgroundColor,
         borderRadius: shape === "circle" ? "50%" : "5px",
-        fontSize: sizeAttributes[size].fontSize,
+        height: sizeAttributes[size].height,
+        width: sizeAttributes[size].width,
         padding: sizeAttributes[size].padding,
         color: "white",
         ...style,

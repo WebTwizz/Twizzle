@@ -5,6 +5,7 @@ export const StyledBadge = styled.div`
   font-family: system-ui;
   border-radius: 5px;
   padding: 2px 4px;
+  margin: 2px;
   width: fit-content;
 `;
 
@@ -13,5 +14,6 @@ export const StyledPill = styled.div`
   font-family: system-ui;
   border-radius: 10px;
   padding: 1px 10px;
+  margin: 2px;
   width: fit-content;
 `;

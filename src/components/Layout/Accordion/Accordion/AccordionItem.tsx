@@ -6,7 +6,11 @@ interface AccordionItemProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Content of the accordion item
    */
-  content: React.ReactNode;
+  children: React.ReactNode;
+  /**
+   * onSelect callback
+   */
+  onSelect?: () => void;
   /**
    * If true, the item is open
    * @note This is an uncontrolled component
@@ -15,15 +19,17 @@ interface AccordionItemProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const AccordionItem: React.FC<AccordionItemProps> = ({
-  content,
+  children,
+  onClick,
+  onSelect,
   isOpen,
   style,
   ...props
 }) => {
   return (
-    <StyledAccordionItem className={`${!isOpen ? "closed" : ""}`} style={style} {...props}>
+    <StyledAccordionItem className={`${!isOpen ? "closed" : ""}`} style={style} onClick={() => onSelect?.()} {...props}>
       <StyledAccordionContent className="accordion-content">
-        {content}
+        {children}
       </StyledAccordionContent>
     </StyledAccordionItem>
   );

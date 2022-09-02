@@ -18,25 +18,15 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
    * @default "info"
    */
   variant?: "success" | "info" | "warning" | "danger";
-   /**
-   * size of the alert
-   */
-    size?: "small" | "medium" | "large";
 }
 
 const Alert: React.FC<AlertProps> = ({ 
   children, 
   variant = "info",
-  size = "medium",
-  style,
   ...props
  }) => {
   return (
     <StyledAlert role={"alert"} 
-    style={{
-      minWidth: size === "small" ? "30%" : size === "large" ? "50%" : "40%",
-      ...style
-    }}
     {...props}
     >
         <Box className={`twizzle-alert-${variant}`}

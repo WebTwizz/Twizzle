@@ -150,7 +150,7 @@ export const TextInput: React.FC<InputProps> = ({
     >
       {inputLabel && (
         <Typography
-          elementType={"p"}
+          variant={"p"}
           bold
           style={{ margin: 0, fontSize: sizeAttributes[size].fontSize }}
         >
@@ -159,7 +159,7 @@ export const TextInput: React.FC<InputProps> = ({
       )}
       {inputLabelDescription && (
         <Typography
-          elementType={"p"}
+          variant={"p"}
           style={{
             marginTop: sizeAttributes[size].labelMargin,
             color: "#5c6178",

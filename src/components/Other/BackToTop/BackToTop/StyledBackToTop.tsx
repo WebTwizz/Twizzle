@@ -5,7 +5,7 @@ export const StyledBackToTop = styled.button`
     bottom: 20px;
     right: 20px;
     z-index: 9999;
-    font-size: 30px;
+    font-size: 1rem;
     border: none;
     outline: none;
     color: white;

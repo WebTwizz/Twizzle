@@ -4,7 +4,7 @@ import React, { useMemo } from "react";
 import { StyledPill } from "./StyledBadge";
 import chroma from "chroma-js";
 
-export interface PillProps {
+export interface PillProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
    * color of the badge
    * hex only
@@ -17,7 +17,7 @@ export interface PillProps {
   children: number;
 }
 
-const Pill: React.FC<PillProps> = ({ color = "#1E90FF", children }) => {
+const Pill: React.FC<PillProps> = ({ color = "#1E90FF", children, style, ...props }) => {
  
 
   const PillColor = useMemo(() => {
@@ -26,10 +26,13 @@ const Pill: React.FC<PillProps> = ({ color = "#1E90FF", children }) => {
 
   return (
     <StyledPill
+      
       style={{
         backgroundColor: PillColor,
         color: color,
+        ...style,
       }}
+      {...props}
     >
       {children}
     </StyledPill>

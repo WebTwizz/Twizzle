@@ -72,11 +72,11 @@ export const TextArea: React.FC<TextAreaProps> = ({
   return (
     <Box style={{flexDirection: 'column', width}} onClick={() => inputRef.current?.focus()}>
       {inputLabel && 
-      <Typography elementType={'p'} bold style={{margin:0, fontSize: sizeAttributes[size].fontSize}}>
+      <Typography variant={'p'} bold style={{margin:0, fontSize: sizeAttributes[size].fontSize}}>
         {inputLabel}
       </Typography>}
       {inputLabelDescription && (
-        <Typography elementType={'p'} style={{marginTop:sizeAttributes[size].labelMargin, color: '#5c6178', fontSize: sizeAttributes[size].descriptionFontSize}}>
+        <Typography variant={'p'} style={{marginTop:sizeAttributes[size].labelMargin, color: '#5c6178', fontSize: sizeAttributes[size].descriptionFontSize}}>
           {inputLabelDescription}
         </Typography>
       )}

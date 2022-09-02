@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const StyledAlert = styled.div`
     position: relative;
-    top: 5;
     border-radius: 10px !important;
+    margin: 5px;
 
     .twizzle-alert-info {
         background-color: #f4f6ff;
@@ -36,5 +36,6 @@ export const StyledTextAlert = styled.div`
     align-items: center;
     font-family: sans-serif;
     position: relative;
+    margin: 5px;
     color: ${props => props.color};
 `;

@@ -42,8 +42,8 @@ const Loader: React.FC<LoaderProps> = ({
       width: loaderSize[size].weight,
       height: loaderSize[size].weight,
       padding: loaderSize[size].padding,
-      border: `3px solid ${overlayColor}`,
-      borderBottom: '3px solid transparent',
+      borderStyle: "solid",
+      borderColor: `${overlayColor} ${overlayColor} transparent`,
       borderWidth: loaderSize[size].thickness,
       ...style,
     }}

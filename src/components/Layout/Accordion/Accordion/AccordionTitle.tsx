@@ -7,7 +7,7 @@ interface AccordionTitleProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
    * Content of the accordion title
    */
-  content: string | React.ReactNode;
+  children: string | React.ReactNode;
   /**
    * If true, the title is open
    * @note This is an uncontrolled component
@@ -32,7 +32,7 @@ interface AccordionTitleProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 const AccordionTitle: React.FC<AccordionTitleProps> = ({
-  content,
+  children,
   isOpen,
   onClick,
   disabled,
@@ -52,7 +52,7 @@ const AccordionTitle: React.FC<AccordionTitleProps> = ({
       }}
       {...props}
     >
-      {content}
+      {children}
       {!icon && (
         <span id="arrow">
           <BiChevronDown />

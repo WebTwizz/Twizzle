@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledAccordion = styled.div`
+width: 100%;
 font-family: sans-serif;
 border-bottom:1px solid #D8D8D8;
 `;
