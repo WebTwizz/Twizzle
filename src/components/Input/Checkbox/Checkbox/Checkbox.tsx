@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import { Typography } from "../../../General/Typography";
 import {
   StyledCheckboxContainer,
   StyledCheckbox,
@@ -57,9 +56,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
 }) => {
   const [isChecked, setIsChecked] = useState(checked);
   
-  useEffect(() => {
-    setIsChecked(checked);
-  } , [checked]);
 
   const theme = useContext(ThemeContext);
 
@@ -135,7 +131,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           checkedIcon = {checkedIcon}
           onChange={() => {
             setIsChecked(!isChecked);
-            onCheck?.(!isChecked);
+            onCheck && onCheck(!isChecked);
           }}
           style={{
             border: border,
