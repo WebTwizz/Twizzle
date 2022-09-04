@@ -24,7 +24,7 @@ export const StyledFileUploader = styled.div`
         color: red;
     }
     &:hover {
-        background-color: #f8f8fb;
+        filter: brightness(0.9);
         border-color: #aaa;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
     }
