@@ -34,7 +34,6 @@ export const StyledPaginationPages = styled.div`
     max-height: 100%;
     overflow: hidden;
     position: relative;
-    z-index: 1;
 `;
 
 export const StyledPaginationPage = styled.span`

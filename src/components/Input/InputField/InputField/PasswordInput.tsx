@@ -31,6 +31,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
   value,
   maxCount = 100,
   onChange,
+  required,
   disabled,
   variant,
   invalid,
@@ -79,15 +80,16 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
         <Typography
           variant={"p"}
           bold
-          style={{ margin: 0, fontSize: sizeAttributes[size].fontSize }}
+          style={{margin: '0px 2px', fontSize: sizeAttributes[size].fontSize }}
         >
-          {inputLabel}
+        {inputLabel} {required && <span style={{ color: '#CC3300' }}> *</span>}
         </Typography>
       )}
       {inputLabelDescription && (
         <Typography
           variant={"p"}
           style={{
+            margin: '0px 2px',
             marginTop: sizeAttributes[size].labelMargin,
             color: "#5c6178",
             fontSize: sizeAttributes[size].descriptionFontSize,
@@ -120,6 +122,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
           name={inputName}
           role="password"
           placeholder={placeholder}
+          required={required}
           disabled={disabled}
           maxLength={maxCount}
           onChange={(e) => {

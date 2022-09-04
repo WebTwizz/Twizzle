@@ -152,16 +152,21 @@ export const TextInput: React.FC<InputProps> = ({
         <Typography
           variant={"p"}
           bold
-          style={{ margin: 0, fontSize: sizeAttributes[size].fontSize }}
+          style={{ 
+            margin: '0px 2px', 
+            marginBottom: sizeAttributes[size].labelMargin,
+            fontSize: sizeAttributes[size].fontSize 
+          }}
         >
-          {inputLabel}
+          {inputLabel} {required && <span style={{ color: '#CC3300' }}> *</span>}
         </Typography>
       )}
       {inputLabelDescription && (
         <Typography
           variant={"p"}
           style={{
-            marginTop: sizeAttributes[size].labelMargin,
+            margin: '0px 2px', 
+            marginBottom: sizeAttributes[size].labelMargin,
             color: "#5c6178",
             fontSize: sizeAttributes[size].descriptionFontSize,
           }}

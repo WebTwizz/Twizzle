@@ -34,6 +34,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
   characterCount,
   maxCount = 1000,
   onChange,
+  required,
   disabled,
   width,
   variant,
@@ -72,11 +73,11 @@ export const TextArea: React.FC<TextAreaProps> = ({
   return (
     <Box style={{flexDirection: 'column', width}} onClick={() => inputRef.current?.focus()}>
       {inputLabel && 
-      <Typography variant={'p'} bold style={{margin:0, fontSize: sizeAttributes[size].fontSize}}>
-        {inputLabel}
+      <Typography variant={'p'} bold style={{margin: '0px 2px', fontSize: sizeAttributes[size].fontSize}}>
+        {inputLabel} {required && <span style={{ color: '#CC3300' }}> *</span>}
       </Typography>}
       {inputLabelDescription && (
-        <Typography variant={'p'} style={{marginTop:sizeAttributes[size].labelMargin, color: '#5c6178', fontSize: sizeAttributes[size].descriptionFontSize}}>
+        <Typography variant={'p'} style={{margin: '0px 2px', marginTop:sizeAttributes[size].labelMargin, color: '#5c6178', fontSize: sizeAttributes[size].descriptionFontSize}}>
           {inputLabelDescription}
         </Typography>
       )}
@@ -106,6 +107,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
         value={inputValue}
         maxLength={maxCount}
         placeholder={placeholder}
+        required={required}
         disabled={disabled}
         ref={inputRef}
         onChange={(e) => {

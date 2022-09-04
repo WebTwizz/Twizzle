@@ -10,6 +10,7 @@ export const StyledInputContainer = styled.div`
     align-items:center;
     display:flex;
     gap:5px;
+    margin: 5px 0px;
 
 
 `;
