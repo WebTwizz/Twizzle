@@ -13,6 +13,11 @@ export interface InputProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "
    */
   inputName: string;
   /**
+   * type of the input
+   * @default text
+   */
+  type?: "text" | "email" | "number" | "tel" | "url" | "search";
+  /**
    * Label for the input
    */
   inputLabel?: string;
@@ -88,6 +93,7 @@ export interface InputProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "
 
 export const TextInput: React.FC<InputProps> = ({
   inputName,
+  type = "text",
   inputLabel,
   inputLabelDescription,
   errorMessage,
@@ -195,7 +201,7 @@ export const TextInput: React.FC<InputProps> = ({
       >
         {leftIcon}
         <StyledTextInput
-          type="text"
+          type={type}
           ref={inputRef}
           value={inputValue}
           name={inputName}
