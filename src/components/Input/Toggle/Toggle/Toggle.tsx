@@ -26,7 +26,6 @@ interface ToggleProps extends React.HTMLAttributes<HTMLSpanElement> {
    * onToggle callback function
    */
   onToggle?: () => void;
-  onChange?: () => void;
   /**
    * The size of the avatar out of the following options:
    * small, medium, large
@@ -70,14 +69,20 @@ const Toggle: React.FC<ToggleProps> = ({
     },
   };
   return (
-    <StyledToggle id="twizzle-toggle-switch" role="switch" aria-label="Toggle">
+    <StyledToggle role="switch" aria-label="Toggle">
       <StyledToggleInput
         value={toggledState.toString()}
+        checked={toggledState}
         disabled={disabled}
         type="checkbox"
         id="twizzle-toggle"
+        onChange={(e) => {
+          setToggledState(e.target.checked);
+          if (onToggle) {
+            onToggle();
+          }
+        }}
         {...props}
-        onChange={() => { onChange && onChange(); setToggledState(!toggledState); }}
       />
       <StyledToggleInputLabel
         htmlFor="twizzle-toggle"
@@ -90,7 +95,7 @@ const Toggle: React.FC<ToggleProps> = ({
           ...style,
         }}
         toggleSize={sizeAttributes[size]?.toggleSize}
-      ></StyledToggleInputLabel>
+      />
     </StyledToggle>
   );
 };

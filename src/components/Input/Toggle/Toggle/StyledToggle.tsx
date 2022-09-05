@@ -39,7 +39,7 @@ export const StyledToggleInputLabel = styled.label<StyledToggleInputLabelProps>`
     &:active:after {
         width: 20px;
     }
-    #twizzle-toggle:checked + &:after {
+    input:checked + &:after {
         left: calc(100% - 5px);
         transform: translateX(-100%);
     }

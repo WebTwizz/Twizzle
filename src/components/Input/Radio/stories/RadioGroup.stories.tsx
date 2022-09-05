@@ -54,6 +54,10 @@ const RadioGroupTemplate: ComponentStory<typeof RadioGroup> = ({
                         value: 'option3',
                     },
                 ]}
+                value={{
+                    label: 'Option 1',
+                    value: 'option1',
+                }}
 
                 color={color}
             />

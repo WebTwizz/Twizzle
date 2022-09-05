@@ -50,6 +50,7 @@ const ToggleTemplate: ComponentStory<typeof Toggle> = ({
                 toggled={toggled}
                 {...rest}
             />
+            <Toggle/>
         </>
     )
 }

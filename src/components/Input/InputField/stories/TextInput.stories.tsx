@@ -1,6 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import {TextInput } from "..";
+import { Box } from "../../../Box/Box";
 
 export default {
     title: 'Components/Input/InputField/TextInput',
@@ -35,12 +36,14 @@ const TextInputTemplate: ComponentStory<typeof TextInput> = ({
     ...rest
 }) => {
     return (
+        <Box style={{display: 'block'}}>
         <TextInput
             placeholder={placeholder}
             value={value}
             onChange={onChange}
             {...rest}
         />
+        </Box>
     )
 }
 

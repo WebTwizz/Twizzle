@@ -8,13 +8,12 @@ export default {
     argTypes: {
         page: {
             control: { type: 'number' },
+            defaultValue: 1,
         },
         totalPages: {
             control: { type: 'number' },
-        },
-        onChange: {
-            control: { type: 'func' },
-        },
+            defaultValue: 10,
+        }
     },
 } as ComponentMeta<typeof Pagination>;
 
@@ -23,8 +22,3 @@ const PaginationTemplate: ComponentStory<typeof Pagination> = ({ page, totalPage
 }
 
 export const PaginationComponent = PaginationTemplate.bind({});
-PaginationComponent.args = {
-    page: 1,
-    totalPages: 10,
-    onChange: () => {},
-};

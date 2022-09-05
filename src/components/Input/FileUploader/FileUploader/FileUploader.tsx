@@ -27,16 +27,13 @@ interface FileUploaderProps extends React.HTMLAttributes<HTMLDivElement>{
    */
   multipleFiles?: boolean;
   /**
-   * Maximum files allowed to be uploaded
-   */
-  maxFiles?: number;
-  /**
-   * Maximum file size allowed to be uploaded
+   * Maximum file size allowed to be uploaded in bytes
+   * @default 1000000000
    */
   maxFileSize?: number;
   /**
    * File types allowed to be uploaded
-   * @default 1000000000
+   * 
    */
   fileTypes?: string[];
   /**
@@ -57,8 +54,7 @@ interface FileUploaderProps extends React.HTMLAttributes<HTMLDivElement>{
 
 const FileUploader: React.FC<FileUploaderProps> = ({
   inputName,
-  multipleFiles,
-  maxFiles = 1000,
+  multipleFiles = true,
   maxFileSize = 1000000000,
   fileTypes,
   width = "100%",
@@ -80,12 +76,8 @@ const FileUploader: React.FC<FileUploaderProps> = ({
 
   const handleUpload = useCallback(
     (acceptedFiles: File[]) => {
-      if (acceptedFiles && acceptedFiles?.length > 1 && !multipleFiles) {
+      if (acceptedFiles && acceptedFiles?.length > 1 && multipleFiles === false) {
         setMessage("Only one file can be uploaded at a time");
-        return;
-      }
-      if (acceptedFiles && acceptedFiles?.length > maxFiles) {
-        setMessage("Maximum number of files exceeded");
         return;
       }
       if (
@@ -98,8 +90,7 @@ const FileUploader: React.FC<FileUploaderProps> = ({
       }
       if (
         acceptedFiles &&
-        acceptedFiles.length > 0 &&
-        acceptedFiles.length < maxFiles
+        acceptedFiles.length > 0
       ) {
         setFiles(acceptedFiles);
         setMessage(`${acceptedFiles.length} file(s) selected`);
@@ -107,11 +98,12 @@ const FileUploader: React.FC<FileUploaderProps> = ({
       onUpload?.(acceptedFiles);
       
     },
-    [multipleFiles, maxFiles, maxFileSize]
+    [multipleFiles, maxFileSize]
   );
 
   const handleFileUpload = useCallback(() => {
     const uploadedFiles = inputFile.current?.files;
+
     if (uploadedFiles) {
       handleUpload(Array.from(uploadedFiles));
     }
@@ -166,6 +158,7 @@ const FileUploader: React.FC<FileUploaderProps> = ({
             {message}
           </Typography>
           <StyledFileUploaderInput
+            aria-label={"file-uploader"}
             type="file"
             name={inputName}
             ref={inputFile}
@@ -174,6 +167,7 @@ const FileUploader: React.FC<FileUploaderProps> = ({
             size={maxFileSize}
             disabled={disabled}
             onChange={() => {
+              setMessage("lol");
               handleFileUpload();
             }}
             onDrop={(e) => handleFileDrop(e)}

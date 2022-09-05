@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { Checkbox } from "..";
+import userEvent from "@testing-library/user-event";
 
 describe("Checkbox", () => {
   it("should render correctly", () => {
@@ -22,6 +23,8 @@ describe("Checkbox", () => {
   it("should be checked if given the checked prop", () => {
     render(<Checkbox inputName={""} label="Checkbox" checked />);
     expect(screen.getByRole("checkbox")).toBeChecked();
+    userEvent.click(screen.getByRole("checkbox"));
+    expect(screen.getByRole("checkbox")).not.toBeChecked();
   });
 
   it("should call onCheck if given the onCheck prop", () => {

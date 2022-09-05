@@ -58,13 +58,20 @@ const Pagination: React.FC<PaginationProps> = ({
       }
     }
     return pages.slice(0, 5);
-  }, [totalPages]);
+  }, [totalPages, currentPage, page]);
 
   const [displayedPages, setDisplayedPages] = useState(getPages);
+
+
+  useEffect(() => {
+    setDisplayedPages(getPages);
+  }, [getPages]);
 
   useEffect(() => {
     setCurrentPage(page);
   }, [page]);
+
+
 
   const theme = useContext(ThemeContext);
   const color = theme.primary?.backgroundColor || "#1E90FF";
@@ -136,7 +143,7 @@ const Pagination: React.FC<PaginationProps> = ({
         })}
         {displayedPages[displayedPages.length - 1] != totalPages && (
           <>
-            <span style={{ color: "#afafaf" }}> ... </span>
+            {!displayedPages.includes(totalPages-1) && <span style={{ color: "#afafaf" }}> ... </span>}
             <StyledPaginationPage
               onClick={() => handleOnChange(totalPages)}
               style={{

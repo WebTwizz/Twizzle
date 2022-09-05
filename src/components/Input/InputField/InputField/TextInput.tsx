@@ -13,6 +13,11 @@ export interface InputProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "
    */
   inputName: string;
   /**
+   * type of the input
+   * @default text
+   */
+  type?: "text" | "email" | "number" | "tel" | "url" | "search";
+  /**
    * Label for the input
    */
   inputLabel?: string;
@@ -88,6 +93,7 @@ export interface InputProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "
 
 export const TextInput: React.FC<InputProps> = ({
   inputName,
+  type = "text",
   inputLabel,
   inputLabelDescription,
   errorMessage,
@@ -152,16 +158,21 @@ export const TextInput: React.FC<InputProps> = ({
         <Typography
           variant={"p"}
           bold
-          style={{ margin: 0, fontSize: sizeAttributes[size].fontSize }}
+          style={{ 
+            margin: '0px 2px', 
+            marginBottom: sizeAttributes[size].labelMargin,
+            fontSize: sizeAttributes[size].fontSize 
+          }}
         >
-          {inputLabel}
+          {inputLabel} {required && <span style={{ color: '#CC3300' }}> *</span>}
         </Typography>
       )}
       {inputLabelDescription && (
         <Typography
           variant={"p"}
           style={{
-            marginTop: sizeAttributes[size].labelMargin,
+            margin: '0px 2px', 
+            marginBottom: sizeAttributes[size].labelMargin,
             color: "#5c6178",
             fontSize: sizeAttributes[size].descriptionFontSize,
           }}
@@ -190,7 +201,7 @@ export const TextInput: React.FC<InputProps> = ({
       >
         {leftIcon}
         <StyledTextInput
-          type="text"
+          type={type}
           ref={inputRef}
           value={inputValue}
           name={inputName}

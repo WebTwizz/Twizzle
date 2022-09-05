@@ -9,7 +9,6 @@ export default {
     component: FileUploader,
     argTypes: {
         multipleFiles: { control: 'boolean' },
-        maxFiles: { control: 'number' },
         maxFileSize: { control: 'number' },
         width: {
             control: {
@@ -27,8 +26,8 @@ export default {
     },
 } as ComponentMeta<typeof FileUploader>;
 
-    const FileUploaderTemplate: ComponentStory<typeof FileUploader> = ({ multipleFiles, maxFiles, disabled, ...rest }) => {
-        return <FileUploader multipleFiles={multipleFiles} maxFiles={maxFiles} disabled={disabled} {...rest} />;
+    const FileUploaderTemplate: ComponentStory<typeof FileUploader> = ({ multipleFiles, disabled, ...rest }) => {
+        return <FileUploader multipleFiles={multipleFiles} disabled={disabled} {...rest} />;
     }
 
     export const FileUploaderComponent = FileUploaderTemplate.bind({});
