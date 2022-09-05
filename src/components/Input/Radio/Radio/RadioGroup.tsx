@@ -72,8 +72,8 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
         return {
           fontSize: "0.8rem",
           padding: "0.075rem 1.5rem",
-          top: "3px",
-          left: "3px",
+          top: "2px",
+          left: "2px",
           width: "0.8rem",
           height: "0.8rem",
           checkedWidth: "0.45rem",
@@ -83,8 +83,8 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
         return {
           fontSize: "0.9rem",
           padding: "0.1rem 1.75rem",
-          top: "3.25px",
-          left: "3.25px",
+          top: "2.5px",
+          left: "2.5px",
           width: "1rem",
           height: "1rem",
           checkedWidth: "0.6rem",
@@ -94,8 +94,8 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
         return {
           fontSize: "1rem",
           padding: "0.125rem 2rem",
-          top: "3.5px",
-          left: "3.5px",
+          top: "2.5px",
+          left: "2.5px",
           width: "1.2rem",
           height: "1.2rem",
           checkedWidth: "0.75rem",
@@ -111,6 +111,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
   } , [value]);
 
   const [isChecked, setIsChecked] = useState(defaultValue || null);
+  console.log(value);
 
   const defaultColor = useMemo(() => {
     if (disabled) {
@@ -142,7 +143,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
             >
               {option.label}
               <StyledRadio
-                checked={isChecked === option}
+                checked={isChecked?.value === option.value}
                 disabled={disabled}
                 type="radio"
                 name={inputName}
