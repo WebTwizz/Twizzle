@@ -83,8 +83,8 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
         return {
           fontSize: "0.9rem",
           padding: "0.1rem 1.75rem",
-          top: "2.5px",
-          left: "2.5px",
+          top: "2.2px",
+          left: "2.2px",
           width: "1rem",
           height: "1rem",
           checkedWidth: "0.6rem",
@@ -112,6 +112,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
 
   const [isChecked, setIsChecked] = useState(defaultValue || null);
   console.log(value);
+  console.log(isChecked);
 
   const defaultColor = useMemo(() => {
     if (disabled) {
@@ -156,7 +157,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
               <StyledChecked
                 className="checkmark"
                 color={defaultColor}
-                borderColor={isChecked === option ? defaultColor : "#e9e9e9"}
+                borderColor={isChecked?.value === option.value ? defaultColor : "#e9e9e9"}
                 top={sizeAttributes.top}
                 left={sizeAttributes.left}
                 width={sizeAttributes.width}
