@@ -12,7 +12,8 @@ import {
   StyledSelectInputValue,
 } from "./StyledSelect";
 
-export interface SelectProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onSelect"> {
+export interface SelectProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, "onSelect"> {
   /**
    * The name of the input
    */
@@ -71,30 +72,44 @@ const Select: React.FC<SelectProps> = ({
   const sizeAttributes = {
     small: {
       fontSize: "12px",
-      defaultWidth: "22%",
+      defaultWidth: "25%",
+      defaultHeight: "25px",
       padding: "0px 8px",
       valuePaddding: "0px",
-      marginTop: '5px',
+      marginTop: "5px",
     },
     medium: {
       fontSize: "14px",
-      defaultWidth: "33%",
+      defaultWidth: "35%",
+      defaultHeight: "35px",
       padding: "5px 6px",
       valuePaddding: "15px",
-      marginTop: '5px',
+      marginTop: "5px",
     },
     large: {
       fontSize: "16px",
-      defaultWidth: "47%",
+      defaultWidth: "50%",
+      defaultHeight: "45px",
       padding: "10px 8px",
       valuePaddding: "20px",
-      marginTop: '5px',
+      marginTop: "5px",
     },
   };
 
   return (
-    <>
-      <StyledSelectInput name={inputName} type="hidden" value={selected} role="hidden-select" {...props}/>
+    <div
+      style={{
+        position: "relative",
+        width: width || sizeAttributes[size].defaultWidth,
+      }}
+    >
+      <StyledSelectInput
+        name={inputName}
+        type="hidden"
+        value={selected}
+        role="hidden-select"
+        {...props}
+      />
       <StyledSelectInputContainer
         role="select"
         onClick={() => (!disabled ? setIsSelecting(!isSelecting) : null)}
@@ -105,28 +120,37 @@ const Select: React.FC<SelectProps> = ({
           backgroundColor: disabled ? greyBackgroundColor : "white",
           color: disabled ? "#d5d5d5" : "black",
           cursor: disabled ? "not-allowed" : "pointer",
-          padding: sizeAttributes[size].padding,
+          height: sizeAttributes[size].defaultHeight,
           fontSize: sizeAttributes[size].fontSize,
-          width: width || sizeAttributes[size].defaultWidth,
           ...style,
         }}
       >
-        <StyledSelectInputValue 
-          style={{padding: sizeAttributes[size].valuePaddding}}>
-          {selected}</StyledSelectInputValue>
+        <StyledSelectInputValue
+          style={{
+            padding: sizeAttributes[size].padding,
+          }}
+        >
+          {selected}
+        </StyledSelectInputValue>
         {!isSelecting ? (
-          <BsChevronDown style={{marginRight: '5px'}} className="twizzle-select-arrow arrow-down" />
+          <BsChevronDown
+            style={{ marginRight: "5px" }}
+            className="twizzle-select-arrow arrow-down"
+          />
         ) : (
-          <BsChevronUp style={{marginRight: '5px'}} className="twizzle-select-arrow arrow-up" />
+          <BsChevronUp
+            style={{ marginRight: "5px" }}
+            className="twizzle-select-arrow arrow-up"
+          />
         )}
       </StyledSelectInputContainer>
       <StyledSelectContainer
         id="selectContainer"
         style={{
           visibility: isSelecting ? "visible" : "hidden",
-          width: width || sizeAttributes[size].defaultWidth,
           fontSize: sizeAttributes[size].fontSize,
           marginTop: sizeAttributes[size].marginTop,
+          // padding: sizeAttributes[size].padding,
         }}
       >
         {options.map((option, index) => {
@@ -140,8 +164,9 @@ const Select: React.FC<SelectProps> = ({
                 handleSelect(e.currentTarget.innerText);
               }}
             >
-              <StyledSelectInputValue id={option}
-              style={{padding: sizeAttributes[size].valuePaddding}}
+              <StyledSelectInputValue
+                id={option}
+                style={{ padding: sizeAttributes[size].valuePaddding }}
               >
                 {option}
               </StyledSelectInputValue>
@@ -149,7 +174,7 @@ const Select: React.FC<SelectProps> = ({
           );
         })}
       </StyledSelectContainer>
-    </>
+    </div>
   );
 };
 
