@@ -14,7 +14,7 @@ export const StyledSelectInput = styled.input`
 export const StyledSelectInputContainer = styled.div`
     font-family: sans-serif;
     height: 30px;
-    width: 120px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     border-radius: 5px;
@@ -29,6 +29,7 @@ export const StyledSelectInputValue = styled.span`
 
 export const StyledSelectContainer = styled.ul`
     font-family: sans-serif;
+    width: 100%;
     max-height: 200px;
     overflow: scroll;
     padding: 0px;
