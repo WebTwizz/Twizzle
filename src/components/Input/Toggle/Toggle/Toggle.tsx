@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
+import uuid from 'react-uuid';
 import {
   StyledToggle,
   StyledToggleInput,
@@ -68,6 +69,8 @@ const Toggle: React.FC<ToggleProps> = ({
       toggleSize: "20px",
     },
   };
+
+  const id = `toggle-${uuid()}`;
   return (
     <StyledToggle role="switch" aria-label="Toggle">
       <StyledToggleInput
@@ -75,7 +78,7 @@ const Toggle: React.FC<ToggleProps> = ({
         checked={toggledState}
         disabled={disabled}
         type="checkbox"
-        id="twizzle-toggle"
+        id={id}
         onChange={(e) => {
           setToggledState(e.target.checked);
           if (onToggle) {
@@ -85,7 +88,7 @@ const Toggle: React.FC<ToggleProps> = ({
         {...props}
       />
       <StyledToggleInputLabel
-        htmlFor="twizzle-toggle"
+        htmlFor={id}
         style={{
           backgroundColor: toggledState
             ? color || theme.primary?.backgroundColor
