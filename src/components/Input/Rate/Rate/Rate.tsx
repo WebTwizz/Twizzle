@@ -50,6 +50,8 @@ const Rate: React.FC<RateProps> = ({
     { rating: 4, isActive: false },
     { rating: 5, isActive: false },
   ]);
+  const [selectedRating, setSelectedRating] = useState<Number>(rating)
+
   const handleRateChange = useCallback((rating: number) => {
     setCurrentRating(
       currentRating.map((item, index) => {
@@ -60,6 +62,7 @@ const Rate: React.FC<RateProps> = ({
         }
       })
     );
+    setSelectedRating(rating)
 
     if (onRateChange) {
       onRateChange(rating);
@@ -88,6 +91,7 @@ const Rate: React.FC<RateProps> = ({
           {currentRating.map((item, index) => {
             return (
               <StyledRateIcon
+                data-testid={`rating-icon-${item.rating}`}
                 key={index}
                 color={item.isActive ? color : "#ccc"}
                 style={{
@@ -98,9 +102,9 @@ const Rate: React.FC<RateProps> = ({
                   !disabled?handleRateChange(item.rating): null;
                   if(allowClear) {
                     //IF IT IS THE SAME ITEM CLICKED, CLEAR ALL
-                    if (item.isActive && clicked) {
+                    if (item.isActive && clicked && item.rating === selectedRating) {
                       clearAll();
-                    } 
+                    }
                     setClicked(true);
                   }
                 }}
