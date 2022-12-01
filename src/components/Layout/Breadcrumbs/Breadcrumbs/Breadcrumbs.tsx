@@ -37,11 +37,10 @@ const Breadcrumbs:React.FC<BreadcrumbsProps> = ({ items, seperator = '/', color,
         <Box {...props}>
             {items.map((item, index) => {
                 return (
-
                     <StyledBreadcrumbs key={index}>
                         <StyledBreadcrumbsAnchorTag
                          href={item.href}
-                         style={{
+                         styleOverrides={{
                                 color: defaultColor,
                          }}
                         >

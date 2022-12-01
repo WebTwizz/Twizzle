@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+type StyledSelectProps = {
+    styleOverrides?: React.CSSProperties;
+};
 export const StyledSelectInput = styled.input`
     font-family: "Roboto", sans-serif;
     display: flex;
@@ -11,7 +14,7 @@ export const StyledSelectInput = styled.input`
     overflow:hidden;
 `;
 
-export const StyledSelectInputContainer = styled.div`
+export const StyledSelectInputContainer = styled.div<StyledSelectProps>`
     font-family: sans-serif;
     height: 30px;
     width: 100%;
@@ -21,13 +24,15 @@ export const StyledSelectInputContainer = styled.div`
     align-items: center;
     position: relative;
     overflow:hidden;
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 
-export const StyledSelectInputValue = styled.span`
+export const StyledSelectInputValue = styled.span<StyledSelectProps>`
     font-family: sans-serif;
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 
-export const StyledSelectContainer = styled.ul`
+export const StyledSelectContainer = styled.ul<StyledSelectProps>`
     font-family: sans-serif;
     width: 100%;
     max-height: 200px;
@@ -42,6 +47,7 @@ export const StyledSelectContainer = styled.ul`
     display: block;
     cursor:pointer;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 
 export const StyledSelectInputOption = styled.li`

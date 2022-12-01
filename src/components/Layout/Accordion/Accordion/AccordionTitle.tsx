@@ -44,7 +44,7 @@ const AccordionTitle: React.FC<AccordionTitleProps> = ({
     <StyledAccordionTitle
       className={`${isOpen ? "open" : ""}`}
       onClick={() => onClick?.()}
-      style={{
+      styleOverrides={{
         backgroundColor: disabled ? greyBackgroundColor : "inherit",
         color: disabled ? "grey" : "inherit",
         cursor: disabled ? "not-allowed" : "pointer",

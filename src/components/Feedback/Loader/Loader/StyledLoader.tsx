@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
-export const StyledLoader  = styled.div`
+type StyledLoaderProps = {
+  styleOverrides?: React.CSSProperties;
+};
+
+export const StyledLoader  = styled.div<StyledLoaderProps>`
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
-  padding: 1rem;
   margin: 5px;
   border-radius: 50%;
   transition: all 0.3s ease-in-out;
@@ -18,5 +21,6 @@ export const StyledLoader  = styled.div`
     100% {
         transform: rotate(360deg);
     }
-  }   
+  }
+  ${({ styleOverrides }) => ({ ...styleOverrides })};   
 `;

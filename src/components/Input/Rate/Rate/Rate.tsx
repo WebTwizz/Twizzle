@@ -94,7 +94,7 @@ const Rate: React.FC<RateProps> = ({
                 data-testid={`rating-icon-${item.rating}`}
                 key={index}
                 color={item.isActive ? color : "#ccc"}
-                style={{
+                styleOverrides={{
                   fontSize: iconSize,
                   cursor: disabled ? "not-allowed" : "pointer",
                 }}

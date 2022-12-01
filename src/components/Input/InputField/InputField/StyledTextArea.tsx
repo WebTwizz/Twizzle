@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-export const StyledTextAreaContainer = styled.div`
+type StyledTextAreaContainerProps = {
+    styleOverrides?: React.CSSProperties;
+};
+export const StyledTextAreaContainer = styled.div<StyledTextAreaContainerProps>`
     padding: 10px;
     border: none;
     box-sizing: border-box;
@@ -13,9 +16,10 @@ export const StyledTextAreaContainer = styled.div`
     overflow: scroll;
     resize: both;
     margin: 5px 0px;
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 
-export const StyledTextArea = styled.textarea`
+export const StyledTextArea = styled.textarea<StyledTextAreaContainerProps>`
     font-family: "Roboto", sans-serif;
     width: 95%;
     height: 100%;
@@ -25,6 +29,7 @@ export const StyledTextArea = styled.textarea`
     transition: 0.5s;
     outline: none;
     resize: none;
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 
 export const StyledTextAreaDeleteButton = styled.div`

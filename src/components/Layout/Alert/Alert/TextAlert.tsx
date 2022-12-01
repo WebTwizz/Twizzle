@@ -55,7 +55,7 @@ const TextAlert: React.FC<TextAlertProps> = ({
             {variant === "danger" && (size === "small"? smallDangerAlertSVG: size === "medium"? dangerAlertSVG: largeDangerAlertSVG)}
             {variant === "warning" && (size === "small"? smallWarningAlertSVG: size === "medium"? warningAlertSVG: largeWarningAlertSVG)}
             <Box
-              style={{
+              boxStyles={{
                alignItems: "center",
                width: "100%",
               }}

@@ -30,7 +30,7 @@ const Alert: React.FC<AlertProps> = ({
     {...props}
     >
         <Box className={`twizzle-alert-${variant}`}
-        style={{
+        boxStyles={{
           flexDirection: "row",
           alignItems: "center",
           paddingLeft: "0.5rem",
@@ -42,7 +42,7 @@ const Alert: React.FC<AlertProps> = ({
             {variant === "danger" && dangerAlertSVG}
             {variant === "warning" && warningAlertSVG}
             <Box
-              style={{
+              boxStyles={{
                alignItems: "center",
                padding: "1rem",
                width: "100%",

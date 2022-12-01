@@ -37,15 +37,14 @@ const Loader: React.FC<LoaderProps> = ({
   return (
     <StyledLoader 
     role={"loader"}
-   
-    style={{
+    styleOverrides={{
       width: loaderSize[size].weight,
       height: loaderSize[size].weight,
       padding: loaderSize[size].padding,
       borderStyle: "solid",
       borderColor: `${overlayColor} ${overlayColor} transparent`,
       borderWidth: loaderSize[size].thickness,
-      ...style,
+      ...style
     }}
     {...props}
     />

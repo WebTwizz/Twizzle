@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 
-export const StyledPagination = styled.div`
+type StyledPaginationProps = {
+    styleOverrides?: React.CSSProperties;
+};
+export const StyledPagination = styled.div<StyledPaginationProps>`
     display: flex;
     align-items: center;
     width:fit-content;
     font-size: 1rem;
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 
-export const StyledPaginationButton = styled.div`
+export const StyledPaginationButton = styled.div<StyledPaginationProps>`
     display: flex;
     align-items: center;
     border: none;
@@ -18,9 +22,10 @@ export const StyledPaginationButton = styled.div`
     &:hover {
         color:#919191;
     }
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 
-export const StyledPaginationPages = styled.div`
+export const StyledPaginationPages = styled.div<StyledPaginationProps>`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -34,9 +39,10 @@ export const StyledPaginationPages = styled.div`
     max-height: 100%;
     overflow: hidden;
     position: relative;
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 
-export const StyledPaginationPage = styled.span`
+export const StyledPaginationPage = styled.span<StyledPaginationProps>`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,6 +58,7 @@ export const StyledPaginationPage = styled.span`
         background: #f5f5f5;
         border-color: #f5f5f5;
     }
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 
 

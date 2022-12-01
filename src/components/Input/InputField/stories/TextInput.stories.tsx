@@ -36,7 +36,7 @@ const TextInputTemplate: ComponentStory<typeof TextInput> = ({
     ...rest
 }) => {
     return (
-        <Box style={{display: 'block'}}>
+        <Box boxStyles={{display: 'block'}}>
         <TextInput
             placeholder={placeholder}
             value={value}

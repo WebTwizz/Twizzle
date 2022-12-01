@@ -27,9 +27,4 @@ describe("Button component", () => {
     
         expect(screen.getByRole("button")).toBeDisabled;
     })
-    it("should render Button with corner prop", () => {
-        render(<Button label={""} corner="round" />);
-
-        expect(screen.getByRole("button")).toHaveStyle("border-radius: 30px");
-    })
 })

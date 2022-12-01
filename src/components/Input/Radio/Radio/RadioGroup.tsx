@@ -130,13 +130,13 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
 
 
   return (
-    <Box style={{ flexDirection: orientation == 'horizontal' ? 'row' : 'column', ...style}} {...props}>
+    <Box boxStyles={{ flexDirection: orientation == 'horizontal' ? 'row' : 'column', ...style}} {...props}>
       {options.map((option, index) => {
         return (
           <Box className="radio" key={index}>
             <StyledRadioContainer
               className="container"
-              style={{
+              styleOverrides={{
                 fontSize: sizeAttributes.fontSize,
                 padding: sizeAttributes.padding,
                 color: defaultLabelColor,

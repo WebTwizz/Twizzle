@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const StyledRadioContainer = styled.label`
+type StyledRadioProps = {
+  styleOverrides?: React.CSSProperties;
+};
+
+export const StyledRadioContainer = styled.label<StyledRadioProps>`
   display: flex;
   align-items: center;
   font-family: "Roboto", sans-serif;
@@ -18,6 +22,7 @@ export const StyledRadioContainer = styled.label`
     &:checked + span:after {
       display: block;
     }
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 export const StyledRadio = styled.input`
   position: absolute;

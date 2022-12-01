@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
 import { Loader } from "../../../Feedback/Loader";
-import { StyledButton } from "./StyledButton";
+import { StyledButton, StyledButtonContent, StyledButtonIcon } from "./StyledButton";
 
 interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement>{
   /**
@@ -80,7 +80,7 @@ const Button: React.FC<ButtonProps> = ({
       onMouseLeave={() => {
         setHover(false);
       }}
-      style={{
+      styleOverrides={{
         border: outlined ? "1px solid" : "none",
         borderRadius: corner === "round" ? "30px" : "5px",
         filter: hover
@@ -90,20 +90,15 @@ const Button: React.FC<ButtonProps> = ({
           : "brightness(1)",
         fontSize:
           size === "small" ? "12px" : size === "large" ? "20px" : "15px",
+        backgroundColor: outlined ? (hover ? "#F2F2F2" : "white") : color,
+        color: disabled ? "white" : outlined ? color : "white",
+        transition: "all 0.3s",
         ...style,
       }}
-      backgroundColor={outlined ? (hover ? "#F2F2F2" : "white") : color}
-      color={disabled ? "white" : outlined ? color : "white"}
       disabled={disabled}
       {...props}
     >
-      <span
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <StyledButtonContent>
         {isLoading && (
           <Loader
             size={
@@ -122,28 +117,19 @@ const Button: React.FC<ButtonProps> = ({
         {label}
         {icon &&
           (label ? (
-            <span
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
+            <StyledButtonIcon 
+              styleOverrides={{
                 marginLeft: "5px",
               }}
             >
               {icon}
-            </span>
+            </StyledButtonIcon>
           ) : (
-            <span
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
+            <StyledButtonIcon>
               {icon}
-            </span>
+            </StyledButtonIcon>
           ))}
-      </span>
+      </StyledButtonContent>
     </StyledButton>
   );
 };

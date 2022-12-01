@@ -77,7 +77,7 @@ const CornerModal: React.FC<CornerModalProps> = ({
       >
         <StyledModal
           role={"modal"}
-          style={{
+          styleOverrides={{
             margin: "12px",
             width: "80vh",
             ...style,
@@ -85,7 +85,7 @@ const CornerModal: React.FC<CornerModalProps> = ({
           {...props}
         >
           <StyledModalContent
-            style={{
+            styleOverrides={{
               ...bodyStyle,
             }}
           >

@@ -1,6 +1,4 @@
 import React, { useContext } from "react";
-import { Box } from "../../../Box/Box";
-import { Button } from "../../../General/Button";
 import TextInput, { InputProps } from "./TextInput";
 import { BiSearch } from "react-icons/bi";
 import { ThemeContext, Typography } from "../../../..";

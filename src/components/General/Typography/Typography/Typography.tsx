@@ -70,7 +70,7 @@ const Typography: React.FC<TypographyProps> = ({
         <StyledTypography1
           contentEditable={editable}
           onClick={() => onClick?.()}
-          style={{ fontWeight: fontWeight, ...customStyle }}
+          styleOverrides={{ fontWeight: fontWeight, ...customStyle }}
           {...props}
         >
           {children}
@@ -80,7 +80,7 @@ const Typography: React.FC<TypographyProps> = ({
         <StyledTypography2
           contentEditable={editable}
           onClick={() => onClick?.()}
-          style={{ fontWeight: fontWeight, ...customStyle }}
+          styleOverrides={{ fontWeight: fontWeight, ...customStyle }}
           {...props}
         >
           {children}
@@ -90,7 +90,7 @@ const Typography: React.FC<TypographyProps> = ({
         <StyledTypography3
           contentEditable={editable}
           onClick={() => onClick?.()}
-          style={{ fontWeight: fontWeight, ...customStyle }}
+          styleOverrides={{ fontWeight: fontWeight, ...customStyle }}
           {...props}
         >
           {children}
@@ -100,7 +100,7 @@ const Typography: React.FC<TypographyProps> = ({
         <StyledTypography4
           contentEditable={editable}
           onClick={() => onClick?.()}
-          style={{ fontWeight: fontWeight, ...customStyle }}
+          styleOverrides={{ fontWeight: fontWeight, ...customStyle }}
           {...props}
         >
           {children}
@@ -110,7 +110,7 @@ const Typography: React.FC<TypographyProps> = ({
         <StyledTypography5
           contentEditable={editable}
           onClick={() => onClick?.()}
-          style={{ fontWeight: fontWeight, ...customStyle }}
+          styleOverrides={{ fontWeight: fontWeight, ...customStyle }}
           {...props}
         >
           {children}
@@ -120,7 +120,7 @@ const Typography: React.FC<TypographyProps> = ({
         <StyledTypography6
           contentEditable={editable}
           onClick={() => onClick?.()}
-          style={{ fontWeight: fontWeight, ...customStyle }}
+          styleOverrides={{ fontWeight: fontWeight, ...customStyle }}
           {...props}
         >
           {children}
@@ -130,7 +130,7 @@ const Typography: React.FC<TypographyProps> = ({
         <StyledTypographyp
           contentEditable={editable}
           onClick={() => onClick?.()}
-          style={{ fontWeight: fontWeight, ...customStyle }}
+          styleOverrides={{ fontWeight: fontWeight, ...customStyle }}
           {...props}
         >
           {children}

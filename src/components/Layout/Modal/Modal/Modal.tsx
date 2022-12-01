@@ -104,13 +104,13 @@ const Modal: React.FC<ModalProps> = ({
       >
         <StyledModal
           role={"modal"}
-          style={{
+          styleOverrides={{
             ...style,
           }}
           {...props}
         >
           <StyledModalContent
-            style={{
+            styleOverrides={{
               ...bodyStyle,
             }}
           >

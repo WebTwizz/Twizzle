@@ -71,7 +71,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
   };
 
   return (
-    <Box style={{flexDirection: 'column', width}} onClick={() => inputRef.current?.focus()}>
+    <Box boxStyles={{flexDirection: 'column', width}} onClick={() => inputRef.current?.focus()}>
       {inputLabel && 
       <Typography variant={'p'} bold style={{margin: '0px 2px', fontSize: sizeAttributes[size].fontSize}}>
         {inputLabel} {required && <span style={{ color: '#CC3300' }}> *</span>}
@@ -82,7 +82,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
         </Typography>
       )}
     <StyledTextAreaContainer
-      style={{
+      styleOverrides={{
         width: width || sizeAttributes[size].defaultWidth,
         border: `0.5px solid ${
           invalid
@@ -114,13 +114,13 @@ export const TextArea: React.FC<TextAreaProps> = ({
           setInputValue(e.target.value);
           onChange?.(e.target.value);
         }}
-        style={{
+        styleOverrides={{
           fontSize: sizeAttributes[size].fontSize,
           
         }}
       ></StyledTextArea>
       <Box
-      style={{
+      boxStyles={{
         flexDirection: "column",
         justifyContent: "space-between",
         alignItems: "center",
@@ -139,7 +139,7 @@ export const TextArea: React.FC<TextAreaProps> = ({
         )}
         {characterCount && (
           <Box
-            style={{
+            boxStyles={{
               fontSize: sizeAttributes[size].descriptionFontSize,
               color: disabled ? "#b2b2b2" : "#b2b2b2",
             }}

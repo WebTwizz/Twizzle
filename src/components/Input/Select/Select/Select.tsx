@@ -113,7 +113,7 @@ const Select: React.FC<SelectProps> = ({
       <StyledSelectInputContainer
         role="select"
         onClick={() => (!disabled ? setIsSelecting(!isSelecting) : null)}
-        style={{
+        styleOverrides={{
           border: `0.5px solid ${
             isSelecting ? theme.primary?.backgroundColor : "#E8E8E8"
           }`,
@@ -126,7 +126,7 @@ const Select: React.FC<SelectProps> = ({
         }}
       >
         <StyledSelectInputValue
-          style={{
+          styleOverrides={{
             padding: sizeAttributes[size].padding,
           }}
         >
@@ -146,11 +146,10 @@ const Select: React.FC<SelectProps> = ({
       </StyledSelectInputContainer>
       <StyledSelectContainer
         id="selectContainer"
-        style={{
+        styleOverrides={{
           visibility: isSelecting ? "visible" : "hidden",
           fontSize: sizeAttributes[size].fontSize,
           marginTop: sizeAttributes[size].marginTop,
-          // padding: sizeAttributes[size].padding,
         }}
       >
         {options.map((option, index) => {
@@ -166,7 +165,7 @@ const Select: React.FC<SelectProps> = ({
             >
               <StyledSelectInputValue
                 id={option}
-                style={{ padding: sizeAttributes[size].valuePaddding }}
+                styleOverrides={{ padding: sizeAttributes[size].valuePaddding }}
               >
                 {option}
               </StyledSelectInputValue>

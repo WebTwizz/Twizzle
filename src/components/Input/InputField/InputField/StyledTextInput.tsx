@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
-export const StyledInputContainer = styled.div`
+type StyledFileUploaderProps = {
+    styleOverrides?: React.CSSProperties;
+};
+export const StyledInputContainer = styled.div<StyledFileUploaderProps>`
     margin: 2px 0;
     box-sizing: border-box;
     border-radius: 5px;
@@ -11,8 +14,7 @@ export const StyledInputContainer = styled.div`
     display:flex;
     gap:5px;
     margin: 5px 0px;
-
-
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 
 export const StyledTextInput = styled.input`

@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
+type StyledPaginationProps = {
+    styleOverrides?: React.CSSProperties;
+};
 export const StyledTooltipContainer = styled.span`
     position: relative;
     display: inline-block;
 }`;
 
-export const StyledTooltip = styled.span`
+export const StyledTooltip = styled.span<StyledPaginationProps>`
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
     visibility: visible;
@@ -22,4 +25,5 @@ export const StyledTooltip = styled.span`
     opacity: 1;
     border-radius: 6px;
     transition: opacity 0.3s;
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 }`;

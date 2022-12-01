@@ -1,17 +1,22 @@
 import styled from "styled-components";
 
-export const StyledModal = styled.div`
+type StyledModalProps = {
+    styleOverrides?: React.CSSProperties;
+};
+export const StyledModal = styled.div<StyledModalProps>`
     display:flex;
     width:100vh;
     margin: 10px;
     border-radius: 3px;
     overflow:hidden;
     cursor: default;
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 
-export const StyledModalContent = styled.div`
+export const StyledModalContent = styled.div<StyledModalProps>`
     background-color: #F5F6F7;
     width:100%;
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 
 export const StyledModalHeader = styled.div`
