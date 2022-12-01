@@ -8,7 +8,7 @@ import {
 import { ThemeContext } from "../../../..";
 import { greyBackgroundColor } from "../../../constants";
 
-interface CheckboxProps extends React.HTMLAttributes<HTMLSpanElement>{
+interface CheckboxProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
    * The name of the input.
    */
@@ -55,7 +55,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
   ...props
 }) => {
   const [isChecked, setIsChecked] = useState(checked);
-  
 
   const theme = useContext(ThemeContext);
 
@@ -68,7 +67,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
           width: "0.8rem",
           bottom: "-0.1rem",
           right: "0rem",
-
         };
       case "medium":
         return {
@@ -86,40 +84,41 @@ const Checkbox: React.FC<CheckboxProps> = ({
           bottom: "-0.1rem",
           right: "0.1rem",
         };
-      };
-    }, [size]);
-
+    }
+  }, [size]);
 
   const defaultColor = useMemo(() => {
     if (disabled) {
       return greyBackgroundColor;
     }
-    if(isChecked) {
+    if (isChecked) {
       return color || theme.primary?.backgroundColor;
     }
-    return 'transparent';
-  },[disabled, isChecked, color]);
+    return "transparent";
+  }, [disabled, isChecked, color]);
 
   const defaultTextColor = useMemo(() => {
     if (disabled) {
       return greyBackgroundColor;
     }
     return labelColor || theme.primary?.color;
-  },[labelColor, disabled]);
+  }, [labelColor, disabled]);
 
   const border = useMemo(() => {
     if (disabled) {
       return `1px solid ${greyBackgroundColor}`;
     }
     if (isChecked) {
-      return color || `1px solid ${theme.primary?.backgroundColor || "transparent"}`;
+      return (
+        color || `1px solid ${theme.primary?.backgroundColor || "transparent"}`
+      );
     }
     return `1px solid ${greyBackgroundColor}`;
-  }, [disabled, isChecked, color ]);
+  }, [disabled, isChecked, color]);
 
   const checkedIcon = useMemo(() => {
     return isChecked ? "'\\2713'" : "";
-  } , [isChecked]);
+  }, [isChecked]);
 
   return (
     <StyledCheckboxContainer {...props}>
@@ -128,28 +127,29 @@ const Checkbox: React.FC<CheckboxProps> = ({
           name={inputName}
           type="checkbox"
           checked={isChecked}
-          checkedIcon = {checkedIcon}
+          checkedIcon={checkedIcon}
           onChange={() => {
             setIsChecked(!isChecked);
             onCheck && onCheck(!isChecked);
           }}
-          style={{
+          styleOverrides={{
             border: border,
+            backgroundColor: defaultColor,
+            height: sizeAttributes.height,
+            width: sizeAttributes.width,
+            bottom: sizeAttributes.bottom,
+            right: sizeAttributes.right,
+            fontSize: sizeAttributes.height,
+            transition: "all 0.25s ease-in-out",
           }}
           disabled={disabled}
           className={isChecked ? "checked" : ""}
-          color={defaultColor}
-          height={sizeAttributes.height}
-          width={sizeAttributes.width}
-          bottom={sizeAttributes.bottom}
-          right={sizeAttributes.right}
-          checkFontSize={sizeAttributes.height}
         />
         <StyledCheckboxText
-          style={{
+          styleOverrides={{
             color: defaultTextColor,
+            fontSize: sizeAttributes.fontSize,
           }}
-          fontSize={sizeAttributes.fontSize}
         >
           {label}
         </StyledCheckboxText>

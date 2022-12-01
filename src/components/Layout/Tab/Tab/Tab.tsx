@@ -42,7 +42,7 @@ const Tab: React.FC<TabProps> = ({
 
     <StyledTab 
     onClick={() => onClick?.()}
-    style={{
+    styleOverrides={{
       color: isActive ? color || theme.primary?.backgroundColor : '#989898',
       borderColor: isActive ? color || theme.primary?.backgroundColor : '#989898',
       borderWidth: isActive ? '2px' : '1px',

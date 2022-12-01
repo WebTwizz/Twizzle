@@ -25,7 +25,7 @@ interface BackToTopProps extends React.HTMLAttributes<HTMLButtonElement> {
    */
   size?: "small" | "medium" | "large";
   /**
-   * change icon 
+   * change icon
    * @default BsChevronUp
    */
   icon?: React.ReactNode;
@@ -43,9 +43,9 @@ const BackToTop: React.FC<BackToTopProps> = ({
   const Theme = useContext(ThemeContext);
   const [isVisible, setIsVisible] = useState(false);
 
-  const handleClick = useCallback( () => {
+  const handleClick = useCallback(() => {
     setIsVisible(false);
-     window.scrollTo({
+    window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
@@ -84,26 +84,26 @@ const BackToTop: React.FC<BackToTopProps> = ({
   };
 
   return (
-      <>
-    {isVisible? 
-    <StyledBackToTop
-      style={{
-        backgroundColor: color || Theme.primary?.backgroundColor,
-        borderRadius: shape === "circle" ? "50%" : "5px",
-        height: sizeAttributes[size].height,
-        width: sizeAttributes[size].width,
-        padding: sizeAttributes[size].padding,
-        color: "white",
-        ...style,
-      }}
-      onClick={() => {
-        handleClick();
-      }}
-      {...props}
-    >
-      {icon}
-    </StyledBackToTop>
-    : null}
+    <>
+      {isVisible ? (
+        <StyledBackToTop
+          styleOverrides={{
+            backgroundColor: color || Theme.primary?.backgroundColor,
+            borderRadius: shape === "circle" ? "50%" : "5px",
+            height: sizeAttributes[size].height,
+            width: sizeAttributes[size].width,
+            padding: sizeAttributes[size].padding,
+            color: "white",
+            ...style,
+          }}
+          onClick={() => {
+            handleClick();
+          }}
+          {...props}
+        >
+          {icon}
+        </StyledBackToTop>
+      ) : null}
     </>
   );
 };

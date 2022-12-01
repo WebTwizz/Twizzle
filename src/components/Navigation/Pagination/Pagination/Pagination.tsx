@@ -132,7 +132,7 @@ const Pagination: React.FC<PaginationProps> = ({
               <StyledPaginationPage
                 key={`pagination-page-${page}`}
                 onClick={() => handleOnChange(page)}
-                style={{
+                styleOverrides={{
                   borderColor: currentPage == page ? color : "transparent",
                   color: currentPage == page ? color : "#afafaf",
                 }}
@@ -146,7 +146,7 @@ const Pagination: React.FC<PaginationProps> = ({
             {!displayedPages.includes(totalPages-1) && <span style={{ color: "#afafaf" }}> ... </span>}
             <StyledPaginationPage
               onClick={() => handleOnChange(totalPages)}
-              style={{
+              styleOverrides={{
                 borderColor: currentPage == totalPages ? color : "transparent",
                 color: currentPage == totalPages ? color : "#afafaf",
               }}

@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
-type StyledTabListProps = {
+type StyledTabProps = {
+    styleOverrides?: React.CSSProperties;
+};
+type StyledTabListProps  = {
     borderRight: string;
     borderBottom: string;
     textAlign: string;
-  }
+    styleOverrides?: React.CSSProperties;
+}
 export const StyledTabList = styled.div<StyledTabListProps>`
     display: flex;
     width: 100%;
@@ -14,9 +18,10 @@ export const StyledTabList = styled.div<StyledTabListProps>`
         border-bottom: ${props => props.borderBottom};
         text-align: ${props => props.textAlign};
     }
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 
-export const StyledTab = styled.button`
+export const StyledTab = styled.button<StyledTabProps>`
     width: 100%;
     border: none;
     cursor: pointer;
@@ -29,4 +34,5 @@ export const StyledTab = styled.button`
     &:hover {
         background-color: #f5f5f5;
     }
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;

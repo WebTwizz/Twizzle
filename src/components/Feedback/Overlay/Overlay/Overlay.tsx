@@ -22,7 +22,7 @@ const Overlay: React.FC<BackDropProps> = (
     
     return (
      <>
-        <StyledOverlay onClick={onClick} style={style} role="overlay" {...props}>
+        <StyledOverlay onClick={onClick} styleOverrides={style} role="overlay" {...props}>
             {children}
         </StyledOverlay>
 

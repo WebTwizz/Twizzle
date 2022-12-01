@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const StyledAvatarGroup = styled.div`
+type StyledAvatarGroupProps = {
+    styleOverrides?: React.CSSProperties;
+};
+
+export const StyledAvatarGroup = styled.div<StyledAvatarGroupProps>`
     display: grid;
     flex-direction: row;
     grid-template-columns: repeat(4, 1fr);
@@ -9,5 +13,5 @@ export const StyledAvatarGroup = styled.div`
     > div {
         margin-right:-10px;
     }
-
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;

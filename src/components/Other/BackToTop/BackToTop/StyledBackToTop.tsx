@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
-export const StyledBackToTop = styled.button`
+type StyledBackToTopProps = {
+    styleOverrides?: React.CSSProperties;
+};
+export const StyledBackToTop = styled.button<StyledBackToTopProps>`
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -14,4 +17,5 @@ export const StyledBackToTop = styled.button`
     :hover {
         filter: brightness(0.8);
     }
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;

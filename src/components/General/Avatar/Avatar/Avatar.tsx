@@ -1,6 +1,6 @@
 import React from "react";
 import { useMemo } from "react";
-import { StyledAvatar } from "./StyledAvatar";
+import { StyledAvatar, StyledAvatarImage } from "./StyledAvatar";
 
 interface AvatarProps extends React.HTMLAttributes<HTMLSpanElement>{
   /**
@@ -78,7 +78,7 @@ const Avatar: React.FC<AvatarProps> = ({
   return (
     <StyledAvatar
       role={"avatar"}
-      style={{
+      styleOverrides = {{
         backgroundColor: !src? (backgroundColor || getColor[0]): undefined,
         color: color || getColor[1],
         fontSize: sizeAttributes[size].fontSize,
@@ -90,10 +90,10 @@ const Avatar: React.FC<AvatarProps> = ({
       {...props}
     >
         {src ? (
-          <img 
+          <StyledAvatarImage 
           src={src} 
           alt={alt} 
-          style={{
+          styleOverrides={{
             width: sizeAttributes[size].width,
             height: sizeAttributes[size].height,
             borderRadius:shape == 'square'? '3px': sizeAttributes[size].borderRadius,  

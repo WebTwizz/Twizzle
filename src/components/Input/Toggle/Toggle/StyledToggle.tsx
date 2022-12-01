@@ -15,6 +15,7 @@ export const StyledToggleInput = styled.input`
 
 type StyledToggleInputLabelProps = {
     toggleSize: string;
+    styleOverrides?: React.CSSProperties;
 };
 
 export const StyledToggleInputLabel = styled.label<StyledToggleInputLabelProps>`
@@ -43,5 +44,5 @@ export const StyledToggleInputLabel = styled.label<StyledToggleInputLabelProps>`
         left: calc(100% - 5px);
         transform: translateX(-100%);
     }
-
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;

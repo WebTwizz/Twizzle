@@ -48,7 +48,7 @@ const Tooltip: React.FC<TooltipProps> = ({
         {children}
         <StyledTooltip 
         className="twizzle-tooltip" 
-        style={{
+        styleOverrides={{
           bottom: positioning[position].bottom,
           visibility: alwaysShown ? 'visible' : showTooltip ? 'visible' : 'hidden',
           opacity: alwaysShown ? 1 : showTooltip ? 1 : 0,

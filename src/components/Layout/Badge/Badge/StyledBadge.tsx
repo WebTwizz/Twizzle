@@ -1,12 +1,17 @@
 import styled from "styled-components";
 
-export const StyledBadge = styled.div`
+type StyledBadgeProps = {
+    styleOverrides?: React.CSSProperties;
+};
+
+export const StyledBadge = styled.div<StyledBadgeProps>`
   font-size: 0.8rem;
   font-family: system-ui;
   border-radius: 5px;
   padding: 2px 4px;
   margin: 2px;
   width: fit-content;
+  ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 
 export const StyledPill = styled.div`

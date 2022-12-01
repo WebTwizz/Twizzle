@@ -72,7 +72,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
 
   return (
     <Box
-      style={{ flexDirection: "column", ...style }}
+      boxStyles={{ flexDirection: "column", ...style }}
       onClick={() => inputRef.current?.focus()}
       {...props}
     >
@@ -99,7 +99,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
         </Typography>
       )}
       <StyledInputContainer
-        style={{
+        styleOverrides={{
           border: `0.5px solid ${
             invalid
               ? "#b22222"
@@ -134,7 +134,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
           onBlur={() => setHover(false)}
         ></StyledTextInput>
         <Box
-          style={{
+          boxStyles={{
             alignItems: "center",
             justifyContent: "center",
           }}

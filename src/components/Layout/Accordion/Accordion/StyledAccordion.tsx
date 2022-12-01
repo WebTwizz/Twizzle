@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
+type StyledAccordionProps = {
+    styleOverrides?: React.CSSProperties;
+};
 export const StyledAccordion = styled.div`
 width: 100%;
 font-family: sans-serif;
 border-bottom:1px solid #D8D8D8;
 `;
 
-export const StyledAccordionTitle = styled.span`
+export const StyledAccordionTitle = styled.span<StyledAccordionProps>`
 display: flex;
 align-items: center;
 justify-content: space-between;
@@ -22,7 +25,7 @@ padding: 0.5rem 1rem;
 &.open span#arrow {
     transform: rotate(180deg);
 }
-
+${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 
 export const StyledAccordionItem = styled.div`

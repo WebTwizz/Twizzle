@@ -52,7 +52,7 @@ const Cell: React.FC<TableCellProps> = ({
   const [isSelected, setIsSelected] = React.useState(selected || false);
   return (
     <StyledTableCell
-      style={{
+      styleOverrides={{
         backgroundColor: isSelected ? "#f5f7fa" : "#fff",
         cursor: isSelectable ? "pointer" : "default",
       }}
@@ -81,7 +81,7 @@ const HeaderCell: React.FC<TableCellProps> = ({
   const [isSelected, setIsSelected] = React.useState(selected || false);
   return (
     <StyledTableHeaderCell
-      style={{
+      styleOverrides={{
         backgroundColor: isSelected ? "#f5f7fa" : "#f5f7fa",
         cursor: isSelectable ? "pointer" : "default",
       }}
@@ -133,7 +133,7 @@ const Row: React.FC<TableRowProps> = ({
   const [isHovered, setIsHovered] = React.useState(false);
   return (
     <StyledTableRow
-      style={{
+      styleOverrides={{
         backgroundColor: isSelected ? "#f5f7fa" : "#fff",
         filter: isHovered ? "brightness(0.95)" : "none",
         cursor: isSelectable ? "pointer" : "default",

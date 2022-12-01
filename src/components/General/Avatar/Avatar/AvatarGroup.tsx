@@ -28,6 +28,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
   size = "medium",
   shape = "circle",
   children,
+  style,
   ...rest
 }) => {
 
@@ -37,7 +38,10 @@ const AvatarGroup: React.FC<AvatarGroupProps> = ({
   const excessChildren = childrenArray.length - 3;
 
   return (
-    <StyledAvatarGroup>
+    <StyledAvatarGroup
+    styleOverrides={style}
+    {...rest}
+    >
       {childrenArray.slice(0, 3).map((child, index) => {
         return <Box key={`avatar-${index}`}>{child}</Box>;
       })}

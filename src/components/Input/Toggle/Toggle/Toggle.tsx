@@ -89,7 +89,7 @@ const Toggle: React.FC<ToggleProps> = ({
       />
       <StyledToggleInputLabel
         htmlFor={id}
-        style={{
+        styleOverrides={{
           backgroundColor: toggledState
             ? color || theme.primary?.backgroundColor
             : "#D3D3D3",

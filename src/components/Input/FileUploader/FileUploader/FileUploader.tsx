@@ -131,17 +131,17 @@ const FileUploader: React.FC<FileUploaderProps> = ({
   };
 
   return (
-    <StyledFileUploaderComponent role={"fileuploader"} style={{ width, ...style }} {...props}>
+    <StyledFileUploaderComponent role={"fileuploader"} styleOverrides={{ width, ...style }} {...props}>
       <StyledFileUploader
         onClick={() => handleButtonClick()}
         onDragOver={(e) => e.preventDefault()}
         onDrop={(e) => handleFileDrop(e)}
-        style={{
+        styleOverrides={{
           cursor: disabled ? "not-allowed" : "pointer",
         }}
       >
         <StyledFileUploaderIcon
-          style={{
+          styleOverrides={{
             fontSize:
               width === "100%" ? "50px" : width === "50%" ? "25px" : "15px",
           }}
@@ -178,7 +178,7 @@ const FileUploader: React.FC<FileUploaderProps> = ({
         </StyledFileUploaderIcon>
       </StyledFileUploader>
       {files && (
-        <Box style={{ flexDirection: "column" }}>
+        <Box boxStyles={{ flexDirection: "column" }}>
           {files.map((file) => (
             <StyledUploadedFile key={file.name}>
               <StyledUploadedFileIcon>

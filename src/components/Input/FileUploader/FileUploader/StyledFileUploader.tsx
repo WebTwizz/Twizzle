@@ -1,13 +1,16 @@
+import { type } from 'os';
 import  styled from 'styled-components';
 
-
-export const StyledFileUploaderComponent = styled.div`
+type StyledFileUploaderProps = {
+    styleOverrides?: React.CSSProperties;
+};
+export const StyledFileUploaderComponent = styled.div<StyledFileUploaderProps>`
     position: relative;
     margin: 10px;
-    width: ${props => props?.style?.width || '100%'};
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 
-export const StyledFileUploader = styled.div`
+export const StyledFileUploader = styled.div<StyledFileUploaderProps>`
     display: flex;
     justify-content: center;
     position: relative;
@@ -32,15 +35,17 @@ export const StyledFileUploader = styled.div`
         border-color: #ccc;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
     }
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 
-export const StyledFileUploaderIcon = styled.div`
+export const StyledFileUploaderIcon = styled.div<StyledFileUploaderProps>`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10px;
     color: #ccc;
+    ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 
 export const StyledFileUploaderInput = styled.input`

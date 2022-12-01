@@ -18,20 +18,14 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   children: string | React.ReactNode;
 }
 
-const Badge: React.FC<BadgeProps> = ({
-    color,
-    children,
-    style,
-    ...props
-}) => {
-
+const Badge: React.FC<BadgeProps> = ({ color, children, style, ...props }) => {
   const badgeColor = useMemo(() => {
     return chroma(color).alpha(0.4).hex();
-  } , [color]);
+  }, [color]);
 
   return (
     <StyledBadge
-      style={{
+      styleOverrides={{
         backgroundColor: badgeColor,
         color: color,
         ...style,

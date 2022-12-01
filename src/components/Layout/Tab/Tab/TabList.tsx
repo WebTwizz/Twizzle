@@ -25,7 +25,7 @@ const TabList: React.FC<TabListProps> = ({
   ...props
 }) => (
   <StyledTabList
-    style={{
+    styleOverrides={{
       flexDirection: orientation === "horizontal" ? "row" : "column",
       ...style,
     }}
