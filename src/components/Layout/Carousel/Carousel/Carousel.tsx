@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import "./carousel.css";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import {
   StyledCarousel,
