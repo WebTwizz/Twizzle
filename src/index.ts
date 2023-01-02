@@ -13,6 +13,7 @@ export * from './components/Input/Select';
 export * from './components/Input/Toggle';
 export * from './components/Layout/Alert';
 export * from './components/Layout/Accordion';
+export * from './components/Layout/Carousel';
 export * from './components/Layout/Modal';
 export * from './components/Layout/Tab';
 export * from './components/Layout/Table';
