@@ -46,7 +46,7 @@ export const StyledCarouselControls = styled.div`
   right: 0;
   transform: translateY(-50%);
   display: flex;
-  padding: 0 2px;
+  padding: 0 1rem;
   justify-content: space-between;
   align-items: center;
   z-index: 1;
@@ -61,12 +61,6 @@ export const StyledCarouselControls = styled.div`
     transition: all 0.2s ease-in-out;
     &:hover {
       color: rgba(255, 255, 255, 1);
-    }
-  }
-
-  @media (max-width: 768px) {
-    & > button {
-      font-size: 1.5rem;
     }
   }
 `;
@@ -97,12 +91,4 @@ export const StyledCarouselDots = styled.div`
       background-color: rgba(255, 255, 255, 1);
     }
   }
-
-  @media (max-width: 768px) {
-    bottom: 0.5rem;
-    & > button {
-      width: 0.5rem;
-      height: 0.75rem;
-      margin: 0 0.125rem;
-    }
 `;
