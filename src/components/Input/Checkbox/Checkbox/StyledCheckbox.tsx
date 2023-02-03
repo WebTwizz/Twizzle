@@ -21,12 +21,11 @@ border-radius: 0.15em;
 margin-right: 0.5em;
 outline: none;
 cursor: pointer;
-position: relative;
 &:before {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     content: ${(props) => props.checkedIcon};
     color: #fff;
-    position: absolute;
+    position: relative;
 
 }
 &:disabled {
