@@ -15,23 +15,30 @@ export const StyledCheckboxArea = styled.label`
 `;
 
 export const StyledCheckbox = styled.input<StyledCheckboxProps>`
--webkit-appearance: none;
-appearance: none;
-border-radius: 0.15em;
-margin-right: 0.5em;
-outline: none;
-cursor: pointer;
-&:before {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0.15em;
+  margin-right: 0.5em;
+  outline: none;
+  cursor: pointer;
+
+  &:before {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     content: ${(props) => props.checkedIcon};
     color: #fff;
     position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    text-align: center;
+  }
 
-}
-&:disabled {
+  &:disabled {
     cursor: not-allowed;
-}
-${({ styleOverrides }) => ({ ...styleOverrides })};
+  }
+
+  ${({ styleOverrides }) => ({ ...styleOverrides })};
 `;
 
 type StyledCheckboxTextProps = {
@@ -39,6 +46,7 @@ type StyledCheckboxTextProps = {
   color?: string;
   styleOverrides?: React.CSSProperties;
 };
+
 export const StyledCheckboxText = styled.span<StyledCheckboxTextProps>`
   font-family: "Roboto", sans-serif;
   margin-left: 0.25rem;
