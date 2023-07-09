@@ -54,8 +54,9 @@ export const StyledChecked = styled.span<StyledCheckedProps>`
     display: block;
     position: absolute;
     display: none;
-    top: ${(props) => props.top || "3px"};
-    left: ${(props) => props.left || "3px"};
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: ${(props) => props.checkedWidth || "10px"};
     height: ${(props) => props.checkedHeight || "10px"};
     border-radius: 50%;
