@@ -53,6 +53,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
       labelMargin: "2px",
       defaultWidth: "25%",
       padding: "5px 10px",
+      paddingRight: "10px",
     },
     medium: {
       fontSize: "14px",
@@ -60,6 +61,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
       labelMargin: "4px",
       defaultWidth: "35%",
       padding: "10px 15px",
+      paddingRight: "15px",
     },
     large: {
       fontSize: "16px",
@@ -67,6 +69,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
       labelMargin: "6px",
       defaultWidth: "50%",
       padding: "15px 20px",
+      paddingRight: "20px",
     },
   };
 
@@ -113,7 +116,7 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
           cursor: disabled ? "not-allowed" : "text",
           fontSize: sizeAttributes[size].fontSize,
           width: width || sizeAttributes[size].defaultWidth,
-          padding: sizeAttributes[size].padding,
+          paddingRight: sizeAttributes[size].paddingRight,
         }}
       >
         <StyledTextInput
@@ -130,9 +133,12 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
               onChange(e.target.value);
             }
           }}
+          styleOverrides={{
+            padding: sizeAttributes[size].padding,
+          }}
           onFocus={() => setHover(true)}
           onBlur={() => setHover(false)}
-        ></StyledTextInput>
+        />
         <Box
           boxStyles={{
             alignItems: "center",

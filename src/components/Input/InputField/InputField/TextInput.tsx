@@ -126,6 +126,7 @@ export const TextInput: React.FC<InputProps> = ({
       labelMargin: "2px",
       defaultWidth: "25%",
       padding: "5px 10px",
+      paddingRight: "10px",
     },
     medium: {
       fontSize: "14px",
@@ -133,6 +134,7 @@ export const TextInput: React.FC<InputProps> = ({
       labelMargin: "4px",
       defaultWidth: "35%",
       padding: "10px 15px",
+      paddingRight: "15px",
     },
     large: {
       fontSize: "16px",
@@ -140,6 +142,7 @@ export const TextInput: React.FC<InputProps> = ({
       labelMargin: "6px",
       defaultWidth: "50%",
       padding: "15px 20px",
+      paddingRight: "20px",
     },
   };
 
@@ -194,8 +197,8 @@ export const TextInput: React.FC<InputProps> = ({
           backgroundColor: disabled ? "#ebebe4" : "white",
           cursor: disabled ? "not-allowed" : "text",
           fontSize: sizeAttributes[size].fontSize,
-          padding: sizeAttributes[size].padding,
           width: width || sizeAttributes[size].defaultWidth,
+          paddingRight: sizeAttributes[size].paddingRight,
           ...style,
         }}
       >
@@ -215,10 +218,13 @@ export const TextInput: React.FC<InputProps> = ({
               onChange(e.target.value);
             }
           }}
+          styleOverrides={{
+            padding: sizeAttributes[size].padding,
+          }}
           onFocus={() => setHover(true)}
           onBlur={() => setHover(false)}
-        ></StyledTextInput>
-        {rightIcon}
+        />
+        {rightIcon && rightIcon}
         <Box
           boxStyles={{
             alignItems: "center",
